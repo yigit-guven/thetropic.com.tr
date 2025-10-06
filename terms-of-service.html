@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service - The Tropic</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('./images/forest.svg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 40px 0 20px;
+            border-bottom: 3px solid #ff8c42;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .logo-container {
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .logo {
+            max-width: 300px;
+            height: auto;
+            filter: drop-shadow(0 0 15px rgba(255, 204, 0, 0.8));
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            margin-top: 10px;
+            color: #ffd166;
+            font-style: italic;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+        
+        /* Navigation */
+        nav {
+            background-color: rgba(58, 124, 35, 0.95);
+            padding: 12px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: center;
+        }
+        
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 5px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            background-color: #ff8c42;
+        }
+        
+        /* Main Content */
+        .main-content {
+            padding: 40px 0;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin: 20px auto;
+            border-radius: 5px;
+            min-height: 70vh;
+        }
+        
+        .section-title {
+            font-family: 'Merriweather', serif;
+            color: #2c5e1a;
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e9ecef;
+            text-align: center;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, #2c5e1a, #ff8c42);
+            border-radius: 2px;
+        }
+        
+        .terms-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .terms-section {
+            margin-bottom: 30px;
+        }
+        
+        .terms-section h3 {
+            color: #2c5e1a;
+            margin-bottom: 15px;
+            font-family: 'Merriweather', serif;
+        }
+        
+        .terms-section p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        .terms-section ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .terms-section li {
+            margin-bottom: 8px;
+        }
+        
+        .important-note {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 30px 0;
+        }
+        
+        .important-note h4 {
+            color: #856404;
+            margin-bottom: 10px;
+        }
+        
+        .warning-box {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 30px 0;
+        }
+        
+        .warning-box h4 {
+            color: #721c24;
+            margin-bottom: 10px;
+        }
+        
+        /* Language Selector */
+        .language-selector {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+        }
+        
+        .language-btn {
+            background: rgba(255, 255, 255, 0.9);
+            color: #2c5e1a;
+            border: 1px solid rgba(44, 94, 26, 0.3);
+            border-radius: 50px;
+            padding: 10px 15px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        
+        .language-btn:hover {
+            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+            transform: translateY(-2px);
+            background: white;
+        }
+        
+        .language-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            padding: 10px 0;
+            display: none;
+            min-width: 150px;
+            margin-top: 10px;
+        }
+        
+        .language-dropdown.show {
+            display: block;
+        }
+        
+        .language-option {
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .language-option:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .language-flag {
+            width: 24px;
+            height: 18px;
+            object-fit: cover;
+            border-radius: 2px;
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #2c3e50 0%, #1a2530 100%);
+            color: white;
+            padding: 40px 0 20px;
+            margin-top: 60px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .footer-section h3 {
+            font-family: 'Merriweather', serif;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .footer-logo {
+            height: 30px;
+            filter: brightness(0) invert(1);
+        }
+        
+        .footer-links a {
+            display: block;
+            color: #ddd;
+            margin-bottom: 10px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: #ff8c42;
+        }
+        
+        .social-icons a {
+            display: inline-block;
+            color: white;
+            font-size: 1.5rem;
+            margin-right: 15px;
+            transition: color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            color: #ff8c42;
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .language-selector {
+                top: 10px;
+                left: 10px;
+            }
+            
+            .language-btn {
+                padding: 8px 15px;
+                font-size: 0.9rem;
+            }
+            
+            .nav-container {
+                flex-wrap: wrap;
+            }
+            
+            .nav-link {
+                padding: 8px 12px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Dil Seçici -->
+    <div class="language-selector">
+        <button class="language-btn" id="languageBtn">
+            <i class="fas fa-globe"></i>
+            <span id="currentLanguage">Türkçe</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="language-dropdown" id="languageDropdown">
+            <div class="language-option" data-lang="tr">
+                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMDAgMjAwIj48cmVjdCB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2UzMGMzNiIvPjxjaXJjbGUgY3g9IjE1MCIgY3k9IjEwMCIgcj0iNDAiIGZpbGw9IiNmZmYiLz48Y2lyY2xlIGN4PSIxNjAiIGN5PSIxMDAiIHI9IjMwIiBmaWxsPSIjZTMwYzM2Ii8+PHN0YXIgcG9pbnRzPSIxNTAsNjAgMTM1LDkwIDEwMCw5MCAxMzAsMTEwIDExNSwxNDAgMTUwLDEyMCAxODUsMTQwIDE3MCwxMTAgMjAwLDkwIDE2NSw5MCIgZmlsbD0iI2ZmZiIvPjwvc3ZnPg==" alt="Türkçe" class="language-flag">
+                Türkçe
+            </div>
+            <div class="language-option" data-lang="en">
+                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMDAgMjAwIj48cmVjdCB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iIzAyNDc5NCIvPjxwYXRoIGQ9Ik0wIDBoMzAwdjIwMEgweiIgZmlsbD0iI2ZmZiIvPjxwYXRoIGQ9Ik0wIDBoMTIwdjIwMEgweiIgZmlsbD0iIzAyNDc5NCIvPjxwYXRoIGQ9Ik0wIDBoMzAwdjQwSDB6IiBmaWxsPSIjYzYwMDI2Ii8+PHBhdGggZD0iTTAgODBoMzAwdjQwSDB6IiBmaWxsPSIjYzYwMDI2Ii8+PHBhdGggZD0iTTAgMTYwaDMwMHY0MEgweiIgZmlsbD0iI2M2MDAyNiIvPjxwYXRoIGQ9Ik0xNjAgMGg0MHYyMDBoLTQweiIgZmlsbD0iI2M2MDAyNiIvPjxwYXRoIGQ9Ik0wIDBoMzAwdjIwMEgweiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMDI0Nzk0IiBzdHJva2Utd2lkdGg9IjIwIi8+PC9zdmc+" alt="English" class="language-flag">
+                English
+            </div>
+            <div class="language-option" data-lang="de">
+                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMDAgMjAwIj48cmVjdCB3aWR0aD0iMzAwIiBoZWlnaHQ9IjY3IiB5PSIwIiBmaWxsPSIjZmZmIi8+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSI2NyIgeT0iNjciIGZpbGw9IiNkMDAiLz48cmVjdCB3aWR0aD0iMzAwIiBoZWlnaHQ9IjY2IiB5PSIxMzQiIGZpbGw9IiNmZmNjMDAiLz48L3N2Zz4=" alt="Deutsch" class="language-flag">
+                Deutsch
+            </div>
+            <div class="language-option" data-lang="ru">
+                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMDAgMjAwIj48cmVjdCB3aWR0aD0iMzAwIiBoZWlnaHQ9IjY3IiB5PSIwIiBmaWxsPSIjZmZmIi8+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSI2NyIgeT0iNjciIGZpbGw9IiMwMDdmNWYiLz48cmVjdCB3aWR0aD0iMzAwIiBoZWlnaHQ9IjY2IiB5PSIxMzQiIGZpbGw9IiNkNTIiLz48L3N2Zz4=" alt="Русский" class="language-flag">
+                Русский
+            </div>
+        </div>
+    </div>
+    
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-container">
+                    <a href="index.html">
+                        <img src="./images/tropiko.svg" alt="The Tropic" class="logo">
+                    </a>
+                    <p class="tagline" id="taglineText">Premium Tropical Fruits - Nature's Finest Selection</p>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <nav>
+        <div class="container">
+            <div class="nav-container">
+                <a href="index.html" class="nav-link" id="navHome">Ana Sayfa</a>
+                <a href="index.html#urunler" class="nav-link" id="navProducts">Ürünler</a>
+                <a href="index.html#hakkimizda" class="nav-link" id="navAbout">Hakkımızda</a>
+                <a href="index.html#iletisim" class="nav-link" id="navContact">İletişim</a>
+                <a href="privacy-policy.html" class="nav-link" id="navPrivacy">Gizlilik Politikası</a>
+                <a href="terms-of-service.html" class="nav-link active" id="navTerms">Hizmet Şartları</a>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="main-content">
+            <h2 class="section-title" id="termsTitle">Hizmet Şartları</h2>
+            
+            <div class="terms-content">
+                <div class="warning-box">
+                    <h4 id="termsWarningTitle">ÖNEMLİ UYARI</h4>
+                    <p id="termsWarningText">Bu web sitesi sadece bilgilendirme ve iletişim amaçlıdır. Tüm sipariş, ödeme ve teslimat işlemleri WhatsApp, e-posta veya telefon görüşmeleri yoluyla gerçekleştirilir. Web sitemiz üzerinden herhangi bir ödeme işlemi yapılmamaktadır.</p>
+                </div>
+                
+                <div class="terms-section">
+                    <h3 id="termsSection1">1. Kabul ve Değişiklikler</h3>
+                    <p>The Tropic web sitesini ("Site") ziyaret ettiğinizde veya hizmetlerimizi kullandığınızda, bu Hizmet Şartları'nı kabul etmiş sayılırsınız. Bu şartları zaman zaman güncelleyebiliriz. Değişiklikler sitede yayınlandığı anda yürürlüğe girer.</p>
+                </div>
+                
+                <div class="terms-section">
+                    <h3 id="termsSection2">2. Hizmet Açıklaması</h3>
+                    <p>The Tropic, tropikal meyve ve sebzelerin satışını yapan bir tarım şirketidir. Web sitemiz:</p>
+                    <ul>
+                        <li id="termsList1">Ürün bilgileri ve fiyatları sunar</li>
+                        <li id="termsList2">İletişim formu sağlar</li>
+                        <li id="termsList3">Sepet özelliği sunar (sadece tarayıcıda saklanır)</li>
+                        <li id="termsList4">Müşterilerimizle iletişim kurmak için bir platform sağlar</li>
+                    </ul>
+                    <p id="termsServiceNote">Web sitemiz statik bir GitHub Pages sitesidir ve herhangi bir sunucu tarafı işleme yapmamaktadır.</p>
+                </div>
+                
+                <div class="terms-section">
+                    <h3 id="termsSection3">3. Sipariş ve Ödeme Süreci</h3>
+                    <p>Sipariş süreci aşağıdaki gibi işler:</p>
+                    <ul>
+                        <li id="termsList5">Web sitemizde ürünleri inceleyebilir ve sepete ekleyebilirsiniz</li>
+                        <li id="termsList6">Sepet içeriği sadece tarayıcınızda saklanır</li>
+                        <li id="termsList7">Siparişinizi WhatsApp, e-posta veya telefon ile bize iletirsiniz</li>
+                        <li id="termsList8">Ödeme ve teslimat detayları doğrudan iletişim kurularak belirlenir</li>
+                        <li id="termsList9">Web sitemizde ödeme işlemi yapılmaz</li>
+                    </ul>
+                </div>
+                
+                <div class="terms-section">
+                    <h3 id="termsSection4">4. Fiyatlar ve Ürün Bilgileri</h3>
+                    <p>Web sitemizde gösterilen tüm fiyatlar Türk Lirası (₺) cinsindendir ve vergiler dahil değildir. Fiyatlar stok durumu, mevsimsel değişiklikler ve piyasa koşullarına bağlı olarak değişebilir. Ürün görselleri temsilidir ve gerçek ürünlerden farklılık gösterebilir.</p>
+                </div>
+                
+                <div class="terms-section">
+                    <h3 id="termsSection5">5. Teslimat ve İade Politikası</h3>
+                    <p><strong>Teslimat:</strong></p>
+                    <ul>
+                        <li id="termsList10">Teslimat süreleri sipariş büyüklüğüne ve konumunuza göre değişir</li>
+                        <li id="termsList11">1500 TL ve üzeri siparişlerde kargo ücretsizdir</li>
+                        <li id="termsList12">Teslimat detayları her sipariş için ayrıca belirlenir</li>
+                    </ul>
+                    <p><strong>İade ve Değişim:</strong></p>
+                    <ul>
+                        <li id="termsList13">Taze meyve ve sebzeler doğası gereği iade edilemez</li>
+                        <li id="termsList14">Hasarlı veya bozuk ürünler için iletişime geçin</li>
+                        <li id="termsList15">İade talepleri duruma göre değerlendirilir</li>
+                    </ul>
+                </div>
+                
+                <div class="terms-section">
+                    <h3 id="termsSection6">6. Kullanıcı Sorumlulukları</h3>
+                    <p>Web sitemizi kullanırken aşağıdakileri kabul edersiniz:</p>
+                    <ul>
+                        <li id="termsList16">Doğru ve güncel bilgiler sağlamak</li>
+                        <li id="termsList17">Siteyi yasa dışı amaçlarla kullanmamak</li>
+                        <li id="termsList18">Sitenin çalışmasını engelleyecek faaliyetlerde bulunmamak</li>
+                        <li id="termsList19">Telif hakkı ve diğer fikri mülkiyet haklarına saygı göstermek</li>
+                    </ul>
+                </div>
+                
+                <div class="terms-section">
+                    <h3 id="termsSection7">7. Fikri Mülkiyet</h3>
+                    <p>Web sitemizdeki tüm içerik (metin, grafikler, logo, görseller) The Tropic'e aittir ve telif hakkı yasalarıyla korunmaktadır. Kaynak göstermeden içerik kopyalanamaz, dağıtılamaz veya değiştirilemez.</p>
+                    <p id="termsOpenSource">Bu web sitesinin kaynak kodu açık kaynaktır: <a href="https://github.com/yigit-guven/Tropiko-Website" target="_blank">GitHub Repository</a></p>
+                </div>
+                
+                <div class="terms-section">
+                    <h3 id="termsSection8">8. Sorumluluk Sınırlaması</h3>
+                    <p>The Tropic, web sitesi kullanımından kaynaklanan dolaylı, özel, cezai veya arızi zararlardan sorumlu değildir. Sitemiz "olduğu gibi" sunulmaktadır.</p>
+                    <p id="termsLiability">Web sitemiz statik bir site olduğundan ve herhangi bir kişisel veri depolamadığından, veri ihlali riski minimum düzeydedir.</p>
+                </div>
+                
+                <div class="terms-section">
+                    <h3 id="termsSection9">9. Üçüncü Taraf Hizmetleri</h3>
+                    <p>Web sitemiz aşağıdaki üçüncü taraf hizmetlerini kullanmaktadır:</p>
+                    <ul>
+                        <li id="termsList20">GitHub Pages (hosting)</li>
+                        <li id="termsList21">Google Fonts (yazı tipleri)</li>
+                        <li id="termsList22">Font Awesome (ikonlar)</li>
+                        <li id="termsList23">WhatsApp (iletişim)</li>
+                    </ul>
+                    <p>Bu hizmetlerin kendi gizlilik politikaları ve hizmet şartları bulunmaktadır.</p>
+                </div>
+                
+                <div class="terms-section">
+                    <h3 id="termsSection10">10. Uygulanacak Hukuk ve Uyuşmazlık Çözümü</h3>
+                    <p>Bu Hizmet Şartları Türkiye Cumhuriyeti yasalarına tabidir. Bu şartlardan kaynaklanan herhangi bir uyuşmazlık öncelikle görüşmeler yoluyla çözülmeye çalışılacaktır. Çözülemeyen durumlarda Mersin mahkemeleri yetkilidir.</p>
+                </div>
+                
+                <div class="terms-section">
+                    <h3 id="termsSection11">11. İletişim</h3>
+                    <p>Bu Hizmet Şartları ile ilgili herhangi bir sorunuz varsa, lütfen bizimle iletişime geçin:</p>
+                    <p><strong id="termsContact">İletişim:</strong> info@thetropic.com.tr</p>
+                    <p><strong id="termsPhone">Telefon:</strong> +90 507 434 0200</p>
+                    <p><strong id="termsAddress">Adres:</strong> Şehit Mustafa Mah. İsmetpaşa Bulv. Baltalı İşhanı No:10 Tarsus/Mersin</p>
+                </div>
+                
+                <div class="terms-section">
+                    <p id="termsLastUpdated"><strong>Son Güncelleme:</strong> 2025</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><img src="./images/tropikob.svg" alt="The Tropic" class="footer-logo"></h3>
+                    <p id="footerDescription">Tropikal lezzetleri en taze haliyle sizlere ulaştırıyoruz. Kalite ve tazelik garantisiyle.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 id="footerContactTitle">İletişim</h3>
+                    <p><i class="fas fa-phone"></i> <span id="footerWhatsapp">WhatsApp:</span> +90 507 434 0200 (Yusuf Alp)</p>
+                    <p><i class="fas fa-envelope"></i> <span id="footerEmail">E-posta:</span> info@thetropic.com.tr</p>
+                    <p><i class="fas fa-map-marker-alt"></i> <span id="footerAddress">Adres:</span> Şehit Mustafa Mah. İsmetpaşa Bulv. Baltalı İşhanı No:10 Tarsus/Mersin</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 id="footerQuickLinks">Hızlı Erişim</h3>
+                    <div class="footer-links">
+                        <a href="index.html" id="footerHome">Ana Sayfa</a>
+                        <a href="index.html#urunler" id="footerProducts">Ürünler</a>
+                        <a href="index.html#hakkimizda" id="footerAbout">Hakkımızda</a>
+                        <a href="index.html#iletisim" id="footerContact">İletişim</a>
+                        <a href="privacy-policy.html" id="footerPrivacy">Gizlilik Politikası</a>
+                        <a href="terms-of-service.html" id="footerTerms">Hizmet Şartları</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 id="footerFollow">Bizi Takip Edin</h3>
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com/thetropic" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/thetropic" target="_blank"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.twitter.com/thetropic" target="_blank"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <span id="copyrightText">&copy; 2025 The Tropic - ÖZYÜREKOĞLU TARIM YAŞ SEBZE MEYVE TİCARET LİMİTED ŞİRKETİ - Tüm Hakları Saklıdır.</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Dil desteği
+        const translations = {
+            tr: {
+                // Genel
+                tagline: "Premium Tropikal Meyveler - Doğanın En Seçkin Lezzetleri",
+                navHome: "Ana Sayfa",
+                navProducts: "Ürünler",
+                navAbout: "Hakkımızda",
+                navContact: "İletişim",
+                navPrivacy: "Gizlilik Politikası",
+                navTerms: "Hizmet Şartları",
+                
+                // Hizmet Şartları
+                termsTitle: "Hizmet Şartları",
+                termsWarningTitle: "ÖNEMLİ UYARI",
+                termsWarningText: "Bu web sitesi sadece bilgilendirme ve iletişim amaçlıdır. Tüm sipariş, ödeme ve teslimat işlemleri WhatsApp, e-posta veya telefon görüşmeleri yoluyla gerçekleştirilir. Web sitemiz üzerinden herhangi bir ödeme işlemi yapılmamaktadır.",
+                termsSection1: "1. Kabul ve Değişiklikler",
+                termsSection2: "2. Hizmet Açıklaması",
+                termsSection3: "3. Sipariş ve Ödeme Süreci",
+                termsSection4: "4. Fiyatlar ve Ürün Bilgileri",
+                termsSection5: "5. Teslimat ve İade Politikası",
+                termsSection6: "6. Kullanıcı Sorumlulukları",
+                termsSection7: "7. Fikri Mülkiyet",
+                termsSection8: "8. Sorumluluk Sınırlaması",
+                termsSection9: "9. Üçüncü Taraf Hizmetleri",
+                termsSection10: "10. Uygulanacak Hukuk ve Uyuşmazlık Çözümü",
+                termsSection11: "11. İletişim",
+                
+                termsList1: "Ürün bilgileri ve fiyatları sunar",
+                termsList2: "İletişim formu sağlar",
+                termsList3: "Sepet özelliği sunar (sadece tarayıcıda saklanır)",
+                termsList4: "Müşterilerimizle iletişim kurmak için bir platform sağlar",
+                termsList5: "Web sitemizde ürünleri inceleyebilir ve sepete ekleyebilirsiniz",
+                termsList6: "Sepet içeriği sadece tarayıcınızda saklanır",
+                termsList7: "Siparişinizi WhatsApp, e-posta veya telefon ile bize iletirsiniz",
+                termsList8: "Ödeme ve teslimat detayları doğrudan iletişim kurularak belirlenir",
+                termsList9: "Web sitemizde ödeme işlemi yapılmaz",
+                termsList10: "Teslimat süreleri sipariş büyüklüğüne ve konumunuza göre değişir",
+                termsList11: "1500 TL ve üzeri siparişlerde kargo ücretsizdir",
+                termsList12: "Teslimat detayları her sipariş için ayrıca belirlenir",
+                termsList13: "Taze meyve ve sebzeler doğası gereği iade edilemez",
+                termsList14: "Hasarlı veya bozuk ürünler için iletişime geçin",
+                termsList15: "İade talepleri duruma göre değerlendirilir",
+                termsList16: "Doğru ve güncel bilgiler sağlamak",
+                termsList17: "Siteyi yasa dışı amaçlarla kullanmamak",
+                termsList18: "Sitenin çalışmasını engelleyecek faaliyetlerde bulunmamak",
+                termsList19: "Telif hakkı ve diğer fikri mülkiyet haklarına saygı göstermek",
+                termsList20: "GitHub Pages (hosting)",
+                termsList21: "Google Fonts (yazı tipleri)",
+                termsList22: "Font Awesome (ikonlar)",
+                termsList23: "WhatsApp (iletişim)",
+                
+                termsServiceNote: "Web sitemiz statik bir GitHub Pages sitesidir ve herhangi bir sunucu tarafı işleme yapmamaktadır.",
+                termsOpenSource: "Bu web sitesinin kaynak kodu açık kaynaktır:",
+                termsLiability: "Web sitemiz statik bir site olduğundan ve herhangi bir kişisel veri depolamadığından, veri ihlali riski minimum düzeydedir.",
+                termsContact: "İletişim:",
+                termsPhone: "Telefon:",
+                termsAddress: "Adres:",
+                termsLastUpdated: "Son Güncelleme:",
+                
+                // Footer
+                footerDescription: "Tropikal lezzetleri en taze haliyle sizlere ulaştırıyoruz. Kalite ve tazelik garantisiyle.",
+                footerContactTitle: "İletişim",
+                footerWhatsapp: "WhatsApp:",
+                footerEmail: "E-posta:",
+                footerAddress: "Adres:",
+                footerQuickLinks: "Hızlı Erişim",
+                footerHome: "Ana Sayfa",
+                footerProducts: "Ürünler",
+                footerAbout: "Hakkımızda",
+                footerContact: "İletişim",
+                footerPrivacy: "Gizlilik Politikası",
+                footerTerms: "Hizmet Şartları",
+                footerFollow: "Bizi Takip Edin",
+                copyrightText: "© 2025 The Tropic - ÖZYÜREKOĞLU TARIM YAŞ SEBZE MEYVE TİCARET LİMİTED ŞİRKETİ - Tüm Hakları Saklıdır."
+            },
+            en: {
+                // General
+                tagline: "Premium Tropical Fruits - Nature's Finest Selection",
+                navHome: "Home",
+                navProducts: "Products",
+                navAbout: "About Us",
+                navContact: "Contact",
+                navPrivacy: "Privacy Policy",
+                navTerms: "Terms of Service",
+                
+                // Terms of Service
+                termsTitle: "Terms of Service",
+                termsWarningTitle: "IMPORTANT WARNING",
+                termsWarningText: "This website is for informational and communication purposes only. All order, payment and delivery transactions are conducted through WhatsApp, email or phone calls. No payment transactions are made through our website.",
+                termsSection1: "1. Acceptance and Changes",
+                termsSection2: "2. Service Description",
+                termsSection3: "3. Order and Payment Process",
+                termsSection4: "4. Prices and Product Information",
+                termsSection5: "5. Delivery and Return Policy",
+                termsSection6: "6. User Responsibilities",
+                termsSection7: "7. Intellectual Property",
+                termsSection8: "8. Liability Limitation",
+                termsSection9: "9. Third Party Services",
+                termsSection10: "10. Applicable Law and Dispute Resolution",
+                termsSection11: "11. Contact",
+                
+                termsList1: "Provides product information and prices",
+                termsList2: "Provides contact form",
+                termsList3: "Provides shopping cart feature (stored only in browser)",
+                termsList4: "Provides a platform to communicate with our customers",
+                termsList5: "You can browse products and add them to cart on our website",
+                termsList6: "Cart contents are stored only in your browser",
+                termsList7: "You submit your order to us via WhatsApp, email or phone",
+                termsList8: "Payment and delivery details are determined through direct communication",
+                termsList9: "No payment transactions are made on our website",
+                termsList10: "Delivery times vary depending on order size and your location",
+                termsList11: "Free shipping on orders over 1500 TL",
+                termsList12: "Delivery details are determined separately for each order",
+                termsList13: "Fresh fruits and vegetables cannot be returned due to their nature",
+                termsList14: "Contact us for damaged or defective products",
+                termsList15: "Return requests are evaluated on a case-by-case basis",
+                termsList16: "Provide accurate and up-to-date information",
+                termsList17: "Not to use the site for illegal purposes",
+                termsList18: "Not to engage in activities that would disrupt the site's operation",
+                termsList19: "Respect copyright and other intellectual property rights",
+                termsList20: "GitHub Pages (hosting)",
+                termsList21: "Google Fonts (fonts)",
+                termsList22: "Font Awesome (icons)",
+                termsList23: "WhatsApp (communication)",
+                
+                termsServiceNote: "Our website is a static GitHub Pages site and does not perform any server-side processing.",
+                termsOpenSource: "The source code of this website is open source:",
+                termsLiability: "Since our website is static and does not store any personal data, the risk of data breach is minimal.",
+                termsContact: "Contact:",
+                termsPhone: "Phone:",
+                termsAddress: "Address:",
+                termsLastUpdated: "Last Updated:",
+                
+                // Footer
+                footerDescription: "We deliver tropical flavors to you in their freshest form. With quality and freshness guarantee.",
+                footerContactTitle: "Contact",
+                footerWhatsapp: "WhatsApp:",
+                footerEmail: "Email:",
+                footerAddress: "Address:",
+                footerQuickLinks: "Quick Links",
+                footerHome: "Home",
+                footerProducts: "Products",
+                footerAbout: "About Us",
+                footerContact: "Contact",
+                footerPrivacy: "Privacy Policy",
+                footerTerms: "Terms of Service",
+                footerFollow: "Follow Us",
+                copyrightText: "© 2025 The Tropic - ÖZYÜREKOĞLU TARIM YAŞ SEBZE MEYVE TİCARET LİMİTED ŞİRKETİ - All Rights Reserved."
+            },
+            de: {
+                // Allgemein
+                tagline: "Premium Tropische Früchte - Die feinste Auswahl der Natur",
+                navHome: "Startseite",
+                navProducts: "Produkte",
+                navAbout: "Über uns",
+                navContact: "Kontakt",
+                navPrivacy: "Datenschutzrichtlinie",
+                navTerms: "Nutzungsbedingungen",
+                
+                // Nutzungsbedingungen
+                termsTitle: "Nutzungsbedingungen",
+                termsWarningTitle: "WICHTIGE WARNUNG",
+                termsWarningText: "Diese Website dient nur zu Informations- und Kommunikationszwecken. Alle Bestell-, Zahlungs- und Liefertransaktionen werden über WhatsApp, E-Mail oder Telefonate abgewickelt. Über unsere Website werden keine Zahlungstransaktionen durchgeführt.",
+                termsSection1: "1. Annahme und Änderungen",
+                termsSection2: "2. Dienstbeschreibung",
+                termsSection3: "3. Bestell- und Zahlungsprozess",
+                termsSection4: "4. Preise und Produktinformationen",
+                termsSection5: "5. Lieferung und Rückgaberecht",
+                termsSection6: "6. Benutzerverantwortlichkeiten",
+                termsSection7: "7. Geistiges Eigentum",
+                termsSection8: "8. Haftungsbeschränkung",
+                termsSection9: "9. Drittanbieterdienste",
+                termsSection10: "10. Anwendbares Recht und Streitbeilegung",
+                termsSection11: "11. Kontakt",
+                
+                termsList1: "Bietet Produktinformationen und Preise",
+                termsList2: "Bietet Kontaktformular",
+                termsList3: "Bietet Warenkorb-Funktion (nur im Browser gespeichert)",
+                termsList4: "Bietet eine Plattform zur Kommunikation mit unseren Kunden",
+                termsList5: "Sie können Produkte auf unserer Website durchsuchen und in den Warenkorb legen",
+                termsList6: "Warenkorb-Inhalte werden nur in Ihrem Browser gespeichert",
+                termsList7: "Sie übermitteln Ihre Bestellung an uns über WhatsApp, E-Mail oder Telefon",
+                termsList8: "Zahlungs- und Lieferdetails werden durch direkte Kommunikation festgelegt",
+                termsList9: "Auf unserer Website werden keine Zahlungstransaktionen durchgeführt",
+                termsList10: "Lieferzeiten variieren je nach Bestellgröße und Ihrem Standort",
+                termsList11: "Kostenloser Versand bei Bestellungen über 1500 TL",
+                termsList12: "Lieferdetails werden für jede Bestellung separat festgelegt",
+                termsList13: "Frische Früchte und Gemüse können aufgrund ihrer Natur nicht zurückgegeben werden",
+                termsList14: "Kontaktieren Sie uns für beschädigte oder defekte Produkte",
+                termsList15: "Rückgabewünsche werden fallweise geprüft",
+                termsList16: "Richtige und aktuelle Informationen bereitstellen",
+                termsList17: "Die Website nicht für illegale Zwecke nutzen",
+                termsList18: "Keine Aktivitäten durchführen, die den Betrieb der Website stören würden",
+                termsList19: "Urheberrecht und andere geistige Eigentumsrechte respektieren",
+                termsList20: "GitHub Pages (Hosting)",
+                termsList21: "Google Fonts (Schriftarten)",
+                termsList22: "Font Awesome (Symbole)",
+                termsList23: "WhatsApp (Kommunikation)",
+                
+                termsServiceNote: "Unsere Website ist eine statische GitHub Pages-Website und führt keine serverseitige Verarbeitung durch.",
+                termsOpenSource: "Der Quellcode dieser Website ist Open Source:",
+                termsLiability: "Da unsere Website statisch ist und keine persönlichen Daten speichert, ist das Risiko eines Datenverstoßes minimal.",
+                termsContact: "Kontakt:",
+                termsPhone: "Telefon:",
+                termsAddress: "Adresse:",
+                termsLastUpdated: "Zuletzt aktualisiert:",
+                
+                // Footer
+                footerDescription: "Wir liefern tropische Aromen in ihrer frischesten Form zu Ihnen. Mit Qualitäts- und Frischegarantie.",
+                footerContactTitle: "Kontakt",
+                footerWhatsapp: "WhatsApp:",
+                footerEmail: "E-Mail:",
+                footerAddress: "Adresse:",
+                footerQuickLinks: "Schnellzugriff",
+                footerHome: "Startseite",
+                footerProducts: "Produkte",
+                footerAbout: "Über uns",
+                footerContact: "Kontakt",
+                footerPrivacy: "Datenschutzrichtlinie",
+                footerTerms: "Nutzungsbedingungen",
+                footerFollow: "Folgen Sie uns",
+                copyrightText: "© 2025 The Tropic - ÖZYÜREKOĞLU TARIM YAŞ SEBZE MEYVE TİCARET LİMİTED ŞİRKETİ - Alle Rechte vorbehalten."
+            },
+            ru: {
+                // Общее
+                tagline: "Премиальные Тропические Фрукты - Лучший Выбор Природы",
+                navHome: "Главная",
+                navProducts: "Продукты",
+                navAbout: "О нас",
+                navContact: "Контакты",
+                navPrivacy: "Политика конфиденциальности",
+                navTerms: "Условия обслуживания",
+                
+                // Условия обслуживания
+                termsTitle: "Условия обслуживания",
+                termsWarningTitle: "ВАЖНОЕ ПРЕДУПРЕЖДЕНИЕ",
+                termsWarningText: "Этот веб-сайт предназначен только для информационных и коммуникационных целей. Все заказы, платежи и доставка осуществляются через WhatsApp, электронную почту или телефонные звонки. Через наш веб-сайт не производятся платежные операции.",
+                termsSection1: "1. Принятие и изменения",
+                termsSection2: "2. Описание услуги",
+                termsSection3: "3. Процесс заказа и оплаты",
+                termsSection4: "4. Цены и информация о продуктах",
+                termsSection5: "5. Политика доставки и возврата",
+                termsSection6: "6. Обязанности пользователя",
+                termsSection7: "7. Интеллектуальная собственность",
+                termsSection8: "8. Ограничение ответственности",
+                termsSection9: "9. Сторонние услуги",
+                termsSection10: "10. Применимое право и разрешение споров",
+                termsSection11: "11. Контакты",
+                
+                termsList1: "Предоставляет информацию о продуктах и цены",
+                termsList2: "Предоставляет контактную форму",
+                termsList3: "Предоставляет функцию корзины (хранится только в браузере)",
+                termsList4: "Предоставляет платформу для общения с нашими клиентами",
+                termsList5: "Вы можете просматривать продукты и добавлять их в корзину на нашем веб-сайте",
+                termsList6: "Содержимое корзины хранится только в вашем браузере",
+                termsList7: "Вы отправляете свой заказ нам через WhatsApp, электронную почту или телефон",
+                termsList8: "Детали оплаты и доставки определяются путем прямого общения",
+                termsList9: "На нашем веб-сайте не производятся платежные операции",
+                termsList10: "Сроки доставки варьируются в зависимости от размера заказа и вашего местоположения",
+                termsList11: "Бесплатная доставка при заказе от 1500 TL",
+                termsList12: "Детали доставки определяются отдельно для каждого заказа",
+                termsList13: "Свежие фрукты и овощи не могут быть возвращены из-за их природы",
+                termsList14: "Свяжитесь с нами по поводу поврежденных или дефектных продуктов",
+                termsList15: "Запросы на возврат рассматриваются в индивидуальном порядке",
+                termsList16: "Предоставлять точную и актуальную информацию",
+                termsList17: "Не использовать сайт в незаконных целях",
+                termsList18: "Не заниматься деятельностью, которая нарушила бы работу сайта",
+                termsList19: "Уважать авторские права и другие права интеллектуальной собственности",
+                termsList20: "GitHub Pages (хостинг)",
+                termsList21: "Google Fonts (шрифты)",
+                termsList22: "Font Awesome (иконки)",
+                termsList23: "WhatsApp (коммуникация)",
+                
+                termsServiceNote: "Наш веб-сайт является статическим сайтом GitHub Pages и не выполняет никакой серверной обработки.",
+                termsOpenSource: "Исходный код этого веб-сайта является открытым:",
+                termsLiability: "Поскольку наш веб-сайт статичен и не хранит никаких личных данных, риск утечки данных минимален.",
+                termsContact: "Контакт:",
+                termsPhone: "Телефон:",
+                termsAddress: "Адрес:",
+                termsLastUpdated: "Последнее обновление:",
+                
+                // Footer
+                footerDescription: "Мы доставляем тропические вкусы к вам в самой свежей форме. С гарантией качества и свежести.",
+                footerContactTitle: "Контакты",
+                footerWhatsapp: "WhatsApp:",
+                footerEmail: "Эл. почта:",
+                footerAddress: "Адрес:",
+                footerQuickLinks: "Быстрые ссылки",
+                footerHome: "Главная",
+                footerProducts: "Продукты",
+                footerAbout: "О нас",
+                footerContact: "Контакты",
+                footerPrivacy: "Политика конфиденциальности",
+                footerTerms: "Условия обслуживания",
+                footerFollow: "Подпишитесь на нас",
+                copyrightText: "© 2025 The Tropic - ÖZYÜREKOĞLU TARIM YAŞ SEBZE MEYVE TİCARET LİMİTED ŞİRKETИ - Все права защищены."
+            }
+        };
+
+        // Dil değiştirme işlevselliği
+        let currentLanguage = localStorage.getItem('thetropicLanguage') || 'tr';
+        const languageBtn = document.getElementById('languageBtn');
+        const languageDropdown = document.getElementById('languageDropdown');
+        const currentLanguageText = document.getElementById('currentLanguage');
+
+        function changeLanguage(lang) {
+            currentLanguage = lang;
+            localStorage.setItem('thetropicLanguage', lang);
+            
+            // Dil butonunu güncelle
+            currentLanguageText.textContent = getLanguageName(lang);
+            
+            // Tüm çevirileri uygula
+            applyTranslations(lang);
+            
+            // Dil dropdown'u kapat
+            languageDropdown.classList.remove('show');
+        }
+
+        function getLanguageName(code) {
+            const names = {
+                'tr': 'Türkçe',
+                'en': 'English',
+                'de': 'Deutsch',
+                'ru': 'Русский'
+            };
+            return names[code] || 'Türkçe';
+        }
+
+        function applyTranslations(lang) {
+            const translation = translations[lang];
+            
+            // Genel çeviriler
+            document.getElementById('taglineText').textContent = translation.tagline;
+            document.getElementById('navHome').textContent = translation.navHome;
+            document.getElementById('navProducts').textContent = translation.navProducts;
+            document.getElementById('navAbout').textContent = translation.navAbout;
+            document.getElementById('navContact').textContent = translation.navContact;
+            document.getElementById('navPrivacy').textContent = translation.navPrivacy;
+            document.getElementById('navTerms').textContent = translation.navTerms;
+            
+            // Hizmet Şartları
+            document.getElementById('termsTitle').textContent = translation.termsTitle;
+            document.getElementById('termsWarningTitle').textContent = translation.termsWarningTitle;
+            document.getElementById('termsWarningText').textContent = translation.termsWarningText;
+            document.getElementById('termsSection1').textContent = translation.termsSection1;
+            document.getElementById('termsSection2').textContent = translation.termsSection2;
+            document.getElementById('termsSection3').textContent = translation.termsSection3;
+            document.getElementById('termsSection4').textContent = translation.termsSection4;
+            document.getElementById('termsSection5').textContent = translation.termsSection5;
+            document.getElementById('termsSection6').textContent = translation.termsSection6;
+            document.getElementById('termsSection7').textContent = translation.termsSection7;
+            document.getElementById('termsSection8').textContent = translation.termsSection8;
+            document.getElementById('termsSection9').textContent = translation.termsSection9;
+            document.getElementById('termsSection10').textContent = translation.termsSection10;
+            document.getElementById('termsSection11').textContent = translation.termsSection11;
+            
+            // Liste öğeleri
+            for (let i = 1; i <= 23; i++) {
+                const element = document.getElementById(`termsList${i}`);
+                if (element) {
+                    element.textContent = translation[`termsList${i}`];
+                }
+            }
+            
+            // Diğer metinler
+            const termsServiceNote = document.getElementById('termsServiceNote');
+            if (termsServiceNote) termsServiceNote.textContent = translation.termsServiceNote;
+            
+            const termsOpenSource = document.getElementById('termsOpenSource');
+            if (termsOpenSource) termsOpenSource.innerHTML = `${translation.termsOpenSource} <a href="https://github.com/yigit-guven/Tropiko-Website" target="_blank">GitHub Repository</a>`;
+            
+            const termsLiability = document.getElementById('termsLiability');
+            if (termsLiability) termsLiability.textContent = translation.termsLiability;
+            
+            document.getElementById('termsContact').textContent = translation.termsContact;
+            document.getElementById('termsPhone').textContent = translation.termsPhone;
+            document.getElementById('termsAddress').textContent = translation.termsAddress;
+            document.getElementById('termsLastUpdated').innerHTML = `<strong>${translation.termsLastUpdated}</strong> 2025`;
+            
+            // Footer
+            document.getElementById('footerDescription').textContent = translation.footerDescription;
+            document.getElementById('footerContactTitle').textContent = translation.footerContactTitle;
+            document.getElementById('footerWhatsapp').textContent = translation.footerWhatsapp;
+            document.getElementById('footerEmail').textContent = translation.footerEmail;
+            document.getElementById('footerAddress').textContent = translation.footerAddress;
+            document.getElementById('footerQuickLinks').textContent = translation.footerQuickLinks;
+            document.getElementById('footerHome').textContent = translation.footerHome;
+            document.getElementById('footerProducts').textContent = translation.footerProducts;
+            document.getElementById('footerAbout').textContent = translation.footerAbout;
+            document.getElementById('footerContact').textContent = translation.footerContact;
+            document.getElementById('footerPrivacy').textContent = translation.footerPrivacy;
+            document.getElementById('footerTerms').textContent = translation.footerTerms;
+            document.getElementById('footerFollow').textContent = translation.footerFollow;
+            document.getElementById('copyrightText').textContent = translation.copyrightText;
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Dil seçiciyi başlat
+            currentLanguageText.textContent = getLanguageName(currentLanguage);
+            applyTranslations(currentLanguage);
+            
+            // Dil seçici olayları
+            languageBtn.addEventListener('click', function() {
+                languageDropdown.classList.toggle('show');
+            });
+            
+            document.querySelectorAll('.language-option').forEach(option => {
+                option.addEventListener('click', function() {
+                    const lang = this.getAttribute('data-lang');
+                    changeLanguage(lang);
+                });
+            });
+            
+            // Dışarı tıklayınca dil dropdown'u kapat
+            document.addEventListener('click', function(event) {
+                if (!languageBtn.contains(event.target) && !languageDropdown.contains(event.target)) {
+                    languageDropdown.classList.remove('show');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

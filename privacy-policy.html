@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - The Tropic</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('./images/forest.svg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 40px 0 20px;
+            border-bottom: 3px solid #ff8c42;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .logo-container {
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .logo {
+            max-width: 300px;
+            height: auto;
+            filter: drop-shadow(0 0 15px rgba(255, 204, 0, 0.8));
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            margin-top: 10px;
+            color: #ffd166;
+            font-style: italic;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+        
+        /* Navigation */
+        nav {
+            background-color: rgba(58, 124, 35, 0.95);
+            padding: 12px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: center;
+        }
+        
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 5px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            background-color: #ff8c42;
+        }
+        
+        /* Main Content */
+        .main-content {
+            padding: 40px 0;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin: 20px auto;
+            border-radius: 5px;
+            min-height: 70vh;
+        }
+        
+        .section-title {
+            font-family: 'Merriweather', serif;
+            color: #2c5e1a;
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e9ecef;
+            text-align: center;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, #2c5e1a, #ff8c42);
+            border-radius: 2px;
+        }
+        
+        .policy-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .policy-section {
+            margin-bottom: 30px;
+        }
+        
+        .policy-section h3 {
+            color: #2c5e1a;
+            margin-bottom: 15px;
+            font-family: 'Merriweather', serif;
+        }
+        
+        .policy-section p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        .policy-section ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .policy-section li {
+            margin-bottom: 8px;
+        }
+        
+        .important-note {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 30px 0;
+        }
+        
+        .important-note h4 {
+            color: #856404;
+            margin-bottom: 10px;
+        }
+        
+        /* Language Selector */
+        .language-selector {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+        }
+        
+        .language-btn {
+            background: rgba(255, 255, 255, 0.9);
+            color: #2c5e1a;
+            border: 1px solid rgba(44, 94, 26, 0.3);
+            border-radius: 50px;
+            padding: 10px 15px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        
+        .language-btn:hover {
+            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+            transform: translateY(-2px);
+            background: white;
+        }
+        
+        .language-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            padding: 10px 0;
+            display: none;
+            min-width: 150px;
+            margin-top: 10px;
+        }
+        
+        .language-dropdown.show {
+            display: block;
+        }
+        
+        .language-option {
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .language-option:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .language-flag {
+            width: 24px;
+            height: 18px;
+            object-fit: cover;
+            border-radius: 2px;
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #2c3e50 0%, #1a2530 100%);
+            color: white;
+            padding: 40px 0 20px;
+            margin-top: 60px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .footer-section h3 {
+            font-family: 'Merriweather', serif;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .footer-logo {
+            height: 30px;
+            filter: brightness(0) invert(1);
+        }
+        
+        .footer-links a {
+            display: block;
+            color: #ddd;
+            margin-bottom: 10px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: #ff8c42;
+        }
+        
+        .social-icons a {
+            display: inline-block;
+            color: white;
+            font-size: 1.5rem;
+            margin-right: 15px;
+            transition: color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            color: #ff8c42;
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .language-selector {
+                top: 10px;
+                left: 10px;
+            }
+            
+            .language-btn {
+                padding: 8px 15px;
+                font-size: 0.9rem;
+            }
+            
+            .nav-container {
+                flex-wrap: wrap;
+            }
+            
+            .nav-link {
+                padding: 8px 12px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Dil Seçici -->
+    <div class="language-selector">
+        <button class="language-btn" id="languageBtn">
+            <i class="fas fa-globe"></i>
+            <span id="currentLanguage">Türkçe</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="language-dropdown" id="languageDropdown">
+            <div class="language-option" data-lang="tr">
+                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMDAgMjAwIj48cmVjdCB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2UzMGMzNiIvPjxjaXJjbGUgY3g9IjE1MCIgY3k9IjEwMCIgcj0iNDAiIGZpbGw9IiNmZmYiLz48Y2lyY2xlIGN4PSIxNjAiIGN5PSIxMDAiIHI9IjMwIiBmaWxsPSIjZTMwYzM2Ii8+PHN0YXIgcG9pbnRzPSIxNTAsNjAgMTM1LDkwIDEwMCw5MCAxMzAsMTEwIDExNSwxNDAgMTUwLDEyMCAxODUsMTQwIDE3MCwxMTAgMjAwLDkwIDE2NSw5MCIgZmlsbD0iI2ZmZiIvPjwvc3ZnPg==" alt="Türkçe" class="language-flag">
+                Türkçe
+            </div>
+            <div class="language-option" data-lang="en">
+                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMDAgMjAwIj48cmVjdCB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iIzAyNDc5NCIvPjxwYXRoIGQ9Ik0wIDBoMzAwdjIwMEgweiIgZmlsbD0iI2ZmZiIvPjxwYXRoIGQ9Ik0wIDBoMTIwdjIwMEgweiIgZmlsbD0iIzAyNDc5NCIvPjxwYXRoIGQ9Ik0wIDBoMzAwdjQwSDB6IiBmaWxsPSIjYzYwMDI2Ii8+PHBhdGggZD0iTTAgODBoMzAwdjQwSDB6IiBmaWxsPSIjYzYwMDI2Ii8+PHBhdGggZD0iTTAgMTYwaDMwMHY0MEgweiIgZmlsbD0iI2M2MDAyNiIvPjxwYXRoIGQ9Ik0xNjAgMGg0MHYyMDBoLTQweiIgZmlsbD0iI2M2MDAyNiIvPjxwYXRoIGQ9Ik0wIDBoMzAwdjIwMEgweiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMDI0Nzk0IiBzdHJva2Utd2lkdGg9IjIwIi8+PC9zdmc+" alt="English" class="language-flag">
+                English
+            </div>
+            <div class="language-option" data-lang="de">
+                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMDAgMjAwIj48cmVjdCB3aWR0aD0iMzAwIiBoZWlnaHQ9IjY3IiB5PSIwIiBmaWxsPSIjZmZmIi8+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSI2NyIgeT0iNjciIGZpbGw9IiNkMDAiLz48cmVjdCB3aWR0aD0iMzAwIiBoZWlnaHQ9IjY2IiB5PSIxMzQiIGZpbGw9IiNmZmNjMDAiLz48L3N2Zz4=" alt="Deutsch" class="language-flag">
+                Deutsch
+            </div>
+            <div class="language-option" data-lang="ru">
+                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMDAgMjAwIj48cmVjdCB3aWR0aD0iMzAwIiBoZWlnaHQ9IjY3IiB5PSIwIiBmaWxsPSIjZmZmIi8+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSI2NyIgeT0iNjciIGZpbGw9IiMwMDdmNWYiLz48cmVjdCB3aWR0aD0iMzAwIiBoZWlnaHQ9IjY2IiB5PSIxMzQiIGZpbGw9IiNkNTIiLz48L3N2Zz4=" alt="Русский" class="language-flag">
+                Русский
+            </div>
+        </div>
+    </div>
+    
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-container">
+                    <a href="index.html">
+                        <img src="./images/tropiko.svg" alt="The Tropic" class="logo">
+                    </a>
+                    <p class="tagline" id="taglineText">Premium Tropical Fruits - Nature's Finest Selection</p>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <nav>
+        <div class="container">
+            <div class="nav-container">
+                <a href="index.html" class="nav-link" id="navHome">Ana Sayfa</a>
+                <a href="index.html#urunler" class="nav-link" id="navProducts">Ürünler</a>
+                <a href="index.html#hakkimizda" class="nav-link" id="navAbout">Hakkımızda</a>
+                <a href="index.html#iletisim" class="nav-link" id="navContact">İletişim</a>
+                <a href="privacy-policy.html" class="nav-link active" id="navPrivacy">Gizlilik Politikası</a>
+                <a href="terms-of-service.html" class="nav-link" id="navTerms">Hizmet Şartları</a>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="main-content">
+            <h2 class="section-title" id="privacyTitle">Gizlilik Politikası</h2>
+            
+            <div class="policy-content">
+                <div class="policy-section">
+                    <h3 id="privacySection1">1. Giriş</h3>
+                    <p>The Tropic ("biz", "bizim", "firmamız") olarak, ziyaretçilerimizin ve müşterilerimizin gizliliğine büyük önem veriyoruz. Bu gizlilik politikası, web sitemizi (thetropic.com.tr) ziyaret ettiğinizde veya hizmetlerimizi kullandığınızda kişisel bilgilerinizin nasıl toplandığını, kullanıldığını ve korunduğunu açıklar.</p>
+                </div>
+                
+                <div class="policy-section">
+                    <h3 id="privacySection2">2. Toplanan Bilgiler</h3>
+                    <p><strong>Doğrudan Toplanan Bilgiler:</strong></p>
+                    <ul>
+                        <li id="privacyList1">İletişim formu aracılığıyla sağladığınız ad, e-posta, telefon numarası ve adres bilgileri</li>
+                        <li id="privacyList2">Sipariş taleplerinizde paylaştığınız ürün tercihleri ve mesajlar</li>
+                    </ul>
+                    <p><strong>Otomatik Olarak Toplanan Bilgiler:</strong></p>
+                    <ul>
+                        <li id="privacyList3">IP adresiniz, tarayıcı türü, işletim sistemi</li>
+                        <li id="privacyList4">Ziyaret ettiğiniz sayfalar, siteye giriş ve çıkış zamanları</li>
+                        <li id="privacyList5">Çerezler (Cookies) ve benzeri teknolojiler</li>
+                    </ul>
+                </div>
+                
+                <div class="policy-section">
+                    <h3 id="privacySection3">3. Bilgilerin Kullanımı</h3>
+                    <p>Topladığımız bilgileri aşağıdaki amaçlar için kullanıyoruz:</p>
+                    <ul>
+                        <li id="privacyList6">Siparişlerinizi işlemek ve teslimat sağlamak</li>
+                        <li id="privacyList7">Müşteri hizmetleri ve desteği sunmak</li>
+                        <li id="privacyList8">Web sitemizi geliştirmek ve kullanıcı deneyimini iyileştirmek</li>
+                        <li id="privacyList9">Yasal yükümlülüklerimizi yerine getirmek</li>
+                    </ul>
+                </div>
+                
+                <div class="important-note">
+                    <h4 id="privacyImportantTitle">ÖNEMLİ NOT</h4>
+                    <p id="privacyImportantText">Web sitemiz statik bir GitHub Pages sitesidir ve herhangi bir sunucu tarafı işleme yapmamaktadır. Tüm iletişim ve sipariş işlemleri WhatsApp, e-posta veya telefon görüşmeleri yoluyla gerçekleştirilmektedir. Web sitemizde herhangi bir ödeme işlemi yapılmamakta ve kredi kartı bilgileri gibi hassas finansal bilgiler toplanmamaktadır.</p>
+                </div>
+                
+                <div class="policy-section">
+                    <h3 id="privacySection4">4. Bilgi Paylaşımı</h3>
+                    <p>Kişisel bilgilerinizi üçüncü şahıslarla aşağıdaki durumlarda paylaşabiliriz:</p>
+                    <ul>
+                        <li id="privacyList10">Sizin açık rızanızla</li>
+                        <li id="privacyList11">Yasal zorunluluklar gereği</li>
+                        <li id="privacyList12">Ürün teslimatı için lojistik firmalarıyla (sadece gerekli bilgiler)</li>
+                        <li id="privacyList13">Şirket birleşme, devir veya iflas durumlarında</li>
+                    </ul>
+                </div>
+                
+                <div class="policy-section">
+                    <h3 id="privacySection5">5. Çerezler (Cookies)</h3>
+                    <p>Web sitemiz, kullanıcı deneyimini iyileştirmek için çerezler kullanmaktadır. Bu çerezler:</p>
+                    <ul>
+                        <li id="privacyList14">Dil tercihinizi hatırlamak</li>
+                        <li id="privacyList15">Sepet içeriğinizi saklamak (sadece tarayıcınızda)</li>
+                        <li id="privacyList16">Site trafiğini analiz etmek</li>
+                    </ul>
+                    <p id="privacyCookiesText">Çerezleri tarayıcı ayarlarınızdan kontrol edebilir veya devre dışı bırakabilirsiniz.</p>
+                </div>
+                
+                <div class="policy-section">
+                    <h3 id="privacySection6">6. Veri Güvenliği</h3>
+                    <p>Kişisel bilgilerinizin güvenliğini sağlamak için makul teknik ve organizasyonel önlemler alıyoruz. Ancak, internet üzerinden hiçbir veri iletiminin %100 güvenli olmadığını unutmayın.</p>
+                </div>
+                
+                <div class="policy-section">
+                    <h3 id="privacySection7">7. Haklarınız</h3>
+                    <p>Kişisel verilerinizle ilgili olarak aşağıdaki haklara sahipsiniz:</p>
+                    <ul>
+                        <li id="privacyList17">Bilgilerinize erişim hakkı</li>
+                        <li id="privacyList18">Düzeltme hakkı</li>
+                        <li id="privacyList19">Silme hakkı ("Unutulma Hakkı")</li>
+                        <li id="privacyList20">İşleme itiraz hakkı</li>
+                        <li id="privacyList21">Veri taşınabilirliği hakkı</li>
+                    </ul>
+                    <p id="privacyRightsText">Bu haklarınızı kullanmak için bizimle iletişime geçebilirsiniz.</p>
+                </div>
+                
+                <div class="policy-section">
+                    <h3 id="privacySection8">8. Üçüncü Taraf Bağlantılar</h3>
+                    <p>Web sitemiz diğer web sitelerine bağlantılar içerebilir. Bu gizlilik politikası sadece kendi web sitemiz için geçerlidir. Bağlantı verilen diğer sitelerin gizlilik uygulamalarından sorumlu değiliz.</p>
+                </div>
+                
+                <div class="policy-section">
+                    <h3 id="privacySection9">9. Politika Değişiklikleri</h3>
+                    <p>Bu gizlilik politikasını zaman zaman güncelleyebiliriz. Değişiklikler web sitemizde yayınlandığı anda yürürlüğe girer. Önemli değişiklikler durumunda sizi bilgilendireceğiz.</p>
+                </div>
+                
+                <div class="policy-section">
+                    <h3 id="privacySection10">10. Açık Kaynak Kod</h3>
+                    <p>Bu web sitesinin kaynak kodu GitHub'da halka açıktır. Kaynak kodunu incelemek için: <a href="https://github.com/yigit-guven/Tropiko-Website" target="_blank">https://github.com/yigit-guven/Tropiko-Website</a></p>
+                    <p>Bu sayede gizlilik ve güvenlik konusunda şeffaflığımızı göstermeyi amaçlıyoruz.</p>
+                </div>
+                
+                <div class="policy-section">
+                    <h3 id="privacySection11">11. İletişim</h3>
+                    <p>Gizlilik politikamızla ilgili herhangi bir sorunuz varsa, lütfen bizimle iletişime geçin:</p>
+                    <p><strong id="privacyContact">İletişim:</strong> info@thetropic.com.tr</p>
+                    <p><strong id="privacyPhone">Telefon:</strong> +90 507 434 0200</p>
+                    <p><strong id="privacyAddress">Adres:</strong> Şehit Mustafa Mah. İsmetpaşa Bulv. Baltalı İşhanı No:10 Tarsus/Mersin</p>
+                </div>
+                
+                <div class="policy-section">
+                    <p id="privacyLastUpdated"><strong>Son Güncelleme:</strong> 2025</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><img src="./images/tropikob.svg" alt="The Tropic" class="footer-logo"></h3>
+                    <p id="footerDescription">Tropikal lezzetleri en taze haliyle sizlere ulaştırıyoruz. Kalite ve tazelik garantisiyle.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 id="footerContactTitle">İletişim</h3>
+                    <p><i class="fas fa-phone"></i> <span id="footerWhatsapp">WhatsApp:</span> +90 507 434 0200 (Yusuf Alp)</p>
+                    <p><i class="fas fa-envelope"></i> <span id="footerEmail">E-posta:</span> info@thetropic.com.tr</p>
+                    <p><i class="fas fa-map-marker-alt"></i> <span id="footerAddress">Adres:</span> Şehit Mustafa Mah. İsmetpaşa Bulv. Baltalı İşhanı No:10 Tarsus/Mersin</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 id="footerQuickLinks">Hızlı Erişim</h3>
+                    <div class="footer-links">
+                        <a href="index.html" id="footerHome">Ana Sayfa</a>
+                        <a href="index.html#urunler" id="footerProducts">Ürünler</a>
+                        <a href="index.html#hakkimizda" id="footerAbout">Hakkımızda</a>
+                        <a href="index.html#iletisim" id="footerContact">İletişim</a>
+                        <a href="privacy-policy.html" id="footerPrivacy">Gizlilik Politikası</a>
+                        <a href="terms-of-service.html" id="footerTerms">Hizmet Şartları</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 id="footerFollow">Bizi Takip Edin</h3>
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com/thetropic" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/thetropic" target="_blank"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.twitter.com/thetropic" target="_blank"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <span id="copyrightText">&copy; 2025 The Tropic - ÖZYÜREKOĞLU TARIM YAŞ SEBZE MEYVE TİCARET LİMİTED ŞİRKETİ - Tüm Hakları Saklıdır.</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Dil desteği
+        const translations = {
+            tr: {
+                // Genel
+                tagline: "Premium Tropikal Meyveler - Doğanın En Seçkin Lezzetleri",
+                navHome: "Ana Sayfa",
+                navProducts: "Ürünler",
+                navAbout: "Hakkımızda",
+                navContact: "İletişim",
+                navPrivacy: "Gizlilik Politikası",
+                navTerms: "Hizmet Şartları",
+                
+                // Gizlilik Politikası
+                privacyTitle: "Gizlilik Politikası",
+                privacySection1: "1. Giriş",
+                privacySection2: "2. Toplanan Bilgiler",
+                privacySection3: "3. Bilgilerin Kullanımı",
+                privacySection4: "4. Bilgi Paylaşımı",
+                privacySection5: "5. Çerezler (Cookies)",
+                privacySection6: "6. Veri Güvenliği",
+                privacySection7: "7. Haklarınız",
+                privacySection8: "8. Üçüncü Taraf Bağlantılar",
+                privacySection9: "9. Politika Değişiklikleri",
+                privacySection10: "10. Açık Kaynak Kod",
+                privacySection11: "11. İletişim",
+                
+                privacyList1: "İletişim formu aracılığıyla sağladığınız ad, e-posta, telefon numarası ve adres bilgileri",
+                privacyList2: "Sipariş taleplerinizde paylaştığınız ürün tercihleri ve mesajlar",
+                privacyList3: "IP adresiniz, tarayıcı türü, işletim sistemi",
+                privacyList4: "Ziyaret ettiğiniz sayfalar, siteye giriş ve çıkış zamanları",
+                privacyList5: "Çerezler (Cookies) ve benzeri teknolojiler",
+                privacyList6: "Siparişlerinizi işlemek ve teslimat sağlamak",
+                privacyList7: "Müşteri hizmetleri ve desteği sunmak",
+                privacyList8: "Web sitemizi geliştirmek ve kullanıcı deneyimini iyileştirmek",
+                privacyList9: "Yasal yükümlülüklerimizi yerine getirmek",
+                privacyList10: "Sizin açık rızanızla",
+                privacyList11: "Yasal zorunluluklar gereği",
+                privacyList12: "Ürün teslimatı için lojistik firmalarıyla (sadece gerekli bilgiler)",
+                privacyList13: "Şirket birleşme, devir veya iflas durumlarında",
+                privacyList14: "Dil tercihinizi hatırlamak",
+                privacyList15: "Sepet içeriğinizi saklamak (sadece tarayıcınızda)",
+                privacyList16: "Site trafiğini analiz etmek",
+                privacyList17: "Bilgilerinize erişim hakkı",
+                privacyList18: "Düzeltme hakkı",
+                privacyList19: "Silme hakkı (\"Unutulma Hakkı\")",
+                privacyList20: "İşleme itiraz hakkı",
+                privacyList21: "Veri taşınabilirliği hakkı",
+                
+                privacyImportantTitle: "ÖNEMLİ NOT",
+                privacyImportantText: "Web sitemiz statik bir GitHub Pages sitesidir ve herhangi bir sunucu tarafı işleme yapmamaktadır. Tüm iletişim ve sipariş işlemleri WhatsApp, e-posta veya telefon görüşmeleri yoluyla gerçekleştirilmektedir. Web sitemizde herhangi bir ödeme işlemi yapılmamakta ve kredi kartı bilgileri gibi hassas finansal bilgiler toplanmamaktadır.",
+                privacyCookiesText: "Çerezleri tarayıcı ayarlarınızdan kontrol edebilir veya devre dışı bırakabilirsiniz.",
+                privacyRightsText: "Bu haklarınızı kullanmak için bizimle iletişime geçebilirsiniz.",
+                privacyContact: "İletişim:",
+                privacyPhone: "Telefon:",
+                privacyAddress: "Adres:",
+                privacyLastUpdated: "Son Güncelleme:",
+                
+                // Footer
+                footerDescription: "Tropikal lezzetleri en taze haliyle sizlere ulaştırıyoruz. Kalite ve tazelik garantisiyle.",
+                footerContactTitle: "İletişim",
+                footerWhatsapp: "WhatsApp:",
+                footerEmail: "E-posta:",
+                footerAddress: "Adres:",
+                footerQuickLinks: "Hızlı Erişim",
+                footerHome: "Ana Sayfa",
+                footerProducts: "Ürünler",
+                footerAbout: "Hakkımızda",
+                footerContact: "İletişim",
+                footerPrivacy: "Gizlilik Politikası",
+                footerTerms: "Hizmet Şartları",
+                footerFollow: "Bizi Takip Edin",
+                copyrightText: "© 2025 The Tropic - ÖZYÜREKOĞLU TARIM YAŞ SEBZE MEYVE TİCARET LİMİTED ŞİRKETİ - Tüm Hakları Saklıdır."
+            },
+            en: {
+                // General
+                tagline: "Premium Tropical Fruits - Nature's Finest Selection",
+                navHome: "Home",
+                navProducts: "Products",
+                navAbout: "About Us",
+                navContact: "Contact",
+                navPrivacy: "Privacy Policy",
+                navTerms: "Terms of Service",
+                
+                // Privacy Policy
+                privacyTitle: "Privacy Policy",
+                privacySection1: "1. Introduction",
+                privacySection2: "2. Information Collected",
+                privacySection3: "3. Use of Information",
+                privacySection4: "4. Information Sharing",
+                privacySection5: "5. Cookies",
+                privacySection6: "6. Data Security",
+                privacySection7: "7. Your Rights",
+                privacySection8: "8. Third Party Links",
+                privacySection9: "9. Policy Changes",
+                privacySection10: "10. Open Source Code",
+                privacySection11: "11. Contact",
+                
+                privacyList1: "Name, email, phone number and address information you provide through the contact form",
+                privacyList2: "Product preferences and messages you share in your order requests",
+                privacyList3: "Your IP address, browser type, operating system",
+                privacyList4: "Pages you visit, site entry and exit times",
+                privacyList5: "Cookies and similar technologies",
+                privacyList6: "To process your orders and provide delivery",
+                privacyList7: "To provide customer service and support",
+                privacyList8: "To improve our website and enhance user experience",
+                privacyList9: "To fulfill our legal obligations",
+                privacyList10: "With your explicit consent",
+                privacyList11: "As required by legal obligations",
+                privacyList12: "With logistics companies for product delivery (only necessary information)",
+                privacyList13: "In case of company merger, transfer or bankruptcy",
+                privacyList14: "To remember your language preference",
+                privacyList15: "To store your cart contents (only in your browser)",
+                privacyList16: "To analyze site traffic",
+                privacyList17: "Right to access your information",
+                privacyList18: "Right to rectification",
+                privacyList19: "Right to deletion (\"Right to be Forgotten\")",
+                privacyList20: "Right to object to processing",
+                privacyList21: "Right to data portability",
+                
+                privacyImportantTitle: "IMPORTANT NOTE",
+                privacyImportantText: "Our website is a static GitHub Pages site and does not perform any server-side processing. All communication and order transactions are conducted through WhatsApp, email or phone calls. No payment transactions are made on our website and sensitive financial information such as credit card details are not collected.",
+                privacyCookiesText: "You can control or disable cookies through your browser settings.",
+                privacyRightsText: "You can contact us to exercise these rights.",
+                privacyContact: "Contact:",
+                privacyPhone: "Phone:",
+                privacyAddress: "Address:",
+                privacyLastUpdated: "Last Updated:",
+                
+                // Footer
+                footerDescription: "We deliver tropical flavors to you in their freshest form. With quality and freshness guarantee.",
+                footerContactTitle: "Contact",
+                footerWhatsapp: "WhatsApp:",
+                footerEmail: "Email:",
+                footerAddress: "Address:",
+                footerQuickLinks: "Quick Links",
+                footerHome: "Home",
+                footerProducts: "Products",
+                footerAbout: "About Us",
+                footerContact: "Contact",
+                footerPrivacy: "Privacy Policy",
+                footerTerms: "Terms of Service",
+                footerFollow: "Follow Us",
+                copyrightText: "© 2025 The Tropic - ÖZYÜREKOĞLU TARIM YAŞ SEBZE MEYVE TİCARET LİMİTED ŞİRKETİ - All Rights Reserved."
+            },
+            de: {
+                // Allgemein
+                tagline: "Premium Tropische Früchte - Die feinste Auswahl der Natur",
+                navHome: "Startseite",
+                navProducts: "Produkte",
+                navAbout: "Über uns",
+                navContact: "Kontakt",
+                navPrivacy: "Datenschutzrichtlinie",
+                navTerms: "Nutzungsbedingungen",
+                
+                // Datenschutzrichtlinie
+                privacyTitle: "Datenschutzrichtlinie",
+                privacySection1: "1. Einführung",
+                privacySection2: "2. Erhobene Informationen",
+                privacySection3: "3. Verwendung der Informationen",
+                privacySection4: "4. Weitergabe von Informationen",
+                privacySection5: "5. Cookies",
+                privacySection6: "6. Datensicherheit",
+                privacySection7: "7. Ihre Rechte",
+                privacySection8: "8. Links zu Drittanbietern",
+                privacySection9: "9. Richtlinienänderungen",
+                privacySection10: "10. Open-Source-Code",
+                privacySection11: "11. Kontakt",
+                
+                privacyList1: "Name, E-Mail, Telefonnummer und Adressinformationen, die Sie über das Kontaktformular angeben",
+                privacyList2: "Produktpräferenzen und Nachrichten, die Sie in Ihren Bestellanfragen teilen",
+                privacyList3: "Ihre IP-Adresse, Browsertyp, Betriebssystem",
+                privacyList4: "Besuchte Seiten, Ein- und Ausstiegszeiten der Website",
+                privacyList5: "Cookies und ähnliche Technologien",
+                privacyList6: "Zur Bearbeitung Ihrer Bestellungen und Lieferung",
+                privacyList7: "Zur Bereitstellung von Kundenservice und Support",
+                privacyList8: "Zur Verbesserung unserer Website und Benutzererfahrung",
+                privacyList9: "Zur Erfüllung unserer gesetzlichen Verpflichtungen",
+                privacyList10: "Mit Ihrer ausdrücklichen Zustimmung",
+                privacyList11: "Wie gesetzlich vorgeschrieben",
+                privacyList12: "Mit Logistikunternehmen für Produktlieferung (nur notwendige Informationen)",
+                privacyList13: "Im Falle von Unternehmensfusion, -übertragung oder -bankrott",
+                privacyList14: "Zur Erinnerung an Ihre Spracheinstellung",
+                privacyList15: "Zur Speicherung Ihres Warenkorbinhalts (nur in Ihrem Browser)",
+                privacyList16: "Zur Analyse des Website-Verkehrs",
+                privacyList17: "Recht auf Zugang zu Ihren Informationen",
+                privacyList18: "Recht auf Berichtigung",
+                privacyList19: "Recht auf Löschung (\"Recht auf Vergessenwerden\")",
+                privacyList20: "Recht auf Widerspruch gegen die Verarbeitung",
+                privacyList21: "Recht auf Datenübertragbarkeit",
+                
+                privacyImportantTitle: "WICHTIGER HINWEIS",
+                privacyImportantText: "Unsere Website ist eine statische GitHub Pages-Website und führt keine serverseitige Verarbeitung durch. Alle Kommunikations- und Bestellvorgänge werden über WhatsApp, E-Mail oder Telefonate abgewickelt. Auf unserer Website werden keine Zahlungstransaktionen durchgeführt und sensible finanzielle Informationen wie Kreditkartendaten werden nicht erfasst.",
+                privacyCookiesText: "Sie können Cookies über Ihre Browsereinstellungen kontrollieren oder deaktivieren.",
+                privacyRightsText: "Sie können uns kontaktieren, um diese Rechte auszuüben.",
+                privacyContact: "Kontakt:",
+                privacyPhone: "Telefon:",
+                privacyAddress: "Adresse:",
+                privacyLastUpdated: "Zuletzt aktualisiert:",
+                
+                // Footer
+                footerDescription: "Wir liefern tropische Aromen in ihrer frischesten Form zu Ihnen. Mit Qualitäts- und Frischegarantie.",
+                footerContactTitle: "Kontakt",
+                footerWhatsapp: "WhatsApp:",
+                footerEmail: "E-Mail:",
+                footerAddress: "Adresse:",
+                footerQuickLinks: "Schnellzugriff",
+                footerHome: "Startseite",
+                footerProducts: "Produkte",
+                footerAbout: "Über uns",
+                footerContact: "Kontakt",
+                footerPrivacy: "Datenschutzrichtlinie",
+                footerTerms: "Nutzungsbedingungen",
+                footerFollow: "Folgen Sie uns",
+                copyrightText: "© 2025 The Tropic - ÖZYÜREKOĞLU TARIM YAŞ SEBZE MEYVE TİCARET LİMİTED ŞİRKETİ - Alle Rechte vorbehalten."
+            },
+            ru: {
+                // Общее
+                tagline: "Премиальные Тропические Фрукты - Лучший Выбор Природы",
+                navHome: "Главная",
+                navProducts: "Продукты",
+                navAbout: "О нас",
+                navContact: "Контакты",
+                navPrivacy: "Политика конфиденциальности",
+                navTerms: "Условия обслуживания",
+                
+                // Политика конфиденциальности
+                privacyTitle: "Политика конфиденциальности",
+                privacySection1: "1. Введение",
+                privacySection2: "2. Собираемая информация",
+                privacySection3: "3. Использование информации",
+                privacySection4: "4. Обмен информацией",
+                privacySection5: "5. Куки (Cookies)",
+                privacySection6: "6. Безопасность данных",
+                privacySection7: "7. Ваши права",
+                privacySection8: "8. Ссылки на сторонние сайты",
+                privacySection9: "9. Изменения политики",
+                privacySection10: "10. Открытый исходный код",
+                privacySection11: "11. Контакты",
+                
+                privacyList1: "Имя, электронная почта, номер телефона и адресная информация, которую вы предоставляете через контактную форму",
+                privacyList2: "Предпочтения продуктов и сообщения, которые вы делитесь в своих заявках на заказ",
+                privacyList3: "Ваш IP-адрес, тип браузера, операционная система",
+                privacyList4: "Посещенные страницы, время входа и выхода с сайта",
+                privacyList5: "Куки (cookies) и аналогичные технологии",
+                privacyList6: "Для обработки ваших заказов и обеспечения доставки",
+                privacyList7: "Для предоставления обслуживания клиентов и поддержки",
+                privacyList8: "Для улучшения нашего веб-сайта и улучшения пользовательского опыта",
+                privacyList9: "Для выполнения наших юридических обязательств",
+                privacyList10: "С вашего явного согласия",
+                privacyList11: "В соответствии с юридическими обязательствами",
+                privacyList12: "С логистическими компаниями для доставки продукции (только необходимая информация)",
+                privacyList13: "В случае слияния, передачи или банкротства компании",
+                privacyList14: "Для запоминания ваших языковых предпочтений",
+                privacyList15: "Для хранения содержимого вашей корзины (только в вашем браузере)",
+                privacyList16: "Для анализа трафика сайта",
+                privacyList17: "Право на доступ к вашей информации",
+                privacyList18: "Право на исправление",
+                privacyList19: "Право на удаление (\"Право на забвение\")",
+                privacyList20: "Право на возражение против обработки",
+                privacyList21: "Право на переносимость данных",
+                
+                privacyImportantTitle: "ВАЖНОЕ ПРИМЕЧАНИЕ",
+                privacyImportantText: "Наш веб-сайт является статическим сайтом GitHub Pages и не выполняет никакой серверной обработки. Вся коммуникация и заказы осуществляются через WhatsApp, электронную почту или телефонные звонки. На нашем веб-сайте не производятся платежные операции, и не собирается чувствительная финансовая информация, такая как данные кредитных карт.",
+                privacyCookiesText: "Вы можете контролировать или отключать файлы cookie через настройки вашего браузера.",
+                privacyRightsText: "Вы можете связаться с нами, чтобы воспользоваться этими правами.",
+                privacyContact: "Контакт:",
+                privacyPhone: "Телефон:",
+                privacyAddress: "Адрес:",
+                privacyLastUpdated: "Последнее обновление:",
+                
+                // Footer
+                footerDescription: "Мы доставляем тропические вкусы к вам в самой свежей форме. С гарантией качества и свежести.",
+                footerContactTitle: "Контакты",
+                footerWhatsapp: "WhatsApp:",
+                footerEmail: "Эл. почта:",
+                footerAddress: "Адрес:",
+                footerQuickLinks: "Быстрые ссылки",
+                footerHome: "Главная",
+                footerProducts: "Продукты",
+                footerAbout: "О нас",
+                footerContact: "Контакты",
+                footerPrivacy: "Политика конфиденциальности",
+                footerTerms: "Условия обслуживания",
+                footerFollow: "Подпишитесь на нас",
+                copyrightText: "© 2025 The Tropic - ÖZYÜREKOĞLU TARIM YAŞ SEBZE MEYVE TİCARET LİMİTED ŞİRKETИ - Все права защищены."
+            }
+        };
+
+        // Dil değiştirme işlevselliği
+        let currentLanguage = localStorage.getItem('thetropicLanguage') || 'tr';
+        const languageBtn = document.getElementById('languageBtn');
+        const languageDropdown = document.getElementById('languageDropdown');
+        const currentLanguageText = document.getElementById('currentLanguage');
+
+        function changeLanguage(lang) {
+            currentLanguage = lang;
+            localStorage.setItem('thetropicLanguage', lang);
+            
+            // Dil butonunu güncelle
+            currentLanguageText.textContent = getLanguageName(lang);
+            
+            // Tüm çevirileri uygula
+            applyTranslations(lang);
+            
+            // Dil dropdown'u kapat
+            languageDropdown.classList.remove('show');
+        }
+
+        function getLanguageName(code) {
+            const names = {
+                'tr': 'Türkçe',
+                'en': 'English',
+                'de': 'Deutsch',
+                'ru': 'Русский'
+            };
+            return names[code] || 'Türkçe';
+        }
+
+        function applyTranslations(lang) {
+            const translation = translations[lang];
+            
+            // Genel çeviriler
+            document.getElementById('taglineText').textContent = translation.tagline;
+            document.getElementById('navHome').textContent = translation.navHome;
+            document.getElementById('navProducts').textContent = translation.navProducts;
+            document.getElementById('navAbout').textContent = translation.navAbout;
+            document.getElementById('navContact').textContent = translation.navContact;
+            document.getElementById('navPrivacy').textContent = translation.navPrivacy;
+            document.getElementById('navTerms').textContent = translation.navTerms;
+            
+            // Gizlilik Politikası
+            document.getElementById('privacyTitle').textContent = translation.privacyTitle;
+            document.getElementById('privacySection1').textContent = translation.privacySection1;
+            document.getElementById('privacySection2').textContent = translation.privacySection2;
+            document.getElementById('privacySection3').textContent = translation.privacySection3;
+            document.getElementById('privacySection4').textContent = translation.privacySection4;
+            document.getElementById('privacySection5').textContent = translation.privacySection5;
+            document.getElementById('privacySection6').textContent = translation.privacySection6;
+            document.getElementById('privacySection7').textContent = translation.privacySection7;
+            document.getElementById('privacySection8').textContent = translation.privacySection8;
+            document.getElementById('privacySection9').textContent = translation.privacySection9;
+            document.getElementById('privacySection10').textContent = translation.privacySection10;
+            document.getElementById('privacySection11').textContent = translation.privacySection11;
+            
+            // Liste öğeleri
+            for (let i = 1; i <= 21; i++) {
+                const element = document.getElementById(`privacyList${i}`);
+                if (element) {
+                    element.textContent = translation[`privacyList${i}`];
+                }
+            }
+            
+            // Önemli not
+            document.getElementById('privacyImportantTitle').textContent = translation.privacyImportantTitle;
+            document.getElementById('privacyImportantText').textContent = translation.privacyImportantText;
+            document.getElementById('privacyCookiesText').textContent = translation.privacyCookiesText;
+            document.getElementById('privacyRightsText').textContent = translation.privacyRightsText;
+            document.getElementById('privacyContact').textContent = translation.privacyContact;
+            document.getElementById('privacyPhone').textContent = translation.privacyPhone;
+            document.getElementById('privacyAddress').textContent = translation.privacyAddress;
+            document.getElementById('privacyLastUpdated').innerHTML = `<strong>${translation.privacyLastUpdated}</strong> 2025`;
+            
+            // Footer
+            document.getElementById('footerDescription').textContent = translation.footerDescription;
+            document.getElementById('footerContactTitle').textContent = translation.footerContactTitle;
+            document.getElementById('footerWhatsapp').textContent = translation.footerWhatsapp;
+            document.getElementById('footerEmail').textContent = translation.footerEmail;
+            document.getElementById('footerAddress').textContent = translation.footerAddress;
+            document.getElementById('footerQuickLinks').textContent = translation.footerQuickLinks;
+            document.getElementById('footerHome').textContent = translation.footerHome;
+            document.getElementById('footerProducts').textContent = translation.footerProducts;
+            document.getElementById('footerAbout').textContent = translation.footerAbout;
+            document.getElementById('footerContact').textContent = translation.footerContact;
+            document.getElementById('footerPrivacy').textContent = translation.footerPrivacy;
+            document.getElementById('footerTerms').textContent = translation.footerTerms;
+            document.getElementById('footerFollow').textContent = translation.footerFollow;
+            document.getElementById('copyrightText').textContent = translation.copyrightText;
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Dil seçiciyi başlat
+            currentLanguageText.textContent = getLanguageName(currentLanguage);
+            applyTranslations(currentLanguage);
+            
+            // Dil seçici olayları
+            languageBtn.addEventListener('click', function() {
+                languageDropdown.classList.toggle('show');
+            });
+            
+            document.querySelectorAll('.language-option').forEach(option => {
+                option.addEventListener('click', function() {
+                    const lang = this.getAttribute('data-lang');
+                    changeLanguage(lang);
+                });
+            });
+            
+            // Dışarı tıklayınca dil dropdown'u kapat
+            document.addEventListener('click', function(event) {
+                if (!languageBtn.contains(event.target) && !languageDropdown.contains(event.target)) {
+                    languageDropdown.classList.remove('show');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
