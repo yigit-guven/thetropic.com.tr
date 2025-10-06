@@ -55,7 +55,6 @@ Language preferences are saved in browser localStorage.
 
 ### Communication Channels
 - WhatsApp: +90 507 434 0200
-- Email: info@thetropic.com.tr
 - Phone: +90 507 434 0200
 
 ### Business Information
@@ -98,26 +97,12 @@ Language preferences are saved in browser localStorage.
 2. Add translations in JavaScript translations object
 3. Add flag SVG data
 
-## Contributing
-
-We welcome contributions! Please feel free to submit pull requests or open issues for bugs and feature requests.
-
-### Development Guidelines
-- Follow existing code style
-- Test all language translations
-- Ensure responsive design works
-- Update documentation as needed
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE.md file for details.
-
 ## Support
 
 For support and questions:
 - Open an issue on GitHub
 - Contact via WhatsApp: +90 507 434 0200
-- Email: info@thetropic.com.tr
+- Email: contact@yigitguven.net (Technical issues only)
 
 ## Acknowledgments
 
