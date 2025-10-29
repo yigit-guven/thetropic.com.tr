@@ -13,19 +13,19 @@
             box-sizing: border-box;
             font-family: 'Roboto', sans-serif;
         }
-        
+
         body {
             background-color: #f8f9fa;
             color: #333;
             line-height: 1.6;
         }
-        
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
-        
+
         /* Header Styles */
         header {
             background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('./images/forest.svg');
@@ -37,7 +37,7 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .header-content {
             display: flex;
             flex-direction: column;
@@ -46,19 +46,19 @@
             position: relative;
             z-index: 2;
         }
-        
+
         .logo-container {
             margin-bottom: 20px;
             position: relative;
         }
-        
+
         .logo {
             max-width: 300px;
             height: auto;
             filter: drop-shadow(0 0 15px rgba(255, 204, 0, 0.8));
             animation: colorChange 8s infinite alternate;
         }
-        
+
         @keyframes colorChange {
             0% { filter: drop-shadow(0 0 15px rgba(255, 230, 0, 0.8)) brightness(1.1); }
             25% { filter: drop-shadow(0 0 15px rgba(255, 200, 50, 0.8)) brightness(1.05); }
@@ -66,7 +66,7 @@
             75% { filter: drop-shadow(0 0 15px rgba(255, 200, 50, 0.8)) brightness(1.05); }
             100% { filter: drop-shadow(0 0 15px rgba(255, 230, 0, 0.8)) brightness(1.1); }
         }
-        
+
         .tagline {
             font-size: 1.2rem;
             margin-top: 10px;
@@ -74,7 +74,7 @@
             font-style: italic;
             text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
         }
-        
+
         /* Navigation */
         nav {
             background-color: rgba(58, 124, 35, 0.95);
@@ -84,12 +84,12 @@
             z-index: 100;
             box-shadow: 0 2px 10px rgba(0,0,0,0.2);
         }
-        
+
         .nav-container {
             display: flex;
             justify-content: center;
         }
-        
+
         .nav-link {
             color: white;
             text-decoration: none;
@@ -98,11 +98,11 @@
             border-radius: 4px;
             transition: background-color 0.3s;
         }
-        
+
         .nav-link:hover, .nav-link.active {
             background-color: #ff8c42;
         }
-        
+
         /* Main Content */
         .main-content {
             padding: 40px 0;
@@ -111,7 +111,7 @@
             margin: 20px auto;
             border-radius: 5px;
         }
-        
+
         .section-title {
             font-family: 'Merriweather', serif;
             color: #2c5e1a;
@@ -121,7 +121,7 @@
             text-align: center;
             position: relative;
         }
-        
+
         .section-title::after {
             content: '';
             position: absolute;
@@ -133,7 +133,7 @@
             background: linear-gradient(to right, #2c5e1a, #ff8c42);
             border-radius: 2px;
         }
-        
+
         /* Product Layout */
         .products-column {
             display: flex;
@@ -141,7 +141,7 @@
             gap: 40px;
             margin-top: 30px;
         }
-        
+
         .product-item {
             display: flex;
             align-items: center;
@@ -151,20 +151,20 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.08);
             transition: transform 0.3s, box-shadow 0.3s;
         }
-        
+
         .product-item:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 25px rgba(0,0,0,0.15);
         }
-        
+
         .product-item:nth-child(odd) {
             flex-direction: row;
         }
-        
+
         .product-item:nth-child(even) {
             flex-direction: row-reverse;
         }
-        
+
         .product-image {
             flex: 0 0 40%;
             display: flex;
@@ -173,60 +173,60 @@
             padding: 30px;
             background: linear-gradient(135deg, #f1f8e9 0%, #e8f5e9 100%);
         }
-        
+
         .product-icon {
             width: 180px;
             height: 180px;
             object-fit: contain;
         }
-        
+
         .product-details {
             flex: 1;
             padding: 30px;
         }
-        
+
         .product-title {
             font-family: 'Merriweather', serif;
             font-size: 1.8rem;
             margin-bottom: 15px;
             color: #2c5e1a;
         }
-        
+
         .product-price {
             font-weight: 700;
             color: #e74c3c;
             margin-bottom: 20px;
             font-size: 1.4rem;
         }
-        
+
         .product-description {
             color: #6c757d;
             margin-bottom: 20px;
             font-size: 1rem;
         }
-        
+
         .product-features {
             margin-bottom: 25px;
         }
-        
+
         .feature {
             display: flex;
             align-items: center;
             margin-bottom: 10px;
             font-size: 0.95rem;
         }
-        
+
         .feature i {
             color: #ff8c42;
             margin-right: 10px;
             font-size: 1.1rem;
         }
-        
+
         .product-actions {
             display: flex;
             gap: 15px;
         }
-        
+
         .action-btn {
             padding: 10px 20px;
             border: none;
@@ -239,27 +239,27 @@
             gap: 8px;
             font-size: 1rem;
         }
-        
+
         .info-btn {
             background-color: #f8f9fa;
             color: #495057;
             border: 1px solid #e9ecef;
         }
-        
+
         .info-btn:hover {
             background-color: #e9ecef;
         }
-        
+
         .buy-btn {
             background: linear-gradient(to right, #ff8c42, #ff6b35);
             color: white;
         }
-        
+
         .buy-btn:hover {
             background: linear-gradient(to right, #ff6b35, #ff8c42);
             box-shadow: 0 3px 8px rgba(255, 140, 66, 0.3);
         }
-        
+
         /* Language Selector */
         .language-selector {
             position: fixed;
@@ -267,7 +267,7 @@
             left: 20px;
             z-index: 1000;
         }
-        
+
         .language-btn {
             background: rgba(255, 255, 255, 0.9);
             color: #2c5e1a;
@@ -282,13 +282,13 @@
             transition: all 0.3s;
             font-weight: 500;
         }
-        
+
         .language-btn:hover {
             box-shadow: 0 6px 15px rgba(0,0,0,0.2);
             transform: translateY(-2px);
             background: white;
         }
-        
+
         .language-dropdown {
             position: absolute;
             top: 100%;
@@ -301,11 +301,11 @@
             min-width: 150px;
             margin-top: 10px;
         }
-        
+
         .language-dropdown.show {
             display: block;
         }
-        
+
         .language-option {
             padding: 10px 15px;
             cursor: pointer;
@@ -314,18 +314,18 @@
             align-items: center;
             gap: 10px;
         }
-        
+
         .language-option:hover {
             background-color: #f8f9fa;
         }
-        
+
         .language-flag {
             width: 24px;
             height: 18px;
             object-fit: cover;
             border-radius: 2px;
         }
-        
+
         /* Basket Styles */
         .basket-container {
             position: fixed;
@@ -333,7 +333,7 @@
             right: 20px;
             z-index: 1000;
         }
-        
+
         .basket-btn {
             background: linear-gradient(to right, #ff8c42, #ff6b35);
             color: white;
@@ -348,12 +348,12 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.15);
             transition: all 0.3s;
         }
-        
+
         .basket-btn:hover {
             box-shadow: 0 6px 15px rgba(0,0,0,0.2);
             transform: translateY(-2px);
         }
-        
+
         .basket-count {
             background: white;
             color: #ff8c42;
@@ -365,7 +365,7 @@
             justify-content: center;
             font-weight: bold;
         }
-        
+
         /* Cargo Information */
         .cargo-info {
             background: #f8f9fa;
@@ -374,22 +374,22 @@
             margin: 20px 0;
             border-left: 4px solid #ff8c42;
         }
-        
+
         .cargo-info p {
             margin: 5px 0;
             font-size: 0.95rem;
         }
-        
+
         .cargo-info i {
             color: #ff8c42;
             margin-right: 8px;
         }
-        
+
         .cargo-free {
             color: #2c5e1a;
             font-weight: 500;
         }
-        
+
         /* About Section */
         .about-section {
             padding: 60px 0;
@@ -397,30 +397,30 @@
             border-radius: 5px;
             margin: 40px 0;
         }
-        
+
         .about-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 40px;
             align-items: center;
         }
-        
+
         .about-text {
             padding-right: 20px;
         }
-        
+
         .about-image {
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
-        
+
         .about-image img {
             width: 100%;
             height: auto;
             display: block;
         }
-        
+
         /* Notification */
         .notification {
             position: fixed;
@@ -439,12 +439,12 @@
             opacity: 0;
             transition: all 0.5s ease;
         }
-        
+
         .notification.show {
             transform: translateY(0);
             opacity: 1;
         }
-        
+
         /* Modal Styles */
         .modal {
             display: none;
@@ -458,7 +458,7 @@
             justify-content: center;
             align-items: center;
         }
-        
+
         .modal-content {
             background: white;
             border-radius: 8px;
@@ -469,7 +469,7 @@
             overflow-y: auto;
             position: relative;
         }
-        
+
         .close-modal {
             position: absolute;
             top: 15px;
@@ -479,11 +479,11 @@
             color: #6c757d;
             transition: color 0.3s;
         }
-        
+
         .close-modal:hover {
             color: #ff8c42;
         }
-        
+
         .modal-title {
             font-family: 'Merriweather', serif;
             color: #2c5e1a;
@@ -491,7 +491,7 @@
             padding-bottom: 10px;
             border-bottom: 1px solid #e9ecef;
         }
-        
+
         /* Basket Items */
         .basket-item {
             display: flex;
@@ -500,24 +500,24 @@
             padding: 15px 0;
             border-bottom: 1px solid #e9ecef;
         }
-        
+
         .basket-item-info {
             display: flex;
             align-items: center;
             gap: 15px;
         }
-        
+
         .basket-item-icon {
             width: 40px;
             height: 40px;
         }
-        
+
         .basket-item-controls {
             display: flex;
             align-items: center;
             gap: 10px;
         }
-        
+
         .quantity-btn {
             background: #f8f9fa;
             border: 1px solid #e9ecef;
@@ -530,11 +530,11 @@
             justify-content: center;
             transition: all 0.3s;
         }
-        
+
         .quantity-btn:hover {
             background: #e9ecef;
         }
-        
+
         .basket-total {
             font-size: 1.2rem;
             font-weight: 700;
@@ -543,14 +543,14 @@
             padding-top: 20px;
             border-top: 2px solid #e9ecef;
         }
-        
+
         .checkout-options {
             display: flex;
             flex-direction: column;
             gap: 15px;
             margin-top: 20px;
         }
-        
+
         .checkout-btn {
             padding: 12px 20px;
             border: none;
@@ -563,33 +563,33 @@
             gap: 8px;
             transition: all 0.3s;
         }
-        
+
         .checkout-btn:hover {
             opacity: 0.9;
             transform: translateY(-2px);
         }
-        
+
         .reset-btn {
             background-color: #6c757d;
             color: white;
             margin-bottom: 10px;
         }
-        
+
         .email-btn {
             background-color: #ea4335;
             color: white;
         }
-        
+
         .whatsapp-btn {
             background-color: #25D366;
             color: white;
         }
-        
+
         .phone-btn {
             background-color: #2c5e1a;
             color: white;
         }
-        
+
         /* Contact Form */
         .contact-form {
             margin-top: 40px;
@@ -598,18 +598,18 @@
             border-radius: 8px;
             border: 1px solid #e9ecef;
         }
-        
+
         .form-group {
             margin-bottom: 20px;
         }
-        
+
         .form-group label {
             display: block;
             margin-bottom: 8px;
             font-weight: 500;
             color: #2c5e1a;
         }
-        
+
         .form-control {
             width: 100%;
             padding: 12px 15px;
@@ -618,20 +618,20 @@
             font-size: 1rem;
             transition: border-color 0.3s;
         }
-        
+
         .form-control:focus {
             outline: none;
             border-color: #ff8c42;
             box-shadow: 0 0 0 0.2rem rgba(255, 140, 66, 0.25);
         }
-        
+
         .error-message {
             color: #e74c3c;
             font-size: 0.85rem;
             margin-top: 5px;
             display: none;
         }
-        
+
         /* Order Form */
         .order-form {
             display: none;
@@ -641,7 +641,7 @@
             border-radius: 8px;
             border: 1px solid #e9ecef;
         }
-        
+
         /* Footer */
         footer {
             background: linear-gradient(135deg, #2c3e50 0%, #1a2530 100%);
@@ -649,13 +649,13 @@
             padding: 40px 0 20px;
             margin-top: 60px;
         }
-        
+
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 30px;
         }
-        
+
         .footer-section h3 {
             font-family: 'Merriweather', serif;
             margin-bottom: 20px;
@@ -665,12 +665,12 @@
             align-items: center;
             gap: 10px;
         }
-        
+
         .footer-logo {
             height: 30px;
             filter: brightness(0) invert(1);
         }
-        
+
         .footer-links a {
             display: block;
             color: #ddd;
@@ -678,11 +678,11 @@
             text-decoration: none;
             transition: color 0.3s;
         }
-        
+
         .footer-links a:hover {
             color: #ff8c42;
         }
-        
+
         .social-icons a {
             display: inline-block;
             color: white;
@@ -690,11 +690,11 @@
             margin-right: 15px;
             transition: color 0.3s;
         }
-        
+
         .social-icons a:hover {
             color: #ff8c42;
         }
-        
+
         .copyright {
             text-align: center;
             margin-top: 40px;
@@ -703,60 +703,60 @@
             color: #aaa;
             font-size: 0.9rem;
         }
-        
+
         /* Responsive */
         @media (max-width: 768px) {
             .product-item {
                 flex-direction: column !important;
             }
-            
+
             .product-image {
                 flex: 0 0 auto;
                 padding: 20px;
             }
-            
+
             .product-icon {
                 width: 120px;
                 height: 120px;
             }
-            
+
             .about-content {
                 grid-template-columns: 1fr;
             }
-            
+
             .about-text {
                 padding-right: 0;
             }
-            
+
             .language-selector {
                 top: 10px;
                 left: 10px;
             }
-            
+
             .basket-container {
                 top: 10px;
                 right: 10px;
             }
-            
+
             .language-btn, .basket-btn {
                 padding: 8px 15px;
                 font-size: 0.9rem;
             }
-            
+
             .product-actions {
                 flex-direction: column;
                 gap: 10px;
             }
-            
+
             .action-btn {
                 width: 100%;
                 justify-content: center;
             }
-            
+
             .nav-container {
                 flex-wrap: wrap;
             }
-            
+
             .nav-link {
                 padding: 8px 12px;
                 font-size: 0.9rem;
@@ -770,7 +770,7 @@
         <i class="fas fa-check-circle"></i>
         <span id="notification-text">Ürün sepete eklendi!</span>
     </div>
-    
+
     <!-- Dil Seçici -->
     <div class="language-selector">
         <button class="language-btn" id="languageBtn">
@@ -797,7 +797,7 @@
             </div>
         </div>
     </div>
-    
+
     <!-- Sepet butonu -->
     <div class="basket-container">
         <button class="basket-btn" id="basketBtn">
@@ -805,7 +805,7 @@
             <span id="basketText">Sepet</span> <span class="basket-count" id="basketCount">0</span>
         </button>
     </div>
-    
+
     <header>
         <div class="container">
             <div class="header-content">
@@ -816,7 +816,7 @@
             </div>
         </div>
     </header>
-    
+
     <nav>
         <div class="container">
             <div class="nav-container">
@@ -826,17 +826,17 @@
             </div>
         </div>
     </nav>
-    
+
     <div class="container">
         <div class="main-content">
             <h2 class="section-title" id="urunler">Premium Tropikal Ürünler</h2>
-            
+
             <!-- Kargo Bilgisi -->
             <div class="cargo-info">
                 <p><i class="fas fa-shipping-fast"></i> <span id="cargoInfoText">1500 TL ve üzeri alışverişlerde kargo ücretsizdir. Altındaki siparişlerde kargo ücreti satıcı ile iletişimde belirlenir.</span></p>
                 <p class="cargo-free" id="cargoFreeText">1500 TL üzeri alışverişlerde KARGO BEDAVA!</p>
             </div>
-            
+
             <div class="products-column">
                 <!-- Lime -->
                 <div class="product-item">
@@ -847,14 +847,14 @@
                         <h3 class="product-title">Taze Lime</h3>
                         <div class="product-price">₺180 / kg</div>
                         <p class="product-description" id="limeDescription">Türkiye'nin Akdeniz bölgesinde özenle yetiştirilen taze limonlar, normal limonlara göre daha aromatik ve ekşi bir tada sahiptir. Yemeklerinize, içeceklerinize ve tatlılarınıza ferahlatıcı bir lezzet katar.</p>
-                        
+
                         <div class="product-features">
                             <div class="feature"><i class="fas fa-check-circle"></i> <span class="feature-text">Zengin C Vitamini Kaynağı</span></div>
                             <div class="feature"><i class="fas fa-check-circle"></i> <span class="feature-text">Antioksidan Özellikli</span></div>
                             <div class="feature"><i class="fas fa-check-circle"></i> <span class="feature-text">Taze Hasat, Doğal Lezzet</span></div>
                             <div class="feature"><i class="fas fa-check-circle"></i> <span class="feature-text">Yerli ve Sürdürülebilir Üretim</span></div>
                         </div>
-                        
+
                         <div class="product-actions">
                             <button class="action-btn info-btn" data-fruit="Lime" data-type="detail">
                                 <i class="fas fa-info-circle"></i> <span class="detail-text">Detay</span>
@@ -865,7 +865,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Avokado -->
                 <div class="product-item">
                     <div class="product-image">
@@ -875,14 +875,14 @@
                         <h3 class="product-title">Kremalı Avokado</h3>
                         <div class="product-price">₺65 / adet</div>
                         <p class="product-description" id="avocadoDescription">Türkiye'nin Akdeniz ve Ege bölgelerinde yetiştirilen premium avokadolar, kremamsı dokusu ve hafif tadıyla sağlıklı beslenmenin vazgeçilmezi. Salatalar, tostlar ve mezeler için ideal.</p>
-                        
+
                         <div class="product-features">
                             <div class="feature"><i class="fas fa-check-circle"></i> <span class="feature-text">Sağlıklı Yağ Asitleri Kaynağı</span></div>
                             <div class="feature"><i class="fas fa-check-circle"></i> <span class="feature-text">Yüksek Lif İçeriği</span></div>
                             <div class="feature"><i class="fas fa-check-circle"></i> <span class="feature-text">Potasyum ve Vitamin Deposu</span></div>
                             <div class="feature"><i class="fas fa-check-circle"></i> <span class="feature-text">Organik Tarım Yöntemleri</span></div>
                         </div>
-                        
+
                         <div class="product-actions">
                             <button class="action-btn info-btn" data-fruit="Avokado" data-type="detail">
                                 <i class="fas fa-info-circle"></i> <span class="detail-text">Detay</span>
@@ -893,7 +893,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Ejder Meyvesi -->
                 <div class="product-item">
                     <div class="product-image">
@@ -903,14 +903,14 @@
                         <h3 class="product-title">Egzotik Ejder Meyvesi</h3>
                         <div class="product-price">₺75 / adet</div>
                         <p class="product-description" id="dragonfruitDescription">Türkiye'de Akdeniz bölgesindeki özel seralarda yetiştirilen ejder meyvesi, hafif tatlı ve ferahlatıcı tadıyla tropikal bir deneyim sunar. Taze tüketim, smoothie'ler ve dekoratif sunumlar için mükemmel.</p>
-                        
+
                         <div class="product-features">
                             <div class="feature"><i class="fas fa-check-circle"></i> <span class="feature-text">Güçlü Antioksidan Özellikli</span></div>
                             <div class="feature"><i class="fas fa-check-circle"></i> <span class="feature-text">C Vitamini ve Lif Kaynağı</span></div>
                             <div class="feature"><i class="fas fa-check-circle"></i> <span class="feature-text">Düşük Kalorili, Besleyici</span></div>
                             <div class="feature"><i class="fas fa-check-circle"></i> <span class="feature-text">Kontrollü Sera Üretimi</span></div>
                         </div>
-                        
+
                         <div class="product-actions">
                             <button class="action-btn info-btn" data-fruit="Ejder Meyvesi" data-type="detail">
                                 <i class="fas fa-info-circle"></i> <span class="detail-text">Detay</span>
@@ -921,7 +921,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Mango -->
                 <div class="product-item">
                     <div class="product-image">
@@ -931,14 +931,14 @@
                         <h3 class="product-title">Aromatik Mango</h3>
                         <div class="product-price">₺120 / kg</div>
                         <p class="product-description" id="mangoDescription">Türkiye'nin Akdeniz bölgesinde özel koşullarda yetiştirilen mangolar, tatlı ve aromatik tadıyla tropikal lezzet arayanlar için ideal. Taze tüketim, meyve salataları ve tatlılarda mükemmel sonuç verir.</p>
-                        
+
                         <div class="product-features">
                             <div class="feature"><i class="fas fa-check-circle"></i> <span class="feature-text">Zengin A Vitamini Kaynağı</span></div>
                             <div class="feature"><i class="fas fa-check-circle"></i> <span class="feature-text">Doğal Şeker İçeriği</span></div>
                             <div class="feature"><i class="fas fa-check-circle"></i> <span class="feature-text">Sindirimi Destekleyici Lifler</span></div>
                             <div class="feature"><i class="fas fa-check-circle"></i> <span class="feature-text">Sürdürülebilir Tarım Uygulamaları</span></div>
                         </div>
-                        
+
                         <div class="product-actions">
                             <button class="action-btn info-btn" data-fruit="Mango" data-type="detail">
                                 <i class="fas fa-info-circle"></i> <span class="detail-text">Detay</span>
@@ -949,7 +949,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Ananas -->
                 <div class="product-item">
                     <div class="product-image">
@@ -959,14 +959,14 @@
                         <h3 class="product-title">Tatlı Ananas</h3>
                         <div class="product-price">₺95 / adet</div>
                         <p class="product-description" id="pineappleDescription">Türkiye'nin Akdeniz bölgesinde özenle yetiştirilen ananaslar, tatlı ve sulu etleriyle tropikal lezzet arayanlar için mükemmel bir seçimdir. Taze tüketim, meyve salataları ve tatlılarda kullanılabilir.</p>
-                        
+
                         <div class="product-features">
                             <div class="feature"><i class="fas fa-check-circle"></i> <span class="feature-text">Bromelain Enzimi İçerir</span></div>
                             <div class="feature"><i class="fas fa-check-circle"></i> <span class="feature-text">C Vitamini ve Manganez Kaynağı</span></div>
                             <div class="feature"><i class="fas fa-check-circle"></i> <span class="feature-text">Sindirimi Destekler</span></div>
                             <div class="feature"><i class="fas fa-check-circle"></i> <span class="feature-text">Doğal Tatlılık</span></div>
                         </div>
-                        
+
                         <div class="product-actions">
                             <button class="action-btn info-btn" data-fruit="Ananas" data-type="detail">
                                 <i class="fas fa-info-circle"></i> <span class="detail-text">Detay</span>
@@ -977,7 +977,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Kivi -->
                 <div class="product-item">
                     <div class="product-image">
@@ -987,14 +987,14 @@
                         <h3 class="product-title">Taze Kivi</h3>
                         <div class="product-price">₺45 / kg</div>
                         <p class="product-description" id="kiwiDescription">Türkiye'nin Karadeniz bölgesinde yetiştirilen kiviler, tatlı-ekşi dengesi ve yumuşak dokusuyla sağlıklı atıştırmalıklar için idealdir. C vitamini deposu olan kivi, bağışıklık sistemini destekler.</p>
-                        
+
                         <div class="product-features">
                             <div class="feature"><i class="fas fa-check-circle"></i> <span class="feature-text">Yüksek C Vitamini İçeriği</span></div>
                             <div class="feature"><i class="fas fa-check-circle"></i> <span class="feature-text">Lif ve Antioksidan Kaynağı</span></div>
                             <div class="feature"><i class="fas fa-check-circle"></i> <span class="feature-text">Potasyum ve E Vitamini İçerir</span></div>
                             <div class="feature"><i class="fas fa-check-circle"></i> <span class="feature-text">Doğal Yetiştirme</span></div>
                         </div>
-                        
+
                         <div class="product-actions">
                             <button class="action-btn info-btn" data-fruit="Kivi" data-type="detail">
                                 <i class="fas fa-info-circle"></i> <span class="detail-text">Detay</span>
@@ -1006,7 +1006,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- Hakkımızda Bölümü -->
             <div class="about-section" id="hakkimizda">
                 <h2 class="section-title" id="aboutTitle">Hakkımızda</h2>
@@ -1022,35 +1022,35 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- İletişim Formu -->
             <div class="contact-form" id="iletisim">
                 <h2 class="section-title" id="contactTitle">Sipariş ve İletişim</h2>
-                
+
                 <div class="form-group">
                     <label for="name" id="nameLabel">Adınız Soyadınız *</label>
                     <input type="text" id="name" class="form-control" placeholder="Adınız ve soyadınız">
                     <div class="error-message" id="name-error">Lütfen adınızı giriniz</div>
                 </div>
-                
+
                 <div class="form-group">
                     <label for="email" id="emailLabel">E-posta Adresiniz *</label>
                     <input type="email" id="email" class="form-control" placeholder="E-posta adresiniz">
                     <div class="error-message" id="email-error">Lütfen geçerli bir e-posta adresi giriniz</div>
                 </div>
-                
+
                 <div class="form-group">
                     <label for="phone" id="phoneLabel">Telefon Numaranız *</label>
                     <input type="tel" id="phone" class="form-control" placeholder="Telefon numaranız">
                     <div class="error-message" id="phone-error">Lütfen telefon numaranızı giriniz</div>
                 </div>
-                
+
                 <div class="form-group">
                     <label for="address" id="addressLabel">Adresiniz *</label>
                     <input type="text" id="address" class="form-control" placeholder="Teslimat adresiniz">
                     <div class="error-message" id="address-error">Lütfen adresinizi giriniz</div>
                 </div>
-                
+
                 <div class="form-group">
                     <label for="product" id="productLabel">İlgilendiğiniz Ürün</label>
                     <select id="product" class="form-control">
@@ -1064,12 +1064,12 @@
                         <option value="Diğer">Diğer</option>
                     </select>
                 </div>
-                
+
                 <div class="form-group">
                     <label for="message" id="messageLabel">Mesajınız</label>
                     <textarea id="message" class="form-control" rows="4" placeholder="Mesajınız, sorularınız veya özel notlarınız"></textarea>
                 </div>
-                
+
                 <div class="checkout-options">
                     <button class="checkout-btn email-btn" id="emailContactBtn">
                         <i class="fas fa-envelope"></i> <span id="emailContactText">E-posta ile Gönder</span>
@@ -1084,26 +1084,26 @@
             </div>
         </div>
     </div>
-    
+
     <!-- Sepet Modal -->
     <div class="modal" id="basketModal">
         <div class="modal-content">
             <span class="close-modal">&times;</span>
             <h2 class="modal-title" id="basketTitle">Alışveriş Sepetiniz</h2>
-            
+
             <div class="basket-items" id="basketItems">
                 <div class="empty-basket" id="emptyBasketText">Sepetinizde ürün bulunmamaktadır.</div>
             </div>
-            
+
             <!-- Kargo Bilgisi Sepet -->
             <div class="cargo-info" id="basketCargoInfo">
                 <p><i class="fas fa-info-circle"></i> <span id="basketCargoText">1500 TL ve üzeri siparişlerde kargo ücretsizdir. Altındaki siparişlerde kargo ücreti satıcı ile iletişimde belirlenir.</span></p>
             </div>
-            
+
             <div class="basket-total" id="basketTotal">
                 Toplam: ₺0
             </div>
-            
+
             <div class="checkout-options">
                 <button class="checkout-btn reset-btn" id="resetBasketBtn">
                     <i class="fas fa-trash"></i> <span id="resetBasketText">Sepeti Sıfırla</span>
@@ -1115,7 +1115,7 @@
                     <i class="fab fa-whatsapp"></i> <span id="whatsappOrderText">WhatsApp ile Sipariş Ver</span>
                 </button>
             </div>
-            
+
             <!-- Sipariş Formu -->
             <div class="order-form" id="orderForm">
                 <h3 id="orderFormTitle">Sipariş Bilgileri</h3>
@@ -1145,7 +1145,7 @@
             </div>
         </div>
     </div>
-    
+
     <!-- Ürün Detay Modal -->
     <div class="modal" id="productModal">
         <div class="modal-content">
@@ -1156,7 +1156,7 @@
             </div>
         </div>
     </div>
-    
+
     <footer>
         <div class="container">
             <div class="footer-content">
@@ -1164,14 +1164,14 @@
                     <h3><img src="./images/tropikob.svg" alt="The Tropic" class="footer-logo"></h3>
                     <p id="footerDescription">Tropikal lezzetleri en taze haliyle sizlere ulaştırıyoruz. Kalite ve tazelik garantisiyle.</p>
                 </div>
-                
+
                 <div class="footer-section">
                     <h3 id="footerContactTitle">İletişim</h3>
                     <p><i class="fas fa-phone"></i> <span id="footerWhatsapp">WhatsApp:</span> +90 507 434 0200 (Yusuf Alp)</p>
-                    <p><i class="fas fa-envelope"></i> <span id="footerEmail">E-posta:</span> info@thetropic.com.tr</p>
+                    <p><i class="fas fa-envelope"></i> <span id="footerEmail">E-posta:</span> thetropicadana@gmail.com</p>
                     <p><i class="fas fa-map-marker-alt"></i> <span id="footerAddress">Adres:</span> Şehit Mustafa Mah. İsmetpaşa Bulv. Baltalı İşhanı No:10 Tarsus/Mersin</p>
                 </div>
-                
+
                 <div class="footer-section">
                     <h3 id="footerQuickLinks">Hızlı Erişim</h3>
                     <div class="footer-links">
@@ -1181,7 +1181,7 @@
                         <a href="#" id="footerPrivacy">Gizlilik Politikası</a>
                     </div>
                 </div>
-                
+
                 <div class="footer-section">
                     <h3 id="footerFollow">Bizi Takip Edin</h3>
                     <div class="social-icons">
@@ -1191,7 +1191,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="copyright">
                 <span id="copyrightText">&copy; 2025 The Tropic - ÖZYÜREKOĞLU TARIM YAŞ SEBZE MEYVE TİCARET LİMİTED ŞİRKETİ - Tüm Hakları Saklıdır.</span>
             </div>
@@ -1210,7 +1210,7 @@
                 basketText: "Sepet",
                 cargoInfoText: "1500 TL ve üzeri alışverişlerde kargo ücretsizdir. Altındaki siparişlerde kargo ücreti satıcı ile iletişimde belirlenir.",
                 cargoFreeText: "1500 TL üzeri alışverişlerde KARGO BEDAVA!",
-                
+
                 // Ürün açıklamaları
                 limeDescription: "Türkiye'nin Akdeniz bölgesinde özenle yetiştirilen taze limonlar, normal limonlara göre daha aromatik ve ekşi bir tada sahiptir. Yemeklerinize, içeceklerinize ve tatlılarınıza ferahlatıcı bir lezzet katar.",
                 avocadoDescription: "Türkiye'nin Akdeniz ve Ege bölgelerinde yetiştirilen premium avokadolar, kremamsı dokusu ve hafif tadıyla sağlıklı beslenmenin vazgeçilmezi. Salatalar, tostlar ve mezeler için ideal.",
@@ -1218,7 +1218,7 @@
                 mangoDescription: "Türkiye'nin Akdeniz bölgesinde özel koşullarda yetiştirilen mangolar, tatlı ve aromatik tadıyla tropikal lezzet arayanlar için ideal. Taze tüketim, meyve salataları ve tatlılarda mükemmel sonuç verir.",
                 pineappleDescription: "Türkiye'nin Akdeniz bölgesinde özenle yetiştirilen ananaslar, tatlı ve sulu etleriyle tropikal lezzet arayanlar için mükemmel bir seçimdir. Taze tüketim, meyve salataları ve tatlılarda kullanılabilir.",
                 kiwiDescription: "Türkiye'nin Karadeniz bölgesinde yetiştirilen kiviler, tatlı-ekşi dengesi ve yumuşak dokusuyla sağlıklı atıştırmalıklar için idealdir. C vitamini deposu olan kivi, bağışıklık sistemini destekler.",
-                
+
                 // Özellikler
                 feature1: "Zengin C Vitamini Kaynağı",
                 feature2: "Antioksidan Özellikli",
@@ -1244,18 +1244,18 @@
                 feature22: "Lif ve Antioksidan Kaynağı",
                 feature23: "Potasyum ve E Vitamini İçerir",
                 feature24: "Doğal Yetiştirme",
-                
+
                 // Butonlar
                 detailText: "Detay",
                 addToCartText: "Sepete Ekle",
-                
+
                 // Hakkımızda
                 aboutTitle: "Hakkımızda",
                 aboutText1: "32 yıldır Çukurova bölgesinde ÖZYÜREKOĞLU TARIM YAŞ SEBZE MEYVE TİCARET LİMİTED ŞİRKETİ olarak, hem kendi bahçelerimizde hem de tecrübeli tedarikçilerimizle birlikte tarım sektöründe hizmet vermekteyiz.",
                 aboutText2: "The Tropic markasıyla, Türkiye'de yetiştirilen tropikal meyve ve sebzeleri en taze halleriyle sizlere ulaştırıyoruz. Uzun yıllara dayanan tecrübemiz ve bölge çiftçileriyle kurduğumuz güçlü ilişkiler sayesinde, kaliteli ürünleri uygun fiyatlarla sunmayı hedefliyoruz.",
                 aboutText3: "Ürünlerimiz, sürdürülebilir tarım yöntemleri kullanan güvenilir tedarikçilerden gelmektedir. Kalite kontrol süreçlerimiz, meyve ve sebzelerin en taze halleriyle sofralarınıza ulaşmasını garantiler.",
                 aboutText4: "İşletmelere ve toptan alıcılara özel fiyatlar ve nakliye çözümleri sunmaktayız. Büyük siparişler için ekibimizle iletişime geçebilirsiniz.",
-                
+
                 // İletişim
                 contactTitle: "Sipariş ve İletişim",
                 nameLabel: "Adınız Soyadınız *",
@@ -1267,7 +1267,7 @@
                 emailContactText: "E-posta ile Gönder",
                 whatsappContactText: "WhatsApp ile Gönder",
                 phoneContactText: "Bizi Arayın",
-                
+
                 // Sepet
                 basketTitle: "Alışveriş Sepetiniz",
                 emptyBasketText: "Sepetinizde ürün bulunmamaktadır.",
@@ -1282,7 +1282,7 @@
                 orderAddressLabel: "Adresiniz *",
                 orderNotesLabel: "Notlar",
                 completeOrderText: "Siparişi Tamamla",
-                
+
                 // Footer
                 footerDescription: "Tropikal lezzetleri en taze haliyle sizlere ulaştırıyoruz. Kalite ve tazelik garantisiyle.",
                 footerContactTitle: "İletişim",
@@ -1296,7 +1296,7 @@
                 footerPrivacy: "Gizlilik Politikası",
                 footerFollow: "Bizi Takip Edin",
                 copyrightText: "© 2025 The Tropic - ÖZYÜREKOĞLU TARIM YAŞ SEBZE MEYVE TİCARET LİMİTED ŞİRKETİ - Tüm Hakları Saklıdır.",
-                
+
                 // Bildirimler
                 productAdded: " ürün sepete eklendi!",
                 basketReset: "Sepetiniz sıfırlandı.",
@@ -1314,7 +1314,7 @@
                 basketText: "Basket",
                 cargoInfoText: "Free shipping on orders over 1500 TL. For orders below this amount, shipping cost is determined in communication with the seller.",
                 cargoFreeText: "FREE SHIPPING on orders over 1500 TL!",
-                
+
                 // Product descriptions
                 limeDescription: "Fresh limes carefully grown in Turkey's Mediterranean region have a more aromatic and sour taste compared to regular lemons. They add a refreshing flavor to your meals, drinks and desserts.",
                 avocadoDescription: "Premium avocados grown in Turkey's Mediterranean and Aegean regions are essential for healthy nutrition with their creamy texture and mild taste. Ideal for salads, toasts and appetizers.",
@@ -1322,7 +1322,7 @@
                 mangoDescription: "Mangoes grown under special conditions in Turkey's Mediterranean region are ideal for those seeking tropical flavors with their sweet and aromatic taste. Perfect for fresh consumption, fruit salads and desserts.",
                 pineappleDescription: "Pineapples carefully grown in Turkey's Mediterranean region are an excellent choice for those looking for tropical flavors with their sweet and juicy flesh. Can be used for fresh consumption, fruit salads and desserts.",
                 kiwiDescription: "Kiwis grown in Turkey's Black Sea region are ideal for healthy snacks with their sweet-sour balance and soft texture. Kiwi, which is a storehouse of vitamin C, supports the immune system.",
-                
+
                 // Features
                 feature1: "Rich Source of Vitamin C",
                 feature2: "Antioxidant Properties",
@@ -1348,18 +1348,18 @@
                 feature22: "Source of Fiber and Antioxidants",
                 feature23: "Contains Potassium and Vitamin E",
                 feature24: "Natural Cultivation",
-                
+
                 // Buttons
                 detailText: "Details",
                 addToCartText: "Add to Cart",
-                
+
                 // About Us
                 aboutTitle: "About Us",
                 aboutText1: "For 32 years, as ÖZYÜREKOĞLU TARIM YAŞ SEBZE MEYVE TİCARET LİMİTED ŞİRKETİ in the Çukurova region, we have been serving in the agricultural sector with both our own gardens and experienced suppliers.",
                 aboutText2: "With The Tropic brand, we deliver tropical fruits and vegetables grown in Turkey to you in their freshest form. Thanks to our years of experience and strong relationships with regional farmers, we aim to offer quality products at affordable prices.",
                 aboutText3: "Our products come from reliable suppliers using sustainable farming methods. Our quality control processes guarantee that fruits and vegetables reach your tables in their freshest form.",
                 aboutText4: "We offer special prices and shipping solutions for businesses and wholesale buyers. For large orders, you can contact our team.",
-                
+
                 // Contact
                 contactTitle: "Order and Contact",
                 nameLabel: "Your Name and Surname *",
@@ -1371,7 +1371,7 @@
                 emailContactText: "Send via Email",
                 whatsappContactText: "Send via WhatsApp",
                 phoneContactText: "Call Us",
-                
+
                 // Basket
                 basketTitle: "Your Shopping Basket",
                 emptyBasketText: "Your basket is empty.",
@@ -1386,7 +1386,7 @@
                 orderAddressLabel: "Your Address *",
                 orderNotesLabel: "Notes",
                 completeOrderText: "Complete Order",
-                
+
                 // Footer
                 footerDescription: "We deliver tropical flavors to you in their freshest form. With quality and freshness guarantee.",
                 footerContactTitle: "Contact",
@@ -1400,7 +1400,7 @@
                 footerPrivacy: "Privacy Policy",
                 footerFollow: "Follow Us",
                 copyrightText: "© 2025 The Tropic - ÖZYÜREKOĞLU TARIM YAŞ SEBZE MEYVE TİCARET LİMİTED ŞİRKETİ - All Rights Reserved.",
-                
+
                 // Notifications
                 productAdded: " product added to basket!",
                 basketReset: "Your basket has been reset.",
@@ -1418,7 +1418,7 @@
                 basketText: "Warenkorb",
                 cargoInfoText: "Versandkostenfrei ab 1500 TL. Bei Bestellungen unter diesem Betrag werden die Versandkosten im Gespräch mit dem Verkäufer festgelegt.",
                 cargoFreeText: "VERSANDKOSTENFREI bei Bestellungen über 1500 TL!",
-                
+
                 // Produktbeschreibungen
                 limeDescription: "Frische Limetten, die sorgfältig in der türkischen Mittelmeerregion angebaut werden, haben im Vergleich zu normalen Zitronen einen aromatischeren und saureren Geschmack. Sie verleihen Ihren Speisen, Getränken und Desserts einen erfrischenden Geschmack.",
                 avocadoDescription: "Premium-Avocados aus der türkischen Mittelmeer- und Ägäisregion sind mit ihrer cremigen Textur und ihrem milden Geschmack unverzichtbar für eine gesunde Ernährung. Ideal für Salate, Toasts und Vorspeisen.",
@@ -1426,7 +1426,7 @@
                 mangoDescription: "Mangos, die unter besonderen Bedingungen in der türkischen Mittelmeerregion angebaut werden, sind mit ihrem süßen und aromatischen Geschmack ideal für alle, die tropische Aromen suchen. Perfekt für Frischverzehr, Obstsalate und Desserts.",
                 pineappleDescription: "Ananas, die sorgfältig in der türkischen Mittelmeerregion angebaut werden, sind eine ausgezeichnete Wahl für alle, die tropische Aromen mit süßem und saftigem Fruchtfleisch suchen. Kann für Frischverzehr, Obstsalate und Desserts verwendet werden.",
                 kiwiDescription: "Kiwis aus der türkischen Schwarzmeerregion sind mit ihrer süß-sauren Balance und weichen Textur ideal für gesunde Snacks. Kiwi, die ein Speicher für Vitamin C ist, unterstützt das Immunsystem.",
-                
+
                 // Eigenschaften
                 feature1: "Reichhaltige Vitamin C-Quelle",
                 feature2: "Antioxidative Eigenschaften",
@@ -1452,18 +1452,18 @@
                 feature22: "Quelle von Ballaststoffen und Antioxidantien",
                 feature23: "Enthält Kalium und Vitamin E",
                 feature24: "Natürlicher Anbau",
-                
+
                 // Buttons
                 detailText: "Details",
                 addToCartText: "In den Warenkorb",
-                
+
                 // Über uns
                 aboutTitle: "Über uns",
                 aboutText1: "Seit 32 Jahren sind wir als ÖZYÜREKOĞLU TARIM YAŞ SEBZE MEYVE TİCARET LİMİTED ŞİRKETİ in der Region Çukurova sowohl mit unseren eigenen Gärten als auch mit erfahrenen Lieferanten im Agrarsektor tätig.",
                 aboutText2: "Mit der Marke The Tropic liefern wir tropische Früchte und Gemüse, die in der Türkei angebaut werden, in ihrer frischesten Form an Sie. Dank unserer langjährigen Erfahrung und starken Beziehungen zu regionalen Landwirten streben wir an, qualitativ hochwertige Produkte zu erschwinglichen Preisen anzubieten.",
                 aboutText3: "Unsere Produkte stammen von zuverlässigen Lieferanten, die nachhaltige Anbaumethoden verwenden. Unsere Qualitätskontrollprozesse garantieren, dass Obst und Gemüse in ihrer frischesten Form auf Ihren Tisch kommen.",
                 aboutText4: "Wir bieten spezielle Preise und Versandlösungen für Unternehmen und Großabnehmer. Für große Bestellungen können Sie sich an unser Team wenden.",
-                
+
                 // Kontakt
                 contactTitle: "Bestellung und Kontakt",
                 nameLabel: "Ihr Vor- und Nachname *",
@@ -1475,7 +1475,7 @@
                 emailContactText: "Per E-Mail senden",
                 whatsappContactText: "Per WhatsApp senden",
                 phoneContactText: "Rufen Sie uns an",
-                
+
                 // Warenkorb
                 basketTitle: "Ihr Warenkorb",
                 emptyBasketText: "Ihr Warenkorb ist leer.",
@@ -1490,7 +1490,7 @@
                 orderAddressLabel: "Ihre Adresse *",
                 orderNotesLabel: "Notizen",
                 completeOrderText: "Bestellung abschließen",
-                
+
                 // Footer
                 footerDescription: "Wir liefern tropische Aromen in ihrer frischesten Form zu Ihnen. Mit Qualitäts- und Frischegarantie.",
                 footerContactTitle: "Kontakt",
@@ -1504,7 +1504,7 @@
                 footerPrivacy: "Datenschutzrichtlinie",
                 footerFollow: "Folgen Sie uns",
                 copyrightText: "© 2025 The Tropic - ÖZYÜREKOĞLU TARIM YAŞ SEBZE MEYVE TİCARET LİMİTED ŞİRKETİ - Alle Rechte vorbehalten.",
-                
+
                 // Benachrichtigungen
                 productAdded: " Produkt zum Warenkorb hinzugefügt!",
                 basketReset: "Ihr Warenkorb wurde zurückgesetzt.",
@@ -1522,7 +1522,7 @@
                 basketText: "Корзина",
                 cargoInfoText: "Бесплатная доставка при заказе от 1500 TL. Для заказов ниже этой суммы стоимость доставки определяется при общении с продавцом.",
                 cargoFreeText: "БЕСПЛАТНАЯ ДОСТАВКА при заказе от 1500 TL!",
-                
+
                 // Описания продуктов
                 limeDescription: "Свежие лаймы, тщательно выращенные в средиземноморском регионе Турции, имеют более ароматный и кислый вкус по сравнению с обычными лимонами. Они добавляют освежающий вкус вашим блюдам, напиткам и десертам.",
                 avocadoDescription: "Премиальные авокадо, выращенные в средиземноморском и эгейском регионах Турции, являются незаменимыми для здорового питания благодаря своей кремовой текстуре и мягкому вкусу. Идеально подходят для салатов, тостов и закусок.",
@@ -1530,7 +1530,7 @@
                 mangoDescription: "Манго, выращенные в особых условиях в средиземноморском регионе Турции, идеально подходят для тех, кто ищет тропические вкусы, благодаря своему сладкому и ароматному вкусу. Идеально для свежего потребления, фруктовых салатов и десертов.",
                 pineappleDescription: "Ананасы, тщательно выращенные в средиземноморском регионе Турции, являются отличным выбором для тех, кто ищет тропические вкусы с их сладкой и сочной мякотью. Могут использоваться для свежего потребления, фруктовых салатов и десертов.",
                 kiwiDescription: "Киви, выращенные в черноморском регионе Турции, идеально подходят для здоровых закусок благодаря их сладко-кислому балансу и мягкой текстуре. Киви, который является кладезем витамина С, поддерживает иммунную систему.",
-                
+
                 // Особенности
                 feature1: "Богатый источник витамина C",
                 feature2: "Антиоксидантные свойства",
@@ -1556,18 +1556,18 @@
                 feature22: "Источник клетчатки и антиоксидантов",
                 feature23: "Содержит калий и витамин E",
                 feature24: "Натуральное выращивание",
-                
+
                 // Кнопки
                 detailText: "Детали",
                 addToCartText: "Добавить в корзину",
-                
+
                 // О нас
                 aboutTitle: "О нас",
                 aboutText1: "В течение 32 лет в регионе Чукурова, как ÖZYÜREKOĞLU TARIM YAŞ SEBZE MEYVE TİCARET LİMİTED ŞİRKETİ, мы работаем в сельскохозяйственном секторе как с нашими собственными садами, так и с опытными поставщиками.",
                 aboutText2: "Под брендом The Tropic мы доставляем тропические фрукты и овощи, выращенные в Турции, к вам в самой свежей форме. Благодаря нашему многолетнему опыту и прочным отношениям с региональными фермерами, мы стремимся предлагать качественные продукты по доступным ценам.",
                 aboutText3: "Наши продукты поступают от надежных поставщиков, использующих устойчивые методы ведения сельского хозяйства. Наши процессы контроля качества гарантируют, что фрукты и овощи попадают на ваш стол в самой свежей форме.",
                 aboutText4: "Мы предлагаем специальные цены и решения по доставке для предприятий и оптовых покупателей. Для крупных заказов вы можете связаться с нашей командой.",
-                
+
                 // Контакты
                 contactTitle: "Заказ и контакты",
                 nameLabel: "Ваше имя и фамилия *",
@@ -1579,7 +1579,7 @@
                 emailContactText: "Отправить по электронной почте",
                 whatsappContactText: "Отправить через WhatsApp",
                 phoneContactText: "Позвоните нам",
-                
+
                 // Корзина
                 basketTitle: "Ваша корзина покупок",
                 emptyBasketText: "Ваша корзина пуста.",
@@ -1594,7 +1594,7 @@
                 orderAddressLabel: "Ваш адрес *",
                 orderNotesLabel: "Примечания",
                 completeOrderText: "Завершить заказ",
-                
+
                 // Футер
                 footerDescription: "Мы доставляем тропические вкусы к вам в самой свежей форме. С гарантией качества и свежести.",
                 footerContactTitle: "Контакты",
@@ -1608,7 +1608,7 @@
                 footerPrivacy: "Политика конфиденциальности",
                 footerFollow: "Подпишитесь на нас",
                 copyrightText: "© 2025 The Tropic - ÖZYÜREKOĞLU TARIM YAŞ SEBZE MEYVE TİCARET LİMİTED ŞİRKETИ - Все права защищены.",
-                
+
                 // Уведомления
                 productAdded: " товар добавлен в корзину!",
                 basketReset: "Ваша корзина была очищена.",
@@ -1628,18 +1628,18 @@
         function changeLanguage(lang) {
             currentLanguage = lang;
             localStorage.setItem('thetropicLanguage', lang);
-            
+
             // Dil butonunu güncelle
             currentLanguageText.textContent = getLanguageName(lang);
-            
+
             // Tüm çevirileri uygula
             applyTranslations(lang);
-            
+
             // Sepeti yeniden oluştur (eğer açıksa)
             if (basketModal.style.display === 'flex') {
                 renderBasket();
             }
-            
+
             // Dil dropdown'u kapat
             languageDropdown.classList.remove('show');
         }
@@ -1656,7 +1656,7 @@
 
         function applyTranslations(lang) {
             const translation = translations[lang];
-            
+
             // Genel çeviriler
             document.getElementById('taglineText').textContent = translation.tagline;
             document.getElementById('navProducts').textContent = translation.navProducts;
@@ -1665,7 +1665,7 @@
             document.getElementById('basketText').textContent = translation.basketText;
             document.getElementById('cargoInfoText').textContent = translation.cargoInfoText;
             document.getElementById('cargoFreeText').textContent = translation.cargoFreeText;
-            
+
             // Ürün açıklamaları
             document.getElementById('limeDescription').textContent = translation.limeDescription;
             document.getElementById('avocadoDescription').textContent = translation.avocadoDescription;
@@ -1673,7 +1673,7 @@
             document.getElementById('mangoDescription').textContent = translation.mangoDescription;
             document.getElementById('pineappleDescription').textContent = translation.pineappleDescription;
             document.getElementById('kiwiDescription').textContent = translation.kiwiDescription;
-            
+
             // Özellikler
             const features = document.querySelectorAll('.feature-text');
             for (let i = 0; i < features.length; i++) {
@@ -1681,25 +1681,25 @@
                     features[i].textContent = translation[`feature${i+1}`];
                 }
             }
-            
+
             // Butonlar
             const detailButtons = document.querySelectorAll('.detail-text');
             detailButtons.forEach(btn => {
                 btn.textContent = translation.detailText;
             });
-            
+
             const addToCartButtons = document.querySelectorAll('.add-to-cart-text');
             addToCartButtons.forEach(btn => {
                 btn.textContent = translation.addToCartText;
             });
-            
+
             // Hakkımızda
             document.getElementById('aboutTitle').textContent = translation.aboutTitle;
             document.getElementById('aboutText1').textContent = translation.aboutText1;
             document.getElementById('aboutText2').textContent = translation.aboutText2;
             document.getElementById('aboutText3').textContent = translation.aboutText3;
             document.getElementById('aboutText4').textContent = translation.aboutText4;
-            
+
             // İletişim
             document.getElementById('contactTitle').textContent = translation.contactTitle;
             document.getElementById('nameLabel').textContent = translation.nameLabel;
@@ -1711,7 +1711,7 @@
             document.getElementById('emailContactText').textContent = translation.emailContactText;
             document.getElementById('whatsappContactText').textContent = translation.whatsappContactText;
             document.getElementById('phoneContactText').textContent = translation.phoneContactText;
-            
+
             // Sepet
             document.getElementById('basketTitle').textContent = translation.basketTitle;
             document.getElementById('emptyBasketText').textContent = translation.emptyBasketText;
@@ -1726,7 +1726,7 @@
             document.getElementById('orderAddressLabel').textContent = translation.orderAddressLabel;
             document.getElementById('orderNotesLabel').textContent = translation.orderNotesLabel;
             document.getElementById('completeOrderText').textContent = translation.completeOrderText;
-            
+
             // Footer
             document.getElementById('footerDescription').textContent = translation.footerDescription;
             document.getElementById('footerContactTitle').textContent = translation.footerContactTitle;
@@ -1859,7 +1859,7 @@
         const completeOrderBtn = document.getElementById('completeOrderBtn');
         const notification = document.getElementById('notification');
         const notificationText = document.getElementById('notification-text');
-        
+
         // İletişim butonları
         const emailContactBtn = document.getElementById('emailContactBtn');
         const whatsappContactBtn = document.getElementById('whatsappContactBtn');
@@ -1869,7 +1869,7 @@
         function showNotification(text) {
             notificationText.textContent = text;
             notification.classList.add('show');
-            
+
             setTimeout(() => {
                 notification.classList.remove('show');
             }, 3000);
@@ -1892,17 +1892,17 @@
                 orderForm.style.display = 'none';
                 return;
             }
-            
+
             emailOrderBtn.style.display = 'block';
             whatsappOrderBtn.style.display = 'block';
             resetBasketBtn.style.display = 'block';
             basketItems.innerHTML = '';
             let total = 0;
-            
+
             basket.forEach((item, index) => {
                 const itemTotal = item.price * item.quantity;
                 total += itemTotal;
-                
+
                 const basketItem = document.createElement('div');
                 basketItem.className = 'basket-item';
                 basketItem.innerHTML = `
@@ -1920,10 +1920,10 @@
                         <button class="quantity-btn remove-btn" data-index="${index}"><i class="fas fa-trash"></i></button>
                     </div>
                 `;
-                
+
                 basketItems.appendChild(basketItem);
             });
-            
+
             // Kargo bilgisini güncelle
             const basketCargoInfo = document.getElementById('basketCargoInfo');
             if (total >= 1500) {
@@ -1931,9 +1931,9 @@
             } else {
                 basketCargoInfo.innerHTML = `<p><i class="fas fa-info-circle"></i> <span>${translations[currentLanguage].basketCargoText}</span></p>`;
             }
-            
+
             basketTotal.textContent = `Toplam: ₺${total}`;
-            
+
             // Sepet olay dinleyicileri
             document.querySelectorAll('.decrease-btn').forEach(btn => {
                 btn.addEventListener('click', function() {
@@ -1948,7 +1948,7 @@
                     updateBasketCount();
                 });
             });
-            
+
             document.querySelectorAll('.increase-btn').forEach(btn => {
                 btn.addEventListener('click', function() {
                     const index = parseInt(this.getAttribute('data-index'));
@@ -1958,7 +1958,7 @@
                     updateBasketCount();
                 });
             });
-            
+
             document.querySelectorAll('.remove-btn').forEach(btn => {
                 btn.addEventListener('click', function() {
                     const index = parseInt(this.getAttribute('data-index'));
@@ -1989,7 +1989,7 @@
         // Sepete ürün ekle
         function addToBasket(name, price, unit = "kg") {
             const existingItem = basket.find(item => item.name === name);
-            
+
             if (existingItem) {
                 existingItem.quantity++;
             } else {
@@ -2000,7 +2000,7 @@
                     unit: unit
                 });
             }
-            
+
             saveBasket();
             updateBasketCount();
             showNotification(`${name}${translations[currentLanguage].productAdded}`);
@@ -2009,7 +2009,7 @@
         // İletişim formu doğrulama
         function validateContactForm() {
             let isValid = true;
-            
+
             // İsim doğrulama
             const name = document.getElementById('name').value;
             if (name.trim() === '') {
@@ -2018,7 +2018,7 @@
             } else {
                 document.getElementById('name-error').style.display = 'none';
             }
-            
+
             // E-posta doğrulama
             const email = document.getElementById('email').value;
             const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -2028,7 +2028,7 @@
             } else {
                 document.getElementById('email-error').style.display = 'none';
             }
-            
+
             // Telefon doğrulama
             const phone = document.getElementById('phone').value;
             if (phone.trim() === '') {
@@ -2037,7 +2037,7 @@
             } else {
                 document.getElementById('phone-error').style.display = 'none';
             }
-            
+
             // Adres doğrulama
             const address = document.getElementById('address').value;
             if (address.trim() === '') {
@@ -2046,7 +2046,7 @@
             } else {
                 document.getElementById('address-error').style.display = 'none';
             }
-            
+
             return isValid;
         }
 
@@ -2056,12 +2056,12 @@
             const email = document.getElementById('orderEmail').value;
             const phone = document.getElementById('orderPhone').value;
             const address = document.getElementById('orderAddress').value;
-            
+
             if (!name || !email || !phone || !address) {
                 alert('Lütfen tüm zorunlu alanları doldurunuz.');
                 return false;
             }
-            
+
             return true;
         }
 
@@ -2071,7 +2071,7 @@
                 showNotification(translations[currentLanguage].emptyBasketText);
                 return;
             }
-            
+
             orderForm.style.display = 'block';
         }
 
@@ -2081,7 +2081,7 @@
                 showNotification(translations[currentLanguage].emptyBasketText);
                 return;
             }
-            
+
             orderForm.style.display = 'block';
         }
 
@@ -2090,31 +2090,31 @@
             if (!validateOrderForm()) {
                 return;
             }
-            
+
             const name = document.getElementById('orderName').value;
             const email = document.getElementById('orderEmail').value;
             const phone = document.getElementById('orderPhone').value;
             const address = document.getElementById('orderAddress').value;
             const notes = document.getElementById('orderNotes').value;
-            
+
             // Sepet içeriğini hazırla
             const orderItems = basket.map(item => `${item.name} - ${item.quantity} ${item.unit} - ₺${item.price * item.quantity}`).join('%0A');
             const total = basket.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-            
+
             // WhatsApp mesajı
             const message = `Merhaba,%0A%0A*Sipariş Bilgileri*%0Aİsim: ${name}%0ATelefon: ${phone}%0AAdres: ${address}%0A%0A*Sipariş Edilen Ürünler:*%0A${orderItems}%0A%0A*Toplam Tutar:* ₺${total}%0A%0A${notes ? 'Notlar: ' + notes : ''}`;
-            
+
             // WhatsApp gönder
             window.open(`https://wa.me/905074340200?text=${message}`);
-            
+
             showNotification(translations[currentLanguage].orderSending);
-            
+
             // Sepeti temizle
             basket = [];
             saveBasket();
             updateBasketCount();
             renderBasket();
-            
+
             // Modal'ı kapat
             basketModal.style.display = 'none';
             orderForm.style.display = 'none';
@@ -2126,19 +2126,19 @@
                 showNotification(translations[currentLanguage].fillRequiredFields);
                 return;
             }
-            
+
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
             const phone = document.getElementById('phone').value;
             const address = document.getElementById('address').value;
             const product = document.getElementById('product').value;
             const message = document.getElementById('message').value;
-            
+
             const subject = 'The Tropic İletişim Formu';
             const body = `İsim: ${name}%0D%0AE-posta: ${email}%0D%0ATelefon: ${phone}%0D%0AAdres: ${address}%0D%0AÜrün: ${product}%0D%0A%0D%0AMesaj:%0D%0A${message}`;
-            
-            window.open(`mailto:info@thetropic.com.tr?subject=${subject}&body=${body}`);
-            
+
+            window.open(`mailto:thetropicadana@gmail.com?subject=${subject}&body=${body}`);
+
             showNotification(translations[currentLanguage].emailOpening);
         }
 
@@ -2148,18 +2148,18 @@
                 showNotification(translations[currentLanguage].fillRequiredFields);
                 return;
             }
-            
+
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
             const phone = document.getElementById('phone').value;
             const address = document.getElementById('address').value;
             const product = document.getElementById('product').value;
             const message = document.getElementById('message').value;
-            
+
             const text = `Merhaba,%0A%0A*İletişim Formu*%0Aİsim: ${name}%0AE-posta: ${email}%0ATelefon: ${phone}%0AAdres: ${address}%0AÜrün: ${product}%0A%0AMesaj:%0A${message}`;
-            
+
             window.open(`https://wa.me/905074340200?text=${text}`);
-            
+
             showNotification(translations[currentLanguage].whatsappPreparing);
         }
 
@@ -2171,7 +2171,7 @@
         // Ürün detayını göster
         function showProductInfo(fruit, type) {
             modalProductTitle.textContent = `${fruit} Hakkında`;
-            
+
             if (type === 'detail') {
                 modalProductContent.innerHTML = fruitInfo[fruit].detail;
             } else if (type === 'taste') {
@@ -2189,7 +2189,7 @@
                     <p>₺${fruitInfo[fruit].price} / ${fruitInfo[fruit].unit}</p>
                 `;
             }
-            
+
             productModal.style.display = 'flex';
         }
 
@@ -2198,14 +2198,14 @@
             document.querySelectorAll('.nav-link').forEach(link => {
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
-                    
+
                     // Aktif linki güncelle
                     document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
                     this.classList.add('active');
-                    
+
                     const targetId = this.getAttribute('href');
                     const targetElement = document.querySelector(targetId);
-                    
+
                     if (targetElement) {
                         window.scrollTo({
                             top: targetElement.offsetTop - 80,
@@ -2220,35 +2220,35 @@
             // Dil seçiciyi başlat
             currentLanguageText.textContent = getLanguageName(currentLanguage);
             applyTranslations(currentLanguage);
-            
+
             // Dil seçici olayları
             languageBtn.addEventListener('click', function() {
                 languageDropdown.classList.toggle('show');
             });
-            
+
             document.querySelectorAll('.language-option').forEach(option => {
                 option.addEventListener('click', function() {
                     const lang = this.getAttribute('data-lang');
                     changeLanguage(lang);
                 });
             });
-            
+
             // Dışarı tıklayınca dil dropdown'u kapat
             document.addEventListener('click', function(event) {
                 if (!languageBtn.contains(event.target) && !languageDropdown.contains(event.target)) {
                     languageDropdown.classList.remove('show');
                 }
             });
-            
+
             // Sepet işlevselliği
             updateBasketCount();
-            
+
             // Sepet butonuna tıklama
             basketBtn.addEventListener('click', function() {
                 renderBasket();
                 basketModal.style.display = 'flex';
             });
-            
+
             // Sepete ekle butonları
             document.querySelectorAll('.add-to-basket').forEach(button => {
                 button.addEventListener('click', function() {
@@ -2258,7 +2258,7 @@
                     addToBasket(fruit, price, unit);
                 });
             });
-            
+
             // Bilgi butonları
             document.querySelectorAll('.info-btn').forEach(button => {
                 button.addEventListener('click', function() {
@@ -2267,27 +2267,27 @@
                     showProductInfo(fruit, type);
                 });
             });
-            
+
             // E-posta ile sipariş butonu
             emailOrderBtn.addEventListener('click', createEmailOrder);
-            
+
             // WhatsApp ile sipariş butonu
             whatsappOrderBtn.addEventListener('click', createWhatsAppOrder);
-            
+
             // Sepeti sıfırla butonu
             resetBasketBtn.addEventListener('click', resetBasket);
-            
+
             // Siparişi tamamla butonu
             completeOrderBtn.addEventListener('click', completeOrder);
-            
+
             // İletişim formu butonları
             emailContactBtn.addEventListener('click', createEmailContact);
             whatsappContactBtn.addEventListener('click', createWhatsAppContact);
             phoneContactBtn.addEventListener('click', makePhoneCall);
-            
+
             // Yumuşak kaydırma ayarla
             setupSmoothScroll();
-            
+
             // Modal'ları kapatma
             document.querySelectorAll('.close-modal').forEach(closeBtn => {
                 closeBtn.addEventListener('click', function() {
@@ -2296,7 +2296,7 @@
                     orderForm.style.display = 'none';
                 });
             });
-            
+
             // Dışarı tıklayınca modal'ları kapat
             window.addEventListener('click', function(event) {
                 if (event.target === basketModal || event.target === productModal) {
