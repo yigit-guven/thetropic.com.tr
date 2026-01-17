@@ -845,7 +845,7 @@
                     </div>
                     <div class="product-details">
                         <h3 class="product-title">Taze Lime</h3>
-                        <div class="product-price">₺180 / kg</div>
+                        <div class="product-price" id="price-Lime">₺180 / kg</div>
                         <p class="product-description" id="limeDescription">Türkiye'nin Akdeniz bölgesinde özenle yetiştirilen taze limonlar, normal limonlara göre daha aromatik ve ekşi bir tada sahiptir. Yemeklerinize, içeceklerinize ve tatlılarınıza ferahlatıcı bir lezzet katar.</p>
 
                         <div class="product-features">
@@ -873,7 +873,7 @@
                     </div>
                     <div class="product-details">
                         <h3 class="product-title">Kremalı Avokado</h3>
-                        <div class="product-price">₺65 / adet</div>
+                        <div class="product-price" id="price-Avokado">₺65 / adet</div>
                         <p class="product-description" id="avocadoDescription">Türkiye'nin Akdeniz ve Ege bölgelerinde yetiştirilen premium avokadolar, kremamsı dokusu ve hafif tadıyla sağlıklı beslenmenin vazgeçilmezi. Salatalar, tostlar ve mezeler için ideal.</p>
 
                         <div class="product-features">
@@ -901,7 +901,7 @@
                     </div>
                     <div class="product-details">
                         <h3 class="product-title">Egzotik Ejder Meyvesi</h3>
-                        <div class="product-price">₺75 / adet</div>
+                        <div class="product-price" id="price-Ejder Meyvesi">₺75 / adet</div>
                         <p class="product-description" id="dragonfruitDescription">Türkiye'de Akdeniz bölgesindeki özel seralarda yetiştirilen ejder meyvesi, hafif tatlı ve ferahlatıcı tadıyla tropikal bir deneyim sunar. Taze tüketim, smoothie'ler ve dekoratif sunumlar için mükemmel.</p>
 
                         <div class="product-features">
@@ -929,7 +929,7 @@
                     </div>
                     <div class="product-details">
                         <h3 class="product-title">Aromatik Mango</h3>
-                        <div class="product-price">₺120 / kg</div>
+                        <div class="product-price" id="price-Mango">₺120 / kg</div>
                         <p class="product-description" id="mangoDescription">Türkiye'nin Akdeniz bölgesinde özel koşullarda yetiştirilen mangolar, tatlı ve aromatik tadıyla tropikal lezzet arayanlar için ideal. Taze tüketim, meyve salataları ve tatlılarda mükemmel sonuç verir.</p>
 
                         <div class="product-features">
@@ -957,7 +957,7 @@
                     </div>
                     <div class="product-details">
                         <h3 class="product-title">Tatlı Ananas</h3>
-                        <div class="product-price">₺95 / adet</div>
+                        <div class="product-price" id="price-Ananas">₺95 / adet</div>
                         <p class="product-description" id="pineappleDescription">Türkiye'nin Akdeniz bölgesinde özenle yetiştirilen ananaslar, tatlı ve sulu etleriyle tropikal lezzet arayanlar için mükemmel bir seçimdir. Taze tüketim, meyve salataları ve tatlılarda kullanılabilir.</p>
 
                         <div class="product-features">
@@ -985,7 +985,7 @@
                     </div>
                     <div class="product-details">
                         <h3 class="product-title">Taze Kivi</h3>
-                        <div class="product-price">₺45 / kg</div>
+                        <div class="product-price" id="price-Kivi">₺45 / kg</div>
                         <p class="product-description" id="kiwiDescription">Türkiye'nin Karadeniz bölgesinde yetiştirilen kiviler, tatlı-ekşi dengesi ve yumuşak dokusuyla sağlıklı atıştırmalıklar için idealdir. C vitamini deposu olan kivi, bağışıklık sistemini destekler.</p>
 
                         <div class="product-features">
@@ -2306,6 +2306,61 @@
                 }
             });
         });
+    // --- DYNAMIC PRICING SCRIPT START ---
+    async function updatePricesFromSheet() {
+        // REPLACE THIS LINK with your specific Google Sheet CSV link from Step 1
+        const sheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRUkwiGcW1XCUBWsN5yWpf4YfNB4h5jW3vDibooBJq3T_WeS112oGH_cD_mxlXPXxZcZFYVSbMYKqdQ/pub?gid=0&single=true&output=csv';
+
+        try {
+            const response = await fetch(sheetUrl);
+            const data = await response.text();
+
+            // Parse CSV data (Simple parser)
+            const rows = data.split('\n').slice(1); // Remove header row
+
+            rows.forEach(row => {
+                // Split by comma, but handle potential quotes
+                const columns = row.split(',');
+                
+                if (columns.length >= 2) {
+                    const productName = columns[0].trim();
+                    const newPrice = parseFloat(columns[1].trim());
+                    const unit = columns[2] ? columns[2].trim() : 'kg';
+
+                    // 1. Update the visible HTML price on the page
+                    const priceElement = document.getElementById(`price-${productName}`);
+                    if (priceElement) {
+                        priceElement.textContent = `₺${newPrice} / ${unit}`;
+                    }
+
+                    // 2. Update the internal JS object (fruitInfo) so the basket calculates correctly
+                    if (fruitInfo[productName]) {
+                        fruitInfo[productName].price = newPrice;
+                        fruitInfo[productName].unit = unit;
+                    }
+                    
+                    // 3. Update 'Add to Basket' button data attributes
+                    const buttons = document.querySelectorAll(`.add-to-basket[data-fruit="${productName}"]`);
+                    buttons.forEach(btn => {
+                        btn.setAttribute('data-price', newPrice);
+                        btn.setAttribute('data-unit', unit);
+                    });
+                }
+            });
+            
+            console.log("Prices updated from Google Sheet");
+
+        } catch (error) {
+            console.error("Error loading prices:", error);
+            // If error, the site will just show the default hardcoded HTML prices
+        }
+    }
+
+    // Run this function when page loads
+    document.addEventListener('DOMContentLoaded', function() {
+        updatePricesFromSheet();
+    });
+    // --- DYNAMIC PRICING SCRIPT END ---
     </script>
 </body>
 </html>
