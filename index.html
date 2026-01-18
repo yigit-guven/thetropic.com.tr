@@ -88,6 +88,7 @@
         .nav-container {
             display: flex;
             justify-content: center;
+            flex-wrap: wrap;
         }
 
         .nav-link {
@@ -97,6 +98,7 @@
             margin: 0 5px;
             border-radius: 4px;
             transition: background-color 0.3s;
+            white-space: nowrap;
         }
 
         .nav-link:hover, .nav-link.active {
@@ -324,6 +326,7 @@
             height: 18px;
             object-fit: cover;
             border-radius: 2px;
+            border: 1px solid #ddd;
         }
 
         /* Basket Styles */
@@ -443,6 +446,22 @@
         .notification.show {
             transform: translateY(0);
             opacity: 1;
+        }
+
+        /* Payment Notice */
+        .payment-notice {
+            background: #fff8e1;
+            border: 1px solid #ffd54f;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            font-size: 0.95rem;
+            color: #5d4037;
+        }
+
+        .payment-notice i {
+            color: #ff8c42;
+            margin-right: 10px;
         }
 
         /* Modal Styles */
@@ -733,7 +752,7 @@
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             display: flex;
-            justify-content: center; /* Ortalar */
+            justify-content: center;
         }
         
         /* Instagram embed'inin taşmaması için */
@@ -821,6 +840,25 @@
             .nav-link {
                 padding: 8px 12px;
                 font-size: 0.9rem;
+                margin: 2px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                max-width: 200px;
+            }
+            
+            .language-selector, .basket-container {
+                position: static;
+                margin: 10px auto;
+                display: flex;
+                justify-content: center;
+            }
+            
+            .language-btn, .basket-btn {
+                padding: 8px 12px;
+                font-size: 0.85rem;
             }
         }
     </style>
@@ -841,19 +879,19 @@
         </button>
         <div class="language-dropdown" id="languageDropdown">
             <div class="language-option" data-lang="tr">
-                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMDAgMjAwIj48cmVjdCB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2UzMGMzNiIvPjxjaXJjbGUgY3g9IjE1MCIgY3k9IjEwMCIgcj0iNDAiIGZpbGw9IiNmZmYiLz48Y2lyY2xlIGN4PSIxNjAiIGN5PSIxMDAiIHI9IjMwIiBmaWxsPSIjZTMwYzM2Ii8+PHN0YXIgcG9pbnRzPSIxNTAsNjAgMTM1LDkwIDEwMCw5MCAxMzAsMTEwIDExNSwxNDAgMTUwLDEyMCAxODUsMTQwIDE3MCwxMTAgMjAwLDkwIDE2NSw5MCIgZmlsbD0iI2ZmZiIvPjwvc3ZnPg==" alt="Türkçe" class="language-flag">
+                <img src="https://flagcdn.com/w20/tr.png" srcset="https://flagcdn.com/w40/tr.png 2x" alt="Türkçe" class="language-flag">
                 Türkçe
             </div>
             <div class="language-option" data-lang="en">
-                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMDAgMjAwIj48cmVjdCB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iIzAyNDc5NCIvPjxwYXRoIGQ9Ik0wIDBoMzAwdjIwMEgweiIgZmlsbD0iI2ZmZiIvPjxwYXRoIGQ9Ik0wIDBoMTIwdjIwMEgweiIgZmlsbD0iIzAyNDc5NCIvPjxwYXRoIGQ9Ik0wIDBoMzAwdjQwSDB6IiBmaWxsPSIjYzYwMDI2Ii8+PHBhdGggZD0iTTAgODBoMzAwdjQwSDB6IiBmaWxsPSIjYzYwMDI2Ii8+PHBhdGggZD0iTTAgMTYwaDMwMHY0MEgweiIgZmlsbD0iI2M2MDAyNiIvPjxwYXRoIGQ9Ik0xNjAgMGg0MHYyMDBoLTQweiIgZmlsbD0iI2M2MDAyNiIvPjxwYXRoIGQ9Ik0wIDBoMzAwdjIwMEgweiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMDI0Nzk0IiBzdHJva2Utd2lkdGg9IjIwIi8+PC9zdmc+" alt="English" class="language-flag">
+                <img src="https://flagcdn.com/w20/gb.png" srcset="https://flagcdn.com/w40/gb.png 2x" alt="English" class="language-flag">
                 English
             </div>
             <div class="language-option" data-lang="de">
-                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMDAgMjAwIj48cmVjdCB3aWR0aD0iMzAwIiBoZWlnaHQ9IjY3IiB5PSIwIiBmaWxsPSIjZmZmIi8+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSI2NyIgeT0iNjciIGZpbGw9IiNkMDAiLz48cmVjdCB3aWR0aD0iMzAwIiBoZWlnaHQ9IjY2IiB5PSIxMzQiIGZpbGw9IiNmZmNjMDAiLz48L3N2Zz4=" alt="Deutsch" class="language-flag">
+                <img src="https://flagcdn.com/w20/de.png" srcset="https://flagcdn.com/w40/de.png 2x" alt="Deutsch" class="language-flag">
                 Deutsch
             </div>
             <div class="language-option" data-lang="ru">
-                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMDAgMjAwIj48cmVjdCB3aWR0aD0iMzAwIiBoZWlnaHQ9IjY3IiB5PSIwIiBmaWxsPSIjZmZmIi8+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSI2NyIgeT0iNjciIGZpbGw9IiMwMDdmNWYiLz48cmVjdCB3aWR0aD0iMzAwIiBoZWlnaHQ9IjY2IiB5PSIxMzQiIGZpbGw9IiNkNTIiLz48L3N2Zz4=" alt="Русский" class="language-flag">
+                <img src="https://flagcdn.com/w20/ru.png" srcset="https://flagcdn.com/w40/ru.png 2x" alt="Русский" class="language-flag">
                 Русский
             </div>
         </div>
@@ -883,7 +921,10 @@
             <div class="nav-container">
                 <a href="#urunler" class="nav-link active" id="navProducts">Ürünler</a>
                 <a href="#hakkimizda" class="nav-link" id="navAbout">Hakkımızda</a>
+                <a href="#instagram" class="nav-link" id="navInstagram">Instagram</a>
                 <a href="#iletisim" class="nav-link" id="navContact">İletişim</a>
+                <a href="/terms-of-service" class="nav-link" id="navTerms">Kullanım Şartları</a>
+                <a href="/privacy-policy" class="nav-link" id="navPrivacy">Gizlilik Politikası</a>
             </div>
         </div>
     </nav>
@@ -892,10 +933,16 @@
         <div class="main-content">
             <h2 class="section-title" id="urunler">Premium Tropikal Ürünler</h2>
 
+            <!-- Ödeme Bilgilendirmesi -->
+            <div class="payment-notice">
+                <i class="fas fa-info-circle"></i>
+                <span id="paymentNoticeText">Ödeme işlemleri WhatsApp, e-posta veya telefon ile gerçekleştirilir. Siteden ödeme yapılmaz. Sepetinizi oluşturduktan sonra siparişinizi WhatsApp veya e-posta ile gönderin, size dönüş yapacağız.</span>
+            </div>
+
             <!-- Kargo Bilgisi -->
             <div class="cargo-info">
-                <p><i class="fas fa-shipping-fast"></i> <span id="cargoInfoText">1500 TL ve üzeri alışverişlerde kargo ücretsizdir. Altındaki siparişlerde kargo ücreti satıcı ile iletişimde belirlenir.</span></p>
-                <p class="cargo-free" id="cargoFreeText">1500 TL üzeri alışverişlerde KARGO BEDAVA!</p>
+                <p><i class="fas fa-shipping-fast"></i> <span id="cargoInfoText">1500 TL ve üzeri siparişlerde kargo ücretsizdir. 1500 TL altındaki siparişlerde kargo ücreti satıcı ile iletişimde belirlenir.</span></p>
+                <p class="cargo-free" id="cargoFreeText">1500 TL üzeri siparişlerde KARGO BEDAVA!</p>
             </div>
 
             <div class="products-column">
@@ -906,14 +953,14 @@
                     </div>
                     <div class="product-details">
                         <h3 class="product-title">Taze Lime</h3>
-                        <div class="product-price" id="price-Lime">₺180 / kg</div>
+                        <div class="product-price" id="price-Lime">₺180 / <span id="unit-Lime" data-unit-tr="kg">kg</span></div>
                         <p class="product-description" id="limeDescription">Türkiye'nin Akdeniz bölgesinde özenle yetiştirilen taze limonlar, normal limonlara göre daha aromatik ve ekşi bir tada sahiptir. Yemeklerinize, içeceklerinize ve tatlılarınıza ferahlatıcı bir lezzet katar.</p>
 
                         <div class="product-features">
-                            <div class="feature"><i class="fas fa-check-circle"></i> <span class="feature-text">Zengin C Vitamini Kaynağı</span></div>
-                            <div class="feature"><i class="fas fa-check-circle"></i> <span class="feature-text">Antioksidan Özellikli</span></div>
-                            <div class="feature"><i class="fas fa-check-circle"></i> <span class="feature-text">Taze Hasat, Doğal Lezzet</span></div>
-                            <div class="feature"><i class="fas fa-check-circle"></i> <span class="feature-text">Yerli ve Sürdürülebilir Üretim</span></div>
+                            <div class="feature"><i class="fas fa-check-circle"></i> <span class="feature-text" data-feature="1">Zengin C Vitamini Kaynağı</span></div>
+                            <div class="feature"><i class="fas fa-check-circle"></i> <span class="feature-text" data-feature="2">Antioksidan Özellikli</span></div>
+                            <div class="feature"><i class="fas fa-check-circle"></i> <span class="feature-text" data-feature="3">Taze Hasat, Doğal Lezzet</span></div>
+                            <div class="feature"><i class="fas fa-check-circle"></i> <span class="feature-text" data-feature="4">Yerli ve Sürdürülebilir Üretim</span></div>
                         </div>
 
                         <div class="product-actions">
@@ -934,14 +981,14 @@
                     </div>
                     <div class="product-details">
                         <h3 class="product-title">Kremalı Avokado</h3>
-                        <div class="product-price" id="price-Avokado">₺65 / adet</div>
+                        <div class="product-price" id="price-Avokado">₺65 / <span id="unit-Avokado" data-unit-tr="adet">adet</span></div>
                         <p class="product-description" id="avocadoDescription">Türkiye'nin Akdeniz ve Ege bölgelerinde yetiştirilen premium avokadolar, kremamsı dokusu ve hafif tadıyla sağlıklı beslenmenin vazgeçilmezi. Salatalar, tostlar ve mezeler için ideal.</p>
 
                         <div class="product-features">
-                            <div class="feature"><i class="fas fa-check-circle"></i> <span class="feature-text">Sağlıklı Yağ Asitleri Kaynağı</span></div>
-                            <div class="feature"><i class="fas fa-check-circle"></i> <span class="feature-text">Yüksek Lif İçeriği</span></div>
-                            <div class="feature"><i class="fas fa-check-circle"></i> <span class="feature-text">Potasyum ve Vitamin Deposu</span></div>
-                            <div class="feature"><i class="fas fa-check-circle"></i> <span class="feature-text">Organik Tarım Yöntemleri</span></div>
+                            <div class="feature"><i class="fas fa-check-circle"></i> <span class="feature-text" data-feature="5">Sağlıklı Yağ Asitleri Kaynağı</span></div>
+                            <div class="feature"><i class="fas fa-check-circle"></i> <span class="feature-text" data-feature="6">Yüksek Lif İçeriği</span></div>
+                            <div class="feature"><i class="fas fa-check-circle"></i> <span class="feature-text" data-feature="7">Potasyum ve Vitamin Deposu</span></div>
+                            <div class="feature"><i class="fas fa-check-circle"></i> <span class="feature-text" data-feature="8">Organik Tarım Yöntemleri</span></div>
                         </div>
 
                         <div class="product-actions">
@@ -962,14 +1009,14 @@
                     </div>
                     <div class="product-details">
                         <h3 class="product-title">Egzotik Ejder Meyvesi</h3>
-                        <div class="product-price" id="price-Ejder Meyvesi">₺75 / adet</div>
+                        <div class="product-price" id="price-Ejder Meyvesi">₺75 / <span id="unit-Ejder Meyvesi" data-unit-tr="adet">adet</span></div>
                         <p class="product-description" id="dragonfruitDescription">Türkiye'de Akdeniz bölgesindeki özel seralarda yetiştirilen ejder meyvesi, hafif tatlı ve ferahlatıcı tadıyla tropikal bir deneyim sunar. Taze tüketim, smoothie'ler ve dekoratif sunumlar için mükemmel.</p>
 
                         <div class="product-features">
-                            <div class="feature"><i class="fas fa-check-circle"></i> <span class="feature-text">Güçlü Antioksidan Özellikli</span></div>
-                            <div class="feature"><i class="fas fa-check-circle"></i> <span class="feature-text">C Vitamini ve Lif Kaynağı</span></div>
-                            <div class="feature"><i class="fas fa-check-circle"></i> <span class="feature-text">Düşük Kalorili, Besleyici</span></div>
-                            <div class="feature"><i class="fas fa-check-circle"></i> <span class="feature-text">Kontrollü Sera Üretimi</span></div>
+                            <div class="feature"><i class="fas fa-check-circle"></i> <span class="feature-text" data-feature="9">Güçlü Antioksidan Özellikli</span></div>
+                            <div class="feature"><i class="fas fa-check-circle"></i> <span class="feature-text" data-feature="10">C Vitamini ve Lif Kaynağı</span></div>
+                            <div class="feature"><i class="fas fa-check-circle"></i> <span class="feature-text" data-feature="11">Düşük Kalorili, Besleyici</span></div>
+                            <div class="feature"><i class="fas fa-check-circle"></i> <span class="feature-text" data-feature="12">Kontrollü Sera Üretimi</span></div>
                         </div>
 
                         <div class="product-actions">
@@ -990,14 +1037,14 @@
                     </div>
                     <div class="product-details">
                         <h3 class="product-title">Aromatik Mango</h3>
-                        <div class="product-price" id="price-Mango">₺120 / kg</div>
+                        <div class="product-price" id="price-Mango">₺120 / <span id="unit-Mango" data-unit-tr="kg">kg</span></div>
                         <p class="product-description" id="mangoDescription">Türkiye'nin Akdeniz bölgesinde özel koşullarda yetiştirilen mangolar, tatlı ve aromatik tadıyla tropikal lezzet arayanlar için ideal. Taze tüketim, meyve salataları ve tatlılarda mükemmel sonuç verir.</p>
 
                         <div class="product-features">
-                            <div class="feature"><i class="fas fa-check-circle"></i> <span class="feature-text">Zengin A Vitamini Kaynağı</span></div>
-                            <div class="feature"><i class="fas fa-check-circle"></i> <span class="feature-text">Doğal Şeker İçeriği</span></div>
-                            <div class="feature"><i class="fas fa-check-circle"></i> <span class="feature-text">Sindirimi Destekleyici Lifler</span></div>
-                            <div class="feature"><i class="fas fa-check-circle"></i> <span class="feature-text">Sürdürülebilir Tarım Uygulamaları</span></div>
+                            <div class="feature"><i class="fas fa-check-circle"></i> <span class="feature-text" data-feature="13">Zengin A Vitamini Kaynağı</span></div>
+                            <div class="feature"><i class="fas fa-check-circle"></i> <span class="feature-text" data-feature="14">Doğal Şeker İçeriği</span></div>
+                            <div class="feature"><i class="fas fa-check-circle"></i> <span class="feature-text" data-feature="15">Sindirimi Destekleyici Lifler</span></div>
+                            <div class="feature"><i class="fas fa-check-circle"></i> <span class="feature-text" data-feature="16">Sürdürülebilir Tarım Uygulamaları</span></div>
                         </div>
 
                         <div class="product-actions">
@@ -1018,14 +1065,14 @@
                     </div>
                     <div class="product-details">
                         <h3 class="product-title">Tatlı Ananas</h3>
-                        <div class="product-price" id="price-Ananas">₺95 / adet</div>
+                        <div class="product-price" id="price-Ananas">₺95 / <span id="unit-Ananas" data-unit-tr="adet">adet</span></div>
                         <p class="product-description" id="pineappleDescription">Türkiye'nin Akdeniz bölgesinde özenle yetiştirilen ananaslar, tatlı ve sulu etleriyle tropikal lezzet arayanlar için mükemmel bir seçimdir. Taze tüketim, meyve salataları ve tatlılarda kullanılabilir.</p>
 
                         <div class="product-features">
-                            <div class="feature"><i class="fas fa-check-circle"></i> <span class="feature-text">Bromelain Enzimi İçerir</span></div>
-                            <div class="feature"><i class="fas fa-check-circle"></i> <span class="feature-text">C Vitamini ve Manganez Kaynağı</span></div>
-                            <div class="feature"><i class="fas fa-check-circle"></i> <span class="feature-text">Sindirimi Destekler</span></div>
-                            <div class="feature"><i class="fas fa-check-circle"></i> <span class="feature-text">Doğal Tatlılık</span></div>
+                            <div class="feature"><i class="fas fa-check-circle"></i> <span class="feature-text" data-feature="17">Bromelain Enzimi İçerir</span></div>
+                            <div class="feature"><i class="fas fa-check-circle"></i> <span class="feature-text" data-feature="18">C Vitamini ve Manganez Kaynağı</span></div>
+                            <div class="feature"><i class="fas fa-check-circle"></i> <span class="feature-text" data-feature="19">Sindirimi Destekler</span></div>
+                            <div class="feature"><i class="fas fa-check-circle"></i> <span class="feature-text" data-feature="20">Doğal Tatlılık</span></div>
                         </div>
 
                         <div class="product-actions">
@@ -1046,14 +1093,14 @@
                     </div>
                     <div class="product-details">
                         <h3 class="product-title">Taze Kivi</h3>
-                        <div class="product-price" id="price-Kivi">₺45 / kg</div>
+                        <div class="product-price" id="price-Kivi">₺45 / <span id="unit-Kivi" data-unit-tr="kg">kg</span></div>
                         <p class="product-description" id="kiwiDescription">Türkiye'nin Karadeniz bölgesinde yetiştirilen kiviler, tatlı-ekşi dengesi ve yumuşak dokusuyla sağlıklı atıştırmalıklar için idealdir. C vitamini deposu olan kivi, bağışıklık sistemini destekler.</p>
 
                         <div class="product-features">
-                            <div class="feature"><i class="fas fa-check-circle"></i> <span class="feature-text">Yüksek C Vitamini İçeriği</span></div>
-                            <div class="feature"><i class="fas fa-check-circle"></i> <span class="feature-text">Lif ve Antioksidan Kaynağı</span></div>
-                            <div class="feature"><i class="fas fa-check-circle"></i> <span class="feature-text">Potasyum ve E Vitamini İçerir</span></div>
-                            <div class="feature"><i class="fas fa-check-circle"></i> <span class="feature-text">Doğal Yetiştirme</span></div>
+                            <div class="feature"><i class="fas fa-check-circle"></i> <span class="feature-text" data-feature="21">Yüksek C Vitamini İçeriği</span></div>
+                            <div class="feature"><i class="fas fa-check-circle"></i> <span class="feature-text" data-feature="22">Lif ve Antioksidan Kaynağı</span></div>
+                            <div class="feature"><i class="fas fa-check-circle"></i> <span class="feature-text" data-feature="23">Potasyum ve E Vitamini İçerir</span></div>
+                            <div class="feature"><i class="fas fa-check-circle"></i> <span class="feature-text" data-feature="24">Doğal Yetiştirme</span></div>
                         </div>
 
                         <div class="product-actions">
@@ -1087,6 +1134,12 @@
             <!-- İletişim Formu -->
             <div class="contact-form" id="iletisim">
                 <h2 class="section-title" id="contactTitle">Sipariş ve İletişim</h2>
+
+                <!-- Ödeme Bilgilendirmesi -->
+                <div class="payment-notice">
+                    <i class="fas fa-info-circle"></i>
+                    <span id="paymentNoticeFormText">Ödeme işlemleri WhatsApp, e-posta veya telefon ile gerçekleştirilir. Siparişinizi oluşturduktan sonra size dönüş yapacağız.</span>
+                </div>
 
                 <div class="form-group">
                     <label for="name" id="nameLabel">Adınız Soyadınız *</label>
@@ -1151,6 +1204,12 @@
         <div class="modal-content">
             <span class="close-modal">&times;</span>
             <h2 class="modal-title" id="basketTitle">Alışveriş Sepetiniz</h2>
+
+            <!-- Ödeme Bilgilendirmesi -->
+            <div class="payment-notice">
+                <i class="fas fa-info-circle"></i>
+                <span id="paymentNoticeBasketText">Ödeme işlemleri WhatsApp, e-posta veya telefon ile gerçekleştirilir. Sepetinizi oluşturduktan sonra siparişinizi gönderin, size dönüş yapacağız.</span>
+            </div>
 
             <div class="basket-items" id="basketItems">
                 <div class="empty-basket" id="emptyBasketText">Sepetinizde ürün bulunmamaktadır.</div>
@@ -1217,10 +1276,11 @@
             </div>
         </div>
     </div>
+    
     <div class="instagram-section" id="instagram">
         <div class="container">
-            <h2 class="section-title">Bizi Instagram'da Takip Edin</h2>
-            <p class="instagram-subtitle">En taze ürünlerimiz, hasat zamanları ve müşteri deneyimleri için @thetropic.com.tr</p>
+            <h2 class="section-title" id="instagramTitle">Bizi Instagram'da Takip Edin</h2>
+            <p class="instagram-subtitle" id="instagramSubtitle">En taze ürünlerimiz, hasat zamanları ve müşteri deneyimleri için @thetropic.com.tr</p>
             
             <div class="instagram-grid">
                 <div class="instagram-item">
@@ -1230,7 +1290,7 @@
 
             <div class="instagram-action">
                 <a href="https://www.instagram.com/thetropic.com.tr/" target="_blank" class="instagram-btn">
-                    <i class="fab fa-instagram"></i> Instagram Sayfamıza Git
+                    <i class="fab fa-instagram"></i> <span id="instagramBtnText">Instagram Sayfamıza Git</span>
                 </a>
             </div>
         </div>
@@ -1257,18 +1317,19 @@
                     <div class="footer-links">
                         <a href="#urunler" id="footerProducts">Ürünler</a>
                         <a href="#hakkimizda" id="footerAbout">Hakkımızda</a>
+                        <a href="#instagram" id="footerInstagram">Instagram</a>
                         <a href="#iletisim" id="footerContact">İletişim</a>
-                        <a href="#" id="footerPrivacy">Gizlilik Politikası</a>
+                        <a href="/terms-of-service" id="footerTerms">Kullanım Şartları</a>
+                        <a href="/privacy-policy" id="footerPrivacy">Gizlilik Politikası</a>
                     </div>
                 </div>
 
                 <div class="footer-section">
                     <h3 id="footerFollow">Bizi Takip Edin</h3>
                     <div class="social-icons">
-                        <a href="https://www.instagram.com/thetropic" target="_blank"><i class="fab fa-instagram"></i></a>
-                        <a href="https://www.facebook.com/thetropic" target="_blank"><i class="fab fa-facebook"></i></a>
-                        <a href="https://www.twitter.com/thetropic" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/thetropic.com.tr" target="_blank"><i class="fab fa-instagram"></i></a>
                     </div>
+                    <p style="margin-top: 15px; font-size: 0.9rem; color: #aaa;" id="footerSocialText">Sadece Instagram'da bizi bulabilirsiniz.</p>
                 </div>
             </div>
 
@@ -1286,10 +1347,16 @@
                 tagline: "Premium Tropikal Meyveler - Doğanın En Seçkin Lezzetleri",
                 navProducts: "Ürünler",
                 navAbout: "Hakkımızda",
+                navInstagram: "Instagram",
                 navContact: "İletişim",
+                navTerms: "Kullanım Şartları",
+                navPrivacy: "Gizlilik Politikası",
                 basketText: "Sepet",
-                cargoInfoText: "1500 TL ve üzeri alışverişlerde kargo ücretsizdir. Altındaki siparişlerde kargo ücreti satıcı ile iletişimde belirlenir.",
-                cargoFreeText: "1500 TL üzeri alışverişlerde KARGO BEDAVA!",
+                cargoInfoText: "1500 TL ve üzeri siparişlerde kargo ücretsizdir. 1500 TL altındaki siparişlerde kargo ücreti satıcı ile iletişimde belirlenir.",
+                cargoFreeText: "1500 TL üzeri siparişlerde KARGO BEDAVA!",
+                paymentNoticeText: "Ödeme işlemleri WhatsApp, e-posta veya telefon ile gerçekleştirilir. Siteden ödeme yapılmaz. Sepetinizi oluşturduktan sonra siparişinizi WhatsApp veya e-posta ile gönderin, size dönüş yapacağız.",
+                paymentNoticeFormText: "Ödeme işlemleri WhatsApp, e-posta veya telefon ile gerçekleştirilir. Siparişinizi oluşturduktan sonra size dönüş yapacağız.",
+                paymentNoticeBasketText: "Ödeme işlemleri WhatsApp, e-posta veya telefon ile gerçekleştirilir. Sepetinizi oluşturduktan sonra siparişinizi gönderin, size dönüş yapacağız.",
 
                 // Ürün açıklamaları
                 limeDescription: "Türkiye'nin Akdeniz bölgesinde özenle yetiştirilen taze limonlar, normal limonlara göre daha aromatik ve ekşi bir tada sahiptir. Yemeklerinize, içeceklerinize ve tatlılarınıza ferahlatıcı bir lezzet katar.",
@@ -1324,6 +1391,11 @@
                 feature22: "Lif ve Antioksidan Kaynağı",
                 feature23: "Potasyum ve E Vitamini İçerir",
                 feature24: "Doğal Yetiştirme",
+
+                // Birimler
+                unit_kg: "kg",
+                unit_adet: "adet",
+                unit_piece: "adet",
 
                 // Butonlar
                 detailText: "Detay",
@@ -1363,6 +1435,11 @@
                 orderNotesLabel: "Notlar",
                 completeOrderText: "Siparişi Tamamla",
 
+                // Instagram
+                instagramTitle: "Bizi Instagram'da Takip Edin",
+                instagramSubtitle: "En taze ürünlerimiz, hasat zamanları ve müşteri deneyimleri için @thetropic.com.tr",
+                instagramBtnText: "Instagram Sayfamıza Git",
+
                 // Footer
                 footerDescription: "Tropikal lezzetleri en taze haliyle sizlere ulaştırıyoruz. Kalite ve tazelik garantisiyle.",
                 footerContactTitle: "İletişim",
@@ -1372,9 +1449,12 @@
                 footerQuickLinks: "Hızlı Erişim",
                 footerProducts: "Ürünler",
                 footerAbout: "Hakkımızda",
+                footerInstagram: "Instagram",
                 footerContact: "İletişim",
+                footerTerms: "Kullanım Şartları",
                 footerPrivacy: "Gizlilik Politikası",
                 footerFollow: "Bizi Takip Edin",
+                footerSocialText: "Sadece Instagram'da bizi bulabilirsiniz.",
                 copyrightText: "© 2025 The Tropic - ÖZYÜREKOĞLU TARIM YAŞ SEBZE MEYVE TİCARET LİMİTED ŞİRKETİ - Tüm Hakları Saklıdır.",
 
                 // Bildirimler
@@ -1390,10 +1470,16 @@
                 tagline: "Premium Tropical Fruits - Nature's Finest Selection",
                 navProducts: "Products",
                 navAbout: "About Us",
+                navInstagram: "Instagram",
                 navContact: "Contact",
+                navTerms: "Terms of Service",
+                navPrivacy: "Privacy Policy",
                 basketText: "Basket",
                 cargoInfoText: "Free shipping on orders over 1500 TL. For orders below this amount, shipping cost is determined in communication with the seller.",
                 cargoFreeText: "FREE SHIPPING on orders over 1500 TL!",
+                paymentNoticeText: "Payments are processed via WhatsApp, email, or phone. No payments are made on the site. After creating your basket, send your order via WhatsApp or email, and we will get back to you.",
+                paymentNoticeFormText: "Payments are processed via WhatsApp, email, or phone. We will get back to you after you submit your order.",
+                paymentNoticeBasketText: "Payments are processed via WhatsApp, email, or phone. After creating your basket, send your order and we will get back to you.",
 
                 // Product descriptions
                 limeDescription: "Fresh limes carefully grown in Turkey's Mediterranean region have a more aromatic and sour taste compared to regular lemons. They add a refreshing flavor to your meals, drinks and desserts.",
@@ -1428,6 +1514,11 @@
                 feature22: "Source of Fiber and Antioxidants",
                 feature23: "Contains Potassium and Vitamin E",
                 feature24: "Natural Cultivation",
+
+                // Units
+                unit_kg: "kg",
+                unit_adet: "piece",
+                unit_piece: "piece",
 
                 // Buttons
                 detailText: "Details",
@@ -1467,6 +1558,11 @@
                 orderNotesLabel: "Notes",
                 completeOrderText: "Complete Order",
 
+                // Instagram
+                instagramTitle: "Follow Us on Instagram",
+                instagramSubtitle: "For our freshest products, harvest times and customer experiences @thetropic.com.tr",
+                instagramBtnText: "Go to Our Instagram Page",
+
                 // Footer
                 footerDescription: "We deliver tropical flavors to you in their freshest form. With quality and freshness guarantee.",
                 footerContactTitle: "Contact",
@@ -1476,9 +1572,12 @@
                 footerQuickLinks: "Quick Links",
                 footerProducts: "Products",
                 footerAbout: "About Us",
+                footerInstagram: "Instagram",
                 footerContact: "Contact",
+                footerTerms: "Terms of Service",
                 footerPrivacy: "Privacy Policy",
                 footerFollow: "Follow Us",
+                footerSocialText: "You can only find us on Instagram.",
                 copyrightText: "© 2025 The Tropic - ÖZYÜREKOĞLU TARIM YAŞ SEBZE MEYVE TİCARET LİMİTED ŞİRKETİ - All Rights Reserved.",
 
                 // Notifications
@@ -1494,18 +1593,24 @@
                 tagline: "Premium Tropische Früchte - Die feinste Auswahl der Natur",
                 navProducts: "Produkte",
                 navAbout: "Über uns",
+                navInstagram: "Instagram",
                 navContact: "Kontakt",
+                navTerms: "Nutzungsbedingungen",
+                navPrivacy: "Datenschutzrichtlinie",
                 basketText: "Warenkorb",
                 cargoInfoText: "Versandkostenfrei ab 1500 TL. Bei Bestellungen unter diesem Betrag werden die Versandkosten im Gespräch mit dem Verkäufer festgelegt.",
                 cargoFreeText: "VERSANDKOSTENFREI bei Bestellungen über 1500 TL!",
+                paymentNoticeText: "Zahlungen werden per WhatsApp, E-Mail oder Telefon abgewickelt. Es werden keine Zahlungen auf der Website getätigt. Nachdem Sie Ihren Warenkorb erstellt haben, senden Sie Ihre Bestellung per WhatsApp oder E-Mail und wir melden uns bei Ihnen.",
+                paymentNoticeFormText: "Zahlungen werden per WhatsApp, E-Mail oder Telefon abgewickelt. Wir melden uns bei Ihnen, nachdem Sie Ihre Bestellung aufgegeben haben.",
+                paymentNoticeBasketText: "Zahlungen werden per WhatsApp, E-Mail oder Telefon abgewickelt. Nachdem Sie Ihren Warenkorb erstellt haben, senden Sie Ihre Bestellung und wir melden uns bei Ihnen.",
 
                 // Produktbeschreibungen
-                limeDescription: "Frische Limetten, die sorgfältig in der türkischen Mittelmeerregion angebaut werden, haben im Vergleich zu normalen Zitronen einen aromatischeren und saureren Geschmack. Sie verleihen Ihren Speisen, Getränken und Desserts einen erfrischenden Geschmack.",
+                limeDescription: "Frische Limetten, sorgfältig in der türkischen Mittelmeerregion angebaut, haben einen aromatischeren und saureren Geschmack im Vergleich zu normalen Zitronen. Sie verleihen Ihren Speisen, Getränken und Desserts einen erfrischenden Geschmack.",
                 avocadoDescription: "Premium-Avocados aus der türkischen Mittelmeer- und Ägäisregion sind mit ihrer cremigen Textur und ihrem milden Geschmack unverzichtbar für eine gesunde Ernährung. Ideal für Salate, Toasts und Vorspeisen.",
-                dragonfruitDescription: "Drachenfrüchte aus speziellen Gewächshäusern in der türkischen Mittelmeerregion bieten mit ihrem leicht süßen und erfrischenden Geschmack ein tropisches Erlebnis. Perfekt für den Frischverzehr, Smoothies und dekorative Präsentationen.",
-                mangoDescription: "Mangos, die unter besonderen Bedingungen in der türkischen Mittelmeerregion angebaut werden, sind mit ihrem süßen und aromatischen Geschmack ideal für alle, die tropische Aromen suchen. Perfekt für Frischverzehr, Obstsalate und Desserts.",
-                pineappleDescription: "Ananas, die sorgfältig in der türkischen Mittelmeerregion angebaut werden, sind eine ausgezeichnete Wahl für alle, die tropische Aromen mit süßem und saftigem Fruchtfleisch suchen. Kann für Frischverzehr, Obstsalate und Desserts verwendet werden.",
-                kiwiDescription: "Kiwis aus der türkischen Schwarzmeerregion sind mit ihrer süß-sauren Balance und weichen Textur ideal für gesunde Snacks. Kiwi, die ein Speicher für Vitamin C ist, unterstützt das Immunsystem.",
+                dragonfruitDescription: "Drachenfrüchte aus speziellen Gewächshäusern in der türkischen Mittelmeerregion bieten mit ihrem leicht süßen und erfrischenden Geschmack ein tropisches Erlebnis. Perfekt für Frischverzehr, Smoothies und dekorative Präsentationen.",
+                mangoDescription: "Mangos, unter besonderen Bedingungen in der türkischen Mittelmeerregion angebaut, sind ideal für diejenigen, die tropische Aromen mit süßem und aromatischem Geschmack suchen. Perfekt für Frischverzehr, Obstsalate und Desserts.",
+                pineappleDescription: "Ananas, sorgfältig in der türkischen Mittelmeerregion angebaut, sind eine ausgezeichnete Wahl für diejenigen, die tropische Aromen mit süßem und saftigem Fruchtfleisch suchen. Kann für Frischverzehr, Obstsalate und Desserts verwendet werden.",
+                kiwiDescription: "Kiwis aus der türkischen Schwarzmeerregion sind mit ihrer süß-sauren Balance und weichen Textur ideal für gesunde Snacks. Kiwi, ein Speicher für Vitamin C, unterstützt das Immunsystem.",
 
                 // Eigenschaften
                 feature1: "Reichhaltige Vitamin C-Quelle",
@@ -1532,6 +1637,11 @@
                 feature22: "Quelle von Ballaststoffen und Antioxidantien",
                 feature23: "Enthält Kalium und Vitamin E",
                 feature24: "Natürlicher Anbau",
+
+                // Einheiten
+                unit_kg: "kg",
+                unit_adet: "Stück",
+                unit_piece: "Stück",
 
                 // Buttons
                 detailText: "Details",
@@ -1571,6 +1681,11 @@
                 orderNotesLabel: "Notizen",
                 completeOrderText: "Bestellung abschließen",
 
+                // Instagram
+                instagramTitle: "Folgen Sie uns auf Instagram",
+                instagramSubtitle: "Für unsere frischesten Produkte, Erntezeiten und Kundenerfahrungen @thetropic.com.tr",
+                instagramBtnText: "Zur Instagram-Seite",
+
                 // Footer
                 footerDescription: "Wir liefern tropische Aromen in ihrer frischesten Form zu Ihnen. Mit Qualitäts- und Frischegarantie.",
                 footerContactTitle: "Kontakt",
@@ -1580,9 +1695,12 @@
                 footerQuickLinks: "Schnellzugriff",
                 footerProducts: "Produkte",
                 footerAbout: "Über uns",
+                footerInstagram: "Instagram",
                 footerContact: "Kontakt",
+                footerTerms: "Nutzungsbedingungen",
                 footerPrivacy: "Datenschutzrichtlinie",
                 footerFollow: "Folgen Sie uns",
+                footerSocialText: "Sie finden uns nur auf Instagram.",
                 copyrightText: "© 2025 The Tropic - ÖZYÜREKOĞLU TARIM YAŞ SEBZE MEYVE TİCARET LİMİTED ŞİRKETİ - Alle Rechte vorbehalten.",
 
                 // Benachrichtigungen
@@ -1598,14 +1716,20 @@
                 tagline: "Премиальные Тропические Фрукты - Лучший Выбор Природы",
                 navProducts: "Продукты",
                 navAbout: "О нас",
+                navInstagram: "Instagram",
                 navContact: "Контакты",
+                navTerms: "Условия использования",
+                navPrivacy: "Политика конфиденциальности",
                 basketText: "Корзина",
                 cargoInfoText: "Бесплатная доставка при заказе от 1500 TL. Для заказов ниже этой суммы стоимость доставки определяется при общении с продавцом.",
                 cargoFreeText: "БЕСПЛАТНАЯ ДОСТАВКА при заказе от 1500 TL!",
+                paymentNoticeText: "Платежи обрабатываются через WhatsApp, электронную почту или телефон. На сайте платежи не принимаются. После создания корзины отправьте свой заказ через WhatsApp или электронную почту, и мы свяжемся с вами.",
+                paymentNoticeFormText: "Платежи обрабатываются через WhatsApp, электронную почту или телефон. Мы свяжемся с вами после того, как вы отправите заказ.",
+                paymentNoticeBasketText: "Платежи обрабатываются через WhatsApp, электронную почту или телефон. После создания корзины отправьте заказ, и мы свяжемся с вами.",
 
                 // Описания продуктов
                 limeDescription: "Свежие лаймы, тщательно выращенные в средиземноморском регионе Турции, имеют более ароматный и кислый вкус по сравнению с обычными лимонами. Они добавляют освежающий вкус вашим блюдам, напиткам и десертам.",
-                avocadoDescription: "Премиальные авокадо, выращенные в средиземноморском и эгейском регионах Турции, являются незаменимыми для здорового питания благодаря своей кремовой текстуре и мягкому вкусу. Идеально подходят для салатов, тостов и закусок.",
+                avocadoDescription: "Премиальные авокадо, выращенные в средиземноморском и эгейском регионах Турции, незаменимы для здорового питания благодаря своей кремовой текстуре и мягкому вкусу. Идеально подходят для салатов, тостов и закусок.",
                 dragonfruitDescription: "Питайя, выращенная в специальных теплицах в средиземноморском регионе Турции, предлагает тропический опыт с ее слегка сладким и освежающим вкусом. Идеально подходит для свежего потребления, смузи и декоративных презентаций.",
                 mangoDescription: "Манго, выращенные в особых условиях в средиземноморском регионе Турции, идеально подходят для тех, кто ищет тропические вкусы, благодаря своему сладкому и ароматному вкусу. Идеально для свежего потребления, фруктовых салатов и десертов.",
                 pineappleDescription: "Ананасы, тщательно выращенные в средиземноморском регионе Турции, являются отличным выбором для тех, кто ищет тропические вкусы с их сладкой и сочной мякотью. Могут использоваться для свежего потребления, фруктовых салатов и десертов.",
@@ -1637,13 +1761,18 @@
                 feature23: "Содержит калий и витамин E",
                 feature24: "Натуральное выращивание",
 
+                // Единицы измерения
+                unit_kg: "кг",
+                unit_adet: "шт",
+                unit_piece: "шт",
+
                 // Кнопки
                 detailText: "Детали",
                 addToCartText: "Добавить в корзину",
 
                 // О нас
                 aboutTitle: "О нас",
-                aboutText1: "В течение 32 лет в регионе Чукурова, как ÖZYÜREKOĞLU TARIM YAŞ SEBZE MEYVE TİCARET LİMİTED ŞİRKETİ, мы работаем в сельскохозяйственном секторе как с нашими собственными садами, так и с опытными поставщиками.",
+                aboutText1: "В течение 32 лет в регионе Чукурова, как ÖZYÜREKOĞLU TARIM YAŞ SEBZE MEYVE TİCARET LİMİTED ŞİRKETИ, мы работаем в сельскохозяйственном секторе как с нашими собственными садами, так и с опытными поставщиками.",
                 aboutText2: "Под брендом The Tropic мы доставляем тропические фрукты и овощи, выращенные в Турции, к вам в самой свежей форме. Благодаря нашему многолетнему опыту и прочным отношениям с региональными фермерами, мы стремимся предлагать качественные продукты по доступным ценам.",
                 aboutText3: "Наши продукты поступают от надежных поставщиков, использующих устойчивые методы ведения сельского хозяйства. Наши процессы контроля качества гарантируют, что фрукты и овощи попадают на ваш стол в самой свежей форме.",
                 aboutText4: "Мы предлагаем специальные цены и решения по доставке для предприятий и оптовых покупателей. Для крупных заказов вы можете связаться с нашей командой.",
@@ -1675,6 +1804,11 @@
                 orderNotesLabel: "Примечания",
                 completeOrderText: "Завершить заказ",
 
+                // Instagram
+                instagramTitle: "Подпишитесь на нас в Instagram",
+                instagramSubtitle: "Наши самые свежие продукты, время сбора урожая и опыт клиентов @thetropic.com.tr",
+                instagramBtnText: "Перейти на страницу Instagram",
+
                 // Футер
                 footerDescription: "Мы доставляем тропические вкусы к вам в самой свежей форме. С гарантией качества и свежести.",
                 footerContactTitle: "Контакты",
@@ -1684,10 +1818,13 @@
                 footerQuickLinks: "Быстрые ссылки",
                 footerProducts: "Продукты",
                 footerAbout: "О нас",
+                footerInstagram: "Instagram",
                 footerContact: "Контакты",
+                footerTerms: "Условия использования",
                 footerPrivacy: "Политика конфиденциальности",
                 footerFollow: "Подпишитесь на нас",
-                copyrightText: "© 2025 The Tropic - ÖZYÜREKOĞLU TARIM YAŞ SEBZE MEYVE TİCARET LİMİTED ŞİRKETИ - Все права защищены.",
+                footerSocialText: "Вы можете найти нас только в Instagram.",
+                copyrightText: "© 2025 The Tropic - ÖZYÜREKOĞLU TARIM YAŞ SEBZE MEYVE TİCARET LИMİTED ŞİRKETİ - Все права защищены.",
 
                 // Уведомления
                 productAdded: " товар добавлен в корзину!",
@@ -1715,6 +1852,9 @@
             // Tüm çevirileri uygula
             applyTranslations(lang);
 
+            // Birimleri güncelle
+            updateUnits();
+
             // Sepeti yeniden oluştur (eğer açıksa)
             if (basketModal.style.display === 'flex') {
                 renderBasket();
@@ -1734,6 +1874,26 @@
             return names[code] || 'Türkçe';
         }
 
+        function updateUnits() {
+            // Tüm ürün birimlerini güncelle
+            document.querySelectorAll('[id^="unit-"]').forEach(unitElement => {
+                const unitTr = unitElement.getAttribute('data-unit-tr');
+                if (unitTr) {
+                    const translatedUnit = translations[currentLanguage][`unit_${unitTr}`] || unitTr;
+                    unitElement.textContent = translatedUnit;
+                }
+            });
+
+            // Sepet birimlerini güncelle
+            basket.forEach(item => {
+                if (translations[currentLanguage][`unit_${item.unit}`]) {
+                    item.unitDisplay = translations[currentLanguage][`unit_${item.unit}`];
+                } else {
+                    item.unitDisplay = item.unit;
+                }
+            });
+        }
+
         function applyTranslations(lang) {
             const translation = translations[lang];
 
@@ -1741,10 +1901,16 @@
             document.getElementById('taglineText').textContent = translation.tagline;
             document.getElementById('navProducts').textContent = translation.navProducts;
             document.getElementById('navAbout').textContent = translation.navAbout;
+            document.getElementById('navInstagram').textContent = translation.navInstagram;
             document.getElementById('navContact').textContent = translation.navContact;
+            document.getElementById('navTerms').textContent = translation.navTerms;
+            document.getElementById('navPrivacy').textContent = translation.navPrivacy;
             document.getElementById('basketText').textContent = translation.basketText;
             document.getElementById('cargoInfoText').textContent = translation.cargoInfoText;
             document.getElementById('cargoFreeText').textContent = translation.cargoFreeText;
+            document.getElementById('paymentNoticeText').textContent = translation.paymentNoticeText;
+            document.getElementById('paymentNoticeFormText').textContent = translation.paymentNoticeFormText;
+            document.getElementById('paymentNoticeBasketText').textContent = translation.paymentNoticeBasketText;
 
             // Ürün açıklamaları
             document.getElementById('limeDescription').textContent = translation.limeDescription;
@@ -1755,12 +1921,11 @@
             document.getElementById('kiwiDescription').textContent = translation.kiwiDescription;
 
             // Özellikler
-            const features = document.querySelectorAll('.feature-text');
-            for (let i = 0; i < features.length; i++) {
-                if (i < 24) {
-                    features[i].textContent = translation[`feature${i+1}`];
-                }
-            }
+            const features = document.querySelectorAll('[data-feature]');
+            features.forEach(feature => {
+                const featureNum = feature.getAttribute('data-feature');
+                feature.textContent = translation[`feature${featureNum}`];
+            });
 
             // Butonlar
             const detailButtons = document.querySelectorAll('.detail-text');
@@ -1807,6 +1972,11 @@
             document.getElementById('orderNotesLabel').textContent = translation.orderNotesLabel;
             document.getElementById('completeOrderText').textContent = translation.completeOrderText;
 
+            // Instagram
+            document.getElementById('instagramTitle').textContent = translation.instagramTitle;
+            document.getElementById('instagramSubtitle').textContent = translation.instagramSubtitle;
+            document.getElementById('instagramBtnText').textContent = translation.instagramBtnText;
+
             // Footer
             document.getElementById('footerDescription').textContent = translation.footerDescription;
             document.getElementById('footerContactTitle').textContent = translation.footerContactTitle;
@@ -1816,9 +1986,12 @@
             document.getElementById('footerQuickLinks').textContent = translation.footerQuickLinks;
             document.getElementById('footerProducts').textContent = translation.footerProducts;
             document.getElementById('footerAbout').textContent = translation.footerAbout;
+            document.getElementById('footerInstagram').textContent = translation.footerInstagram;
             document.getElementById('footerContact').textContent = translation.footerContact;
+            document.getElementById('footerTerms').textContent = translation.footerTerms;
             document.getElementById('footerPrivacy').textContent = translation.footerPrivacy;
             document.getElementById('footerFollow').textContent = translation.footerFollow;
+            document.getElementById('footerSocialText').textContent = translation.footerSocialText;
             document.getElementById('copyrightText').textContent = translation.copyrightText;
         }
 
@@ -1983,6 +2156,8 @@
                 const itemTotal = item.price * item.quantity;
                 total += itemTotal;
 
+                const unitDisplay = translations[currentLanguage][`unit_${item.unit}`] || item.unit;
+
                 const basketItem = document.createElement('div');
                 basketItem.className = 'basket-item';
                 basketItem.innerHTML = `
@@ -1990,12 +2165,12 @@
                         <img src="${fruitInfo[item.name].image}" alt="${item.name}" class="basket-item-icon">
                         <div>
                             <div>${item.name}</div>
-                            <div>₺${item.price} / ${item.unit}</div>
+                            <div>₺${item.price} / ${unitDisplay}</div>
                         </div>
                     </div>
                     <div class="basket-item-controls">
                         <button class="quantity-btn decrease-btn" data-index="${index}">-</button>
-                        <span>${item.quantity} ${item.unit}</span>
+                        <span>${item.quantity} ${unitDisplay}</span>
                         <button class="quantity-btn increase-btn" data-index="${index}">+</button>
                         <button class="quantity-btn remove-btn" data-index="${index}"><i class="fas fa-trash"></i></button>
                     </div>
@@ -2077,7 +2252,8 @@
                     name: name,
                     price: price,
                     quantity: 1,
-                    unit: unit
+                    unit: unit,
+                    unitDisplay: translations[currentLanguage][`unit_${unit}`] || unit
                 });
             }
 
@@ -2178,16 +2354,21 @@
             const notes = document.getElementById('orderNotes').value;
 
             // Sepet içeriğini hazırla
-            const orderItems = basket.map(item => `${item.name} - ${item.quantity} ${item.unit} - ₺${item.price * item.quantity}`).join('%0A');
+            const orderItems = basket.map(item => {
+                const unitDisplay = translations[currentLanguage][`unit_${item.unit}`] || item.unit;
+                return `${item.name} - ${item.quantity} ${unitDisplay} - ₺${item.price * item.quantity}`;
+            }).join('%0A');
+            
             const total = basket.reduce((sum, item) => sum + (item.price * item.quantity), 0);
 
-            // WhatsApp mesajı
-            const message = `Merhaba,%0A%0A*Sipariş Bilgileri*%0Aİsim: ${name}%0ATelefon: ${phone}%0AAdres: ${address}%0A%0A*Sipariş Edilen Ürünler:*%0A${orderItems}%0A%0A*Toplam Tutar:* ₺${total}%0A%0A${notes ? 'Notlar: ' + notes : ''}`;
+            // E-posta konusu ve gövdesi
+            const subject = `The Tropic Sipariş - ${name}`;
+            const body = `İsim: ${name}%0D%0ATelefon: ${phone}%0D%0AE-posta: ${email}%0D%0AAdres: ${address}%0D%0A%0D%0ASipariş Edilen Ürünler:%0D%0A${orderItems.replace(/%0A/g, '%0D%0A')}%0D%0A%0D%0AToplam Tutar: ₺${total}%0D%0A%0D%0A${notes ? 'Notlar: ' + notes : ''}`;
 
-            // WhatsApp gönder
-            window.open(`https://wa.me/905074340200?text=${message}`);
+            // E-posta gönder
+            window.open(`mailto:thetropicadana@gmail.com?subject=${subject}&body=${body}`);
 
-            showNotification(translations[currentLanguage].orderSending);
+            showNotification(translations[currentLanguage].emailOpening);
 
             // Sepeti temizle
             basket = [];
@@ -2284,6 +2465,13 @@
                     this.classList.add('active');
 
                     const targetId = this.getAttribute('href');
+                    
+                    // Harici linkler için kontrol
+                    if (targetId.startsWith('/') || targetId.startsWith('http')) {
+                        window.location.href = targetId;
+                        return;
+                    }
+                    
                     const targetElement = document.querySelector(targetId);
 
                     if (targetElement) {
@@ -2300,6 +2488,7 @@
             // Dil seçiciyi başlat
             currentLanguageText.textContent = getLanguageName(currentLanguage);
             applyTranslations(currentLanguage);
+            updateUnits();
 
             // Dil seçici olayları
             languageBtn.addEventListener('click', function() {
@@ -2386,61 +2575,70 @@
                 }
             });
         });
-    // --- DYNAMIC PRICING SCRIPT START ---
-    async function updatePricesFromSheet() {
-        // REPLACE THIS LINK with your specific Google Sheet CSV link from Step 1
-        const sheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRUkwiGcW1XCUBWsN5yWpf4YfNB4h5jW3vDibooBJq3T_WeS112oGH_cD_mxlXPXxZcZFYVSbMYKqdQ/pub?gid=0&single=true&output=csv';
 
-        try {
-            const response = await fetch(sheetUrl);
-            const data = await response.text();
+        // --- DYNAMIC PRICING SCRIPT START ---
+        async function updatePricesFromSheet() {
+            const sheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRUkwiGcW1XCUBWsN5yWpf4YfNB4h5jW3vDibooBJq3T_WeS112oGH_cD_mxlXPXxZcZFYVSbMYKqdQ/pub?gid=0&single=true&output=csv';
 
-            // Parse CSV data (Simple parser)
-            const rows = data.split('\n').slice(1); // Remove header row
+            try {
+                const response = await fetch(sheetUrl);
+                const data = await response.text();
 
-            rows.forEach(row => {
-                // Split by comma, but handle potential quotes
-                const columns = row.split(',');
-                
-                if (columns.length >= 2) {
-                    const productName = columns[0].trim();
-                    const newPrice = parseFloat(columns[1].trim());
-                    const unit = columns[2] ? columns[2].trim() : 'kg';
+                // Parse CSV data
+                const rows = data.split('\n').slice(1);
 
-                    // 1. Update the visible HTML price on the page
-                    const priceElement = document.getElementById(`price-${productName}`);
-                    if (priceElement) {
-                        priceElement.textContent = `₺${newPrice} / ${unit}`;
-                    }
-
-                    // 2. Update the internal JS object (fruitInfo) so the basket calculates correctly
-                    if (fruitInfo[productName]) {
-                        fruitInfo[productName].price = newPrice;
-                        fruitInfo[productName].unit = unit;
-                    }
+                rows.forEach(row => {
+                    const columns = row.split(',');
                     
-                    // 3. Update 'Add to Basket' button data attributes
-                    const buttons = document.querySelectorAll(`.add-to-basket[data-fruit="${productName}"]`);
-                    buttons.forEach(btn => {
-                        btn.setAttribute('data-price', newPrice);
-                        btn.setAttribute('data-unit', unit);
-                    });
-                }
-            });
-            
-            console.log("Prices updated from Google Sheet");
+                    if (columns.length >= 2) {
+                        const productName = columns[0].trim();
+                        const newPrice = parseFloat(columns[1].trim());
+                        const unit = columns[2] ? columns[2].trim() : 'kg';
 
-        } catch (error) {
-            console.error("Error loading prices:", error);
-            // If error, the site will just show the default hardcoded HTML prices
+                        // 1. Update the visible HTML price on the page
+                        const priceElement = document.getElementById(`price-${productName}`);
+                        const unitElement = document.getElementById(`unit-${productName}`);
+                        
+                        if (priceElement && unitElement) {
+                            // Fiyatı güncelle
+                            const priceText = priceElement.textContent.split(' / ')[0];
+                            priceElement.textContent = `${priceText.split('₺')[0]}₺${newPrice} / `;
+                            
+                            // Birimi güncelle
+                            unitElement.textContent = translations[currentLanguage][`unit_${unit}`] || unit;
+                            unitElement.setAttribute('data-unit-tr', unit);
+                            
+                            // Fiyatı data attribute olarak sakla
+                            priceElement.setAttribute('data-price', newPrice);
+                        }
+
+                        // 2. Update the internal JS object (fruitInfo)
+                        if (fruitInfo[productName]) {
+                            fruitInfo[productName].price = newPrice;
+                            fruitInfo[productName].unit = unit;
+                        }
+                        
+                        // 3. Update 'Add to Basket' button data attributes
+                        const buttons = document.querySelectorAll(`.add-to-basket[data-fruit="${productName}"]`);
+                        buttons.forEach(btn => {
+                            btn.setAttribute('data-price', newPrice);
+                            btn.setAttribute('data-unit', unit);
+                        });
+                    }
+                });
+                
+                console.log("Prices updated from Google Sheet");
+
+            } catch (error) {
+                console.error("Error loading prices:", error);
+            }
         }
-    }
 
-    // Run this function when page loads
-    document.addEventListener('DOMContentLoaded', function() {
-        updatePricesFromSheet();
-    });
-    // --- DYNAMIC PRICING SCRIPT END ---
+        // Run this function when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            updatePricesFromSheet();
+        });
+        // --- DYNAMIC PRICING SCRIPT END ---
     </script>
 </body>
 </html>
