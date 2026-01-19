@@ -79,6 +79,7 @@
         .nav-container {
             display: flex;
             justify-content: center;
+            flex-wrap: wrap;
         }
         
         .nav-link {
@@ -88,6 +89,7 @@
             margin: 0 5px;
             border-radius: 4px;
             transition: background-color 0.3s;
+            white-space: nowrap;
         }
         
         .nav-link:hover, .nav-link.active {
@@ -246,6 +248,7 @@
             height: 18px;
             object-fit: cover;
             border-radius: 2px;
+            border: 1px solid #ddd;
         }
         
         /* Footer */
@@ -329,6 +332,25 @@
             .nav-link {
                 padding: 8px 12px;
                 font-size: 0.9rem;
+                margin: 2px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .logo {
+                max-width: 200px;
+            }
+            
+            .language-selector {
+                position: static;
+                margin: 10px auto;
+                display: flex;
+                justify-content: center;
+            }
+            
+            .language-btn {
+                padding: 8px 12px;
+                font-size: 0.85rem;
             }
         }
     </style>
@@ -343,19 +365,19 @@
         </button>
         <div class="language-dropdown" id="languageDropdown">
             <div class="language-option" data-lang="tr">
-                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMDAgMjAwIj48cmVjdCB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI2UzMGMzNiIvPjxjaXJjbGUgY3g9IjE1MCIgY3k9IjEwMCIgcj0iNDAiIGZpbGw9IiNmZmYiLz48Y2lyY2xlIGN4PSIxNjAiIGN5PSIxMDAiIHI9IjMwIiBmaWxsPSIjZTMwYzM2Ii8+PHN0YXIgcG9pbnRzPSIxNTAsNjAgMTM1LDkwIDEwMCw5MCAxMzAsMTEwIDExNSwxNDAgMTUwLDEyMCAxODUsMTQwIDE3MCwxMTAgMjAwLDkwIDE2NSw5MCIgZmlsbD0iI2ZmZiIvPjwvc3ZnPg==" alt="Türkçe" class="language-flag">
+                <img src="https://flagcdn.com/w20/tr.png" srcset="https://flagcdn.com/w40/tr.png 2x" alt="Türkçe" class="language-flag">
                 Türkçe
             </div>
             <div class="language-option" data-lang="en">
-                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMDAgMjAwIj48cmVjdCB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iIzAyNDc5NCIvPjxwYXRoIGQ9Ik0wIDBoMzAwdjIwMEgweiIgZmlsbD0iI2ZmZiIvPjxwYXRoIGQ9Ik0wIDBoMTIwdjIwMEgweiIgZmlsbD0iIzAyNDc5NCIvPjxwYXRoIGQ9Ik0wIDBoMzAwdjQwSDB6IiBmaWxsPSIjYzYwMDI2Ii8+PHBhdGggZD0iTTAgODBoMzAwdjQwSDB6IiBmaWxsPSIjYzYwMDI2Ii8+PHBhdGggZD0iTTAgMTYwaDMwMHY0MEgweiIgZmlsbD0iI2M2MDAyNiIvPjxwYXRoIGQ9Ik0xNjAgMGg0MHYyMDBoLTQweiIgZmlsbD0iI2M2MDAyNiIvPjxwYXRoIGQ9Ik0wIDBoMzAwdjIwMEgweiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMDI0Nzk0IiBzdHJva2Utd2lkdGg9IjIwIi8+PC9zdmc+" alt="English" class="language-flag">
+                <img src="https://flagcdn.com/w20/gb.png" srcset="https://flagcdn.com/w40/gb.png 2x" alt="English" class="language-flag">
                 English
             </div>
             <div class="language-option" data-lang="de">
-                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMDAgMjAwIj48cmVjdCB3aWR0aD0iMzAwIiBoZWlnaHQ9IjY3IiB5PSIwIiBmaWxsPSIjZmZmIi8+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSI2NyIgeT0iNjciIGZpbGw9IiNkMDAiLz48cmVjdCB3aWR0aD0iMzAwIiBoZWlnaHQ9IjY2IiB5PSIxMzQiIGZpbGw9IiNmZmNjMDAiLz48L3N2Zz4=" alt="Deutsch" class="language-flag">
+                <img src="https://flagcdn.com/w20/de.png" srcset="https://flagcdn.com/w40/de.png 2x" alt="Deutsch" class="language-flag">
                 Deutsch
             </div>
             <div class="language-option" data-lang="ru">
-                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMDAgMjAwIj48cmVjdCB3aWR0aD0iMzAwIiBoZWlnaHQ9IjY3IiB5PSIwIiBmaWxsPSIjZmZmIi8+PHJlY3Qgd2lkdGg9IjMwMCIgaGVpZ2h0PSI2NyIgeT0iNjciIGZpbGw9IiMwMDdmNWYiLz48cmVjdCB3aWR0aD0iMzAwIiBoZWlnaHQ9IjY2IiB5PSIxMzQiIGZpbGw9IiNkNTIiLz48L3N2Zz4=" alt="Русский" class="language-flag">
+                <img src="https://flagcdn.com/w20/ru.png" srcset="https://flagcdn.com/w40/ru.png 2x" alt="Русский" class="language-flag">
                 Русский
             </div>
         </div>
@@ -381,15 +403,16 @@
                 <a href="index.html#urunler" class="nav-link" id="navProducts">Ürünler</a>
                 <a href="index.html#hakkimizda" class="nav-link" id="navAbout">Hakkımızda</a>
                 <a href="index.html#iletisim" class="nav-link" id="navContact">İletişim</a>
+                <a href="index.html#instagram" class="nav-link" id="navInstagram">Instagram</a>
                 <a href="privacy-policy.html" class="nav-link" id="navPrivacy">Gizlilik Politikası</a>
-                <a href="terms-of-service.html" class="nav-link active" id="navTerms">Hizmet Şartları</a>
+                <a href="terms-of-service.html" class="nav-link active" id="navTerms">Kullanım Şartları</a>
             </div>
         </div>
     </nav>
     
     <div class="container">
         <div class="main-content">
-            <h2 class="section-title" id="termsTitle">Hizmet Şartları</h2>
+            <h2 class="section-title" id="termsTitle">Kullanım Şartları</h2>
             
             <div class="terms-content">
                 <div class="warning-box">
@@ -399,7 +422,7 @@
                 
                 <div class="terms-section">
                     <h3 id="termsSection1">1. Kabul ve Değişiklikler</h3>
-                    <p>The Tropic web sitesini ("Site") ziyaret ettiğinizde veya hizmetlerimizi kullandığınızda, bu Hizmet Şartları'nı kabul etmiş sayılırsınız. Bu şartları zaman zaman güncelleyebiliriz. Değişiklikler sitede yayınlandığı anda yürürlüğe girer.</p>
+                    <p>The Tropic web sitesini ("Site") ziyaret ettiğinizde veya hizmetlerimizi kullandığınızda, bu Kullanım Şartları'nı kabul etmiş sayılırsınız. Bu şartları zaman zaman güncelleyebiliriz. Değişiklikler sitede yayınlandığı anda yürürlüğe girer.</p>
                 </div>
                 
                 <div class="terms-section">
@@ -484,13 +507,13 @@
                 
                 <div class="terms-section">
                     <h3 id="termsSection10">10. Uygulanacak Hukuk ve Uyuşmazlık Çözümü</h3>
-                    <p>Bu Hizmet Şartları Türkiye Cumhuriyeti yasalarına tabidir. Bu şartlardan kaynaklanan herhangi bir uyuşmazlık öncelikle görüşmeler yoluyla çözülmeye çalışılacaktır. Çözülemeyen durumlarda Mersin mahkemeleri yetkilidir.</p>
+                    <p>Bu Kullanım Şartları Türkiye Cumhuriyeti yasalarına tabidir. Bu şartlardan kaynaklanan herhangi bir uyuşmazlık öncelikle görüşmeler yoluyla çözülmeye çalışılacaktır. Çözülemeyen durumlarda Mersin mahkemeleri yetkilidir.</p>
                 </div>
                 
                 <div class="terms-section">
                     <h3 id="termsSection11">11. İletişim</h3>
-                    <p>Bu Hizmet Şartları ile ilgili herhangi bir sorunuz varsa, lütfen bizimle iletişime geçin:</p>
-                    <p><strong id="termsContact">İletişim:</strong> info@thetropic.com.tr</p>
+                    <p>Bu Kullanım Şartları ile ilgili herhangi bir sorunuz varsa, lütfen bizimle iletişime geçin:</p>
+                    <p><strong id="termsContact">İletişim:</strong> thetropicadana@gmail.com</p>
                     <p><strong id="termsPhone">Telefon:</strong> +90 507 434 0200</p>
                     <p><strong id="termsAddress">Adres:</strong> Şehit Mustafa Mah. İsmetpaşa Bulv. Baltalı İşhanı No:10 Tarsus/Mersin</p>
                 </div>
@@ -513,7 +536,7 @@
                 <div class="footer-section">
                     <h3 id="footerContactTitle">İletişim</h3>
                     <p><i class="fas fa-phone"></i> <span id="footerWhatsapp">WhatsApp:</span> +90 507 434 0200 (Yusuf Alp)</p>
-                    <p><i class="fas fa-envelope"></i> <span id="footerEmail">E-posta:</span> info@thetropic.com.tr</p>
+                    <p><i class="fas fa-envelope"></i> <span id="footerEmail">E-posta:</span> thetropicadana@gmail.com</p>
                     <p><i class="fas fa-map-marker-alt"></i> <span id="footerAddress">Adres:</span> Şehit Mustafa Mah. İsmetpaşa Bulv. Baltalı İşhanı No:10 Tarsus/Mersin</p>
                 </div>
                 
@@ -523,19 +546,19 @@
                         <a href="index.html" id="footerHome">Ana Sayfa</a>
                         <a href="index.html#urunler" id="footerProducts">Ürünler</a>
                         <a href="index.html#hakkimizda" id="footerAbout">Hakkımızda</a>
+                        <a href="index.html#instagram" id="footerInstagram">Instagram</a>
                         <a href="index.html#iletisim" id="footerContact">İletişim</a>
                         <a href="privacy-policy.html" id="footerPrivacy">Gizlilik Politikası</a>
-                        <a href="terms-of-service.html" id="footerTerms">Hizmet Şartları</a>
+                        <a href="terms-of-service.html" id="footerTerms">Kullanım Şartları</a>
                     </div>
                 </div>
                 
                 <div class="footer-section">
                     <h3 id="footerFollow">Bizi Takip Edin</h3>
                     <div class="social-icons">
-                        <a href="https://www.instagram.com/thetropic" target="_blank"><i class="fab fa-instagram"></i></a>
-                        <a href="https://www.facebook.com/thetropic" target="_blank"><i class="fab fa-facebook"></i></a>
-                        <a href="https://www.twitter.com/thetropic" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/thetropic.com.tr" target="_blank"><i class="fab fa-instagram"></i></a>
                     </div>
+                    <p style="margin-top: 15px; font-size: 0.9rem; color: #aaa;" id="footerSocialText">Sadece Instagram'da bizi bulabilirsiniz.</p>
                 </div>
             </div>
             
@@ -554,12 +577,13 @@
                 navHome: "Ana Sayfa",
                 navProducts: "Ürünler",
                 navAbout: "Hakkımızda",
+                navInstagram: "Instagram",
                 navContact: "İletişim",
                 navPrivacy: "Gizlilik Politikası",
-                navTerms: "Hizmet Şartları",
+                navTerms: "Kullanım Şartları",
                 
-                // Hizmet Şartları
-                termsTitle: "Hizmet Şartları",
+                // Kullanım Şartları
+                termsTitle: "Kullanım Şartları",
                 termsWarningTitle: "ÖNEMLİ UYARI",
                 termsWarningText: "Bu web sitesi sadece bilgilendirme ve iletişim amaçlıdır. Tüm sipariş, ödeme ve teslimat işlemleri WhatsApp, e-posta veya telefon görüşmeleri yoluyla gerçekleştirilir. Web sitemiz üzerinden herhangi bir ödeme işlemi yapılmamaktadır.",
                 termsSection1: "1. Kabul ve Değişiklikler",
@@ -616,10 +640,12 @@
                 footerHome: "Ana Sayfa",
                 footerProducts: "Ürünler",
                 footerAbout: "Hakkımızda",
+                footerInstagram: "Instagram",
                 footerContact: "İletişim",
                 footerPrivacy: "Gizlilik Politikası",
-                footerTerms: "Hizmet Şartları",
+                footerTerms: "Kullanım Şartları",
                 footerFollow: "Bizi Takip Edin",
+                footerSocialText: "Sadece Instagram'da bizi bulabilirsiniz.",
                 copyrightText: "© 2025 The Tropic - ÖZYÜREKOĞLU TARIM YAŞ SEBZE MEYVE TİCARET LİMİTED ŞİRKETİ - Tüm Hakları Saklıdır."
             },
             en: {
@@ -628,6 +654,7 @@
                 navHome: "Home",
                 navProducts: "Products",
                 navAbout: "About Us",
+                navInstagram: "Instagram",
                 navContact: "Contact",
                 navPrivacy: "Privacy Policy",
                 navTerms: "Terms of Service",
@@ -690,10 +717,12 @@
                 footerHome: "Home",
                 footerProducts: "Products",
                 footerAbout: "About Us",
+                footerInstagram: "Instagram",
                 footerContact: "Contact",
                 footerPrivacy: "Privacy Policy",
                 footerTerms: "Terms of Service",
                 footerFollow: "Follow Us",
+                footerSocialText: "You can only find us on Instagram.",
                 copyrightText: "© 2025 The Tropic - ÖZYÜREKOĞLU TARIM YAŞ SEBZE MEYVE TİCARET LİMİTED ŞİRKETİ - All Rights Reserved."
             },
             de: {
@@ -702,6 +731,7 @@
                 navHome: "Startseite",
                 navProducts: "Produkte",
                 navAbout: "Über uns",
+                navInstagram: "Instagram",
                 navContact: "Kontakt",
                 navPrivacy: "Datenschutzrichtlinie",
                 navTerms: "Nutzungsbedingungen",
@@ -764,10 +794,12 @@
                 footerHome: "Startseite",
                 footerProducts: "Produkte",
                 footerAbout: "Über uns",
+                footerInstagram: "Instagram",
                 footerContact: "Kontakt",
                 footerPrivacy: "Datenschutzrichtlinie",
                 footerTerms: "Nutzungsbedingungen",
                 footerFollow: "Folgen Sie uns",
+                footerSocialText: "Sie können uns nur auf Instagram finden.",
                 copyrightText: "© 2025 The Tropic - ÖZYÜREKOĞLU TARIM YAŞ SEBZE MEYVE TİCARET LİMİTED ŞİRKETİ - Alle Rechte vorbehalten."
             },
             ru: {
@@ -776,12 +808,13 @@
                 navHome: "Главная",
                 navProducts: "Продукты",
                 navAbout: "О нас",
+                navInstagram: "Instagram",
                 navContact: "Контакты",
                 navPrivacy: "Политика конфиденциальности",
-                navTerms: "Условия обслуживания",
+                navTerms: "Условия использования",
                 
-                // Условия обслуживания
-                termsTitle: "Условия обслуживания",
+                // Условия использования
+                termsTitle: "Условия использования",
                 termsWarningTitle: "ВАЖНОЕ ПРЕДУПРЕЖДЕНИЕ",
                 termsWarningText: "Этот веб-сайт предназначен только для информационных и коммуникационных целей. Все заказы, платежи и доставка осуществляются через WhatsApp, электронную почту или телефонные звонки. Через наш веб-сайт не производятся платежные операции.",
                 termsSection1: "1. Принятие и изменения",
@@ -838,10 +871,12 @@
                 footerHome: "Главная",
                 footerProducts: "Продукты",
                 footerAbout: "О нас",
+                footerInstagram: "Instagram",
                 footerContact: "Контакты",
                 footerPrivacy: "Политика конфиденциальности",
-                footerTerms: "Условия обслуживания",
+                footerTerms: "Условия использования",
                 footerFollow: "Подпишитесь на нас",
+                footerSocialText: "Вы можете найти нас только в Instagram.",
                 copyrightText: "© 2025 The Tropic - ÖZYÜREKOĞLU TARIM YAŞ SEBZE MEYVE TİCARET LİMİTED ŞİRKETИ - Все права защищены."
             }
         };
@@ -884,6 +919,7 @@
             document.getElementById('navHome').textContent = translation.navHome;
             document.getElementById('navProducts').textContent = translation.navProducts;
             document.getElementById('navAbout').textContent = translation.navAbout;
+            document.getElementById('navInstagram').textContent = translation.navInstagram;
             document.getElementById('navContact').textContent = translation.navContact;
             document.getElementById('navPrivacy').textContent = translation.navPrivacy;
             document.getElementById('navTerms').textContent = translation.navTerms;
@@ -937,10 +973,12 @@
             document.getElementById('footerHome').textContent = translation.footerHome;
             document.getElementById('footerProducts').textContent = translation.footerProducts;
             document.getElementById('footerAbout').textContent = translation.footerAbout;
+            document.getElementById('footerInstagram').textContent = translation.footerInstagram;
             document.getElementById('footerContact').textContent = translation.footerContact;
             document.getElementById('footerPrivacy').textContent = translation.footerPrivacy;
             document.getElementById('footerTerms').textContent = translation.footerTerms;
             document.getElementById('footerFollow').textContent = translation.footerFollow;
+            document.getElementById('footerSocialText').textContent = translation.footerSocialText;
             document.getElementById('copyrightText').textContent = translation.copyrightText;
         }
 
