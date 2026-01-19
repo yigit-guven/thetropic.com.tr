@@ -152,6 +152,7 @@
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0,0,0,0.08);
             transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
         }
 
         .product-item:hover {
@@ -197,8 +198,49 @@
         .product-price {
             font-weight: 700;
             color: #e74c3c;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
             font-size: 1.4rem;
+        }
+
+        .product-stock {
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        .stock-available {
+            color: #2c5e1a;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .stock-available i {
+            color: #2c5e1a;
+        }
+
+        .stock-low {
+            color: #ff8c42;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .stock-low i {
+            color: #ff8c42;
+        }
+
+        .stock-out {
+            color: #e74c3c;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .stock-out i {
+            color: #e74c3c;
         }
 
         .product-description {
@@ -242,13 +284,18 @@
             font-size: 1rem;
         }
 
+        .action-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
         .info-btn {
             background-color: #f8f9fa;
             color: #495057;
             border: 1px solid #e9ecef;
         }
 
-        .info-btn:hover {
+        .info-btn:hover:not(:disabled) {
             background-color: #e9ecef;
         }
 
@@ -257,7 +304,7 @@
             color: white;
         }
 
-        .buy-btn:hover {
+        .buy-btn:hover:not(:disabled) {
             background: linear-gradient(to right, #ff6b35, #ff8c42);
             box-shadow: 0 3px 8px rgba(255, 140, 66, 0.3);
         }
@@ -537,6 +584,12 @@
             gap: 10px;
         }
 
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
         .quantity-btn {
             background: #f8f9fa;
             border: 1px solid #e9ecef;
@@ -552,6 +605,20 @@
 
         .quantity-btn:hover {
             background: #e9ecef;
+        }
+
+        .quantity-input {
+            width: 50px;
+            height: 30px;
+            text-align: center;
+            border: 1px solid #e9ecef;
+            border-radius: 4px;
+            font-size: 0.95rem;
+        }
+
+        .quantity-input:focus {
+            outline: none;
+            border-color: #ff8c42;
         }
 
         .basket-total {
@@ -953,6 +1020,7 @@
                     <div class="product-details">
                         <h3 class="product-title">Taze Lime</h3>
                         <div class="product-price" id="price-Lime">₺180 / <span id="unit-Lime" data-unit-tr="kg">kg</span></div>
+                        <div class="product-stock" id="stock-Lime"></div>
                         <p class="product-description" id="limeDescription">Türkiye'nin Akdeniz bölgesinde özenle yetiştirilen taze limonlar, normal limonlara göre daha aromatik ve ekşi bir tada sahiptir. Yemeklerinize, içeceklerinize ve tatlılarınıza ferahlatıcı bir lezzet katar.</p>
 
                         <div class="product-features">
@@ -981,6 +1049,7 @@
                     <div class="product-details">
                         <h3 class="product-title">Kremalı Avokado</h3>
                         <div class="product-price" id="price-Avokado">₺65 / <span id="unit-Avokado" data-unit-tr="adet">adet</span></div>
+                        <div class="product-stock" id="stock-Avokado"></div>
                         <p class="product-description" id="avocadoDescription">Türkiye'nin Akdeniz ve Ege bölgelerinde yetiştirilen premium avokadolar, kremamsı dokusu ve hafif tadıyla sağlıklı beslenmenin vazgeçilmezi. Salatalar, tostlar ve mezeler için ideal.</p>
 
                         <div class="product-features">
@@ -1009,6 +1078,7 @@
                     <div class="product-details">
                         <h3 class="product-title">Egzotik Ejder Meyvesi</h3>
                         <div class="product-price" id="price-Ejder Meyvesi">₺75 / <span id="unit-Ejder Meyvesi" data-unit-tr="adet">adet</span></div>
+                        <div class="product-stock" id="stock-Ejder Meyvesi"></div>
                         <p class="product-description" id="dragonfruitDescription">Türkiye'de Akdeniz bölgesindeki özel seralarda yetiştirilen ejder meyvesi, hafif tatlı ve ferahlatıcı tadıyla tropikal bir deneyim sunar. Taze tüketim, smoothie'ler ve dekoratif sunumlar için mükemmel.</p>
 
                         <div class="product-features">
@@ -1037,6 +1107,7 @@
                     <div class="product-details">
                         <h3 class="product-title">Aromatik Mango</h3>
                         <div class="product-price" id="price-Mango">₺120 / <span id="unit-Mango" data-unit-tr="kg">kg</span></div>
+                        <div class="product-stock" id="stock-Mango"></div>
                         <p class="product-description" id="mangoDescription">Türkiye'nin Akdeniz bölgesinde özel koşullarda yetiştirilen mangolar, tatlı ve aromatik tadıyla tropikal lezzet arayanlar için ideal. Taze tüketim, meyve salataları ve tatlılarda mükemmel sonuç verir.</p>
 
                         <div class="product-features">
@@ -1065,6 +1136,7 @@
                     <div class="product-details">
                         <h3 class="product-title">Tatlı Ananas</h3>
                         <div class="product-price" id="price-Ananas">₺95 / <span id="unit-Ananas" data-unit-tr="adet">adet</span></div>
+                        <div class="product-stock" id="stock-Ananas"></div>
                         <p class="product-description" id="pineappleDescription">Türkiye'nin Akdeniz bölgesinde özenle yetiştirilen ananaslar, tatlı ve sulu etleriyle tropikal lezzet arayanlar için mükemmel bir seçimdir. Taze tüketim, meyve salataları ve tatlılarda kullanılabilir.</p>
 
                         <div class="product-features">
@@ -1093,6 +1165,7 @@
                     <div class="product-details">
                         <h3 class="product-title">Taze Kivi</h3>
                         <div class="product-price" id="price-Kivi">₺45 / <span id="unit-Kivi" data-unit-tr="kg">kg</span></div>
+                        <div class="product-stock" id="stock-Kivi"></div>
                         <p class="product-description" id="kiwiDescription">Türkiye'nin Karadeniz bölgesinde yetiştirilen kiviler, tatlı-ekşi dengesi ve yumuşak dokusuyla sağlıklı atıştırmalıklar için idealdir. C vitamini deposu olan kivi, bağışıklık sistemini destekler.</p>
 
                         <div class="product-features">
@@ -1214,7 +1287,7 @@
                 <div class="empty-basket" id="emptyBasketText">Sepetinizde ürün bulunmamaktadır.</div>
             </div>
 
-            <!-- Kargo Bilgisi Sepet - THIS WAS MISSING -->
+            <!-- Kargo Bilgisi Sepet -->
             <div class="cargo-info" id="basketCargoInfo">
                 <p><i class="fas fa-info-circle"></i> <span id="basketCargoText">1500 TL ve üzeri siparişlerde kargo ücretsizdir. Altındaki siparişlerde kargo ücreti satıcı ile iletişimde belirlenir.</span></p>
             </div>
@@ -1357,7 +1430,14 @@
                 paymentNoticeFormText: "Ödeme işlemleri WhatsApp, e-posta veya telefon ile gerçekleştirilir. Siparişinizi oluşturduktan sonra size dönüş yapacağız.",
                 paymentNoticeBasketText: "Ödeme işlemleri WhatsApp, e-posta veya telefon ile gerçekleştirilir. Sepetinizi oluşturduktan sonra siparişinizi gönderin, size dönüş yapacağız.",
                 basketCargoText: "1500 TL ve üzeri siparişlerde kargo ücretsizdir. Altındaki siparişlerde kargo ücreti satıcı ile iletişimde belirlenir.",
-
+                
+                // Stok durumu
+                stockLabel: "Stok:",
+                stockAvailable: "Stokta",
+                stockLow: "Son",
+                stockOut: "Stokta Yok",
+                unitsAvailable: "birim mevcut",
+                
                 // Ürün açıklamaları
                 limeDescription: "Türkiye'nin Akdeniz bölgesinde özenle yetiştirilen taze limonlar, normal limonlara göre daha aromatik ve ekşi bir tada sahiptir. Yemeklerinize, içeceklerinize ve tatlılarınıza ferahlatıcı bir lezzet katar.",
                 avocadoDescription: "Türkiye'nin Akdeniz ve Ege bölgelerinde yetiştirilen premium avokadolar, kremamsı dokusu ve hafif tadıyla sağlıklı beslenmenin vazgeçilmezi. Salatalar, tostlar ve mezeler için ideal.",
@@ -1392,7 +1472,7 @@
                 feature23: "Potasyum ve E Vitamini İçerir",
                 feature24: "Doğal Yetiştirme",
 
-                // Birimler - FIXED: Added all unit translations
+                // Birimler
                 unit_kg: "kg",
                 unit_adet: "adet",
                 unit_piece: "adet",
@@ -1402,6 +1482,14 @@
                 unit_cuval: "çuval",
                 unit_kasa: "kasa",
                 unit_paket: "paket",
+
+                // Ürün detayları (çok dilli)
+                productDetail_Lime: "<h3>Lime - Detaylı Bilgi</h3><p><strong>Menşei:</strong> Türkiye - Akdeniz Bölgesi</p><p><strong>Fiyat:</strong> {{price}} {{unit}}</p><p><strong>Stok Durumu:</strong> {{stock}} {{unit}}</p><p><strong>Lezzet Profili:</strong> Aromatik, ekşi, ferahlatıcı</p><p><strong>Sağlık Faydaları:</strong> Zengin C vitamini kaynağı, antioksidan özellikli, bağışıklık sistemini destekler</p><p><strong>Kullanım Alanları:</strong> İçecekler, salatalar, deniz ürünleri, tatlılar ve sos yapımında kullanılır.</p><p><strong>Saklama Koşulları:</strong> Oda sıcaklığında 3-4 gün, buzdolabında 2-3 hafta tazeliğini korur.</p><p><strong>Toptan Sipariş:</strong> İşletmelere özel toptan fiyatlar için lütfen iletişime geçin. Minimum sipariş miktarı 10kg'dır.</p><p><strong>Nakliye:</strong> Tüm Türkiye'ye özenle paketlenmiş olarak gönderim yapılmaktadır. Büyük siparişlerde nakliye ücretsizdir.</p>",
+                productDetail_Avokado: "<h3>Avokado - Detaylı Bilgi</h3><p><strong>Menşei:</strong> Türkiye - Akdeniz ve Ege Bölgeleri</p><p><strong>Fiyat:</strong> {{price}} {{unit}}</p><p><strong>Stok Durumu:</strong> {{stock}} {{unit}}</p><p><strong>Lezzet Profili:</strong> Kremamsı, hafif, besleyici</p><p><strong>Sağlık Faydaları:</strong> Sağlıklı yağ asitleri kaynağı, yüksek lif içeriği, potasyum ve vitamin deposu</p><p><strong>Olgunluk Kontrolü:</strong> Hafifçe bastırıldığında hafif bir yumuşaklık hissedilir. Sapı kolayca çıkabilir.</p><p><strong>Saklama Koşulları:</strong> Olgunlaşmamış avokadolar oda sıcaklığında bekletilmeli, olgunlaştıktan sonra buzdolabında saklanmalıdır.</p><p><strong>Toptan Sipariş:</strong> Restoran ve kafeler için özel fiyatlar mevcuttur. Düzenli siparişlerde indirim uygulanmaktadır.</p><p><strong>Nakliye:</strong> Özel koruyucu ambalajlarla gönderim yapılmaktadır. Siparişler 1-3 iş günü içerisinde teslim edilir.</p>",
+                productDetail_Ejder_Meyvesi: "<h3>Ejder Meyvesi - Detaylı Bilgi</h3><p><strong>Menşei:</strong> Türkiye - Akdeniz Bölgesi (Özel Seralar)</p><p><strong>Fiyat:</strong> {{price}} {{unit}}</p><p><strong>Stok Durumu:</strong> {{stock}} {{unit}}</p><p><strong>Lezzet Profili:</strong> Hafif tatlı, ferahlatıcı, egzotik</p><p><strong>Sağlık Faydaları:</strong> Güçlü antioksidan özellikli, C vitamini ve lif kaynağı, düşük kalorili ve besleyici</p><p><strong>Çeşitler:</strong> Kırmızı çeşitleri mevcuttur.</p><p><strong>Saklama Koşulları:</strong> Buzdolabında 4-5 gün tazeliğini korur. Dilimlenmiş olarak buzdolabında saklanmamalıdır.</p><p><strong>Toptan Sipariş:</strong> Özel kutulama seçenekleri mevcuttur. Büyük miktarlı siparişlerde fiyat avantajı sağlanmaktadır.</p><p><strong>Nakliye:</strong> Hassas bir meyve olduğundan özel korumalı paketleme yapılmaktadır. Siparişler haftanın belirli günlerinde gönderilir.</p>",
+                productDetail_Mango: "<h3>Mango - Detaylı Bilgi</h3><p><strong>Menşei:</strong> Türkiye - Akdeniz Bölgesi (Özel Koşullarda)</p><p><strong>Fiyat:</strong> {{price}} {{unit}}</p><p><strong>Stok Durumu:</strong> {{stock}} {{unit}}</p><p><strong>Lezzet Profili:</strong> Tatlı, aromatik, tropikal</p><p><strong>Sağlık Faydaları:</strong> Zengin A vitamini kaynağı, doğal şeker içeriği, sindirimi destekleyici lifler</p><p><strong>Olgunluk Kontrolü:</strong> Hafifçe bastırıldığında hafif bir yumuşaklık hissedilir ve hoş bir kokusu vardır.</p><p><strong>Saklama Koşulları:</strong> Olgunlaşmamış mango oda sıcaklığında bekletilmeli, olgunlaştıktan sonra buzdolabında saklanmalıdır.</p><p><strong>Toptan Sipariş:</strong> Otel, restoran ve catering firmalarına özel fiyatlar sunulmaktadır. Mevsimlik indirimler için takipte kalın.</p><p><strong>Nakliye:</strong> Olgunluk durumuna göre özenle seçilir ve özel ambalajlarla gönderilir. Siparişler 1-2 iş günü içerisinde hazırlanır.</p>",
+                productDetail_Ananas: "<h3>Ananas - Detaylı Bilgi</h3><p><strong>Menşei:</strong> Türkiye - Akdeniz Bölgesi</p><p><strong>Fiyat:</strong> {{price}} {{unit}}</p><p><strong>Stok Durumu:</strong> {{stock}} {{unit}}</p><p><strong>Lezzet Profili:</strong> Tatlı, sulu, tropikal</p><p><strong>Sağlık Faydaları:</strong> Bromelain enzimi içerir, C vitamini ve manganez kaynağı, sindirimi destekler, doğal tatlılık</p><p><strong>Olgunluk Kontrolü:</strong> Hafifçe bastırıldığında hafif bir yumuşaklık hissedilir ve hoş bir kokusu vardır.</p><p><strong>Saklama Koşulları:</strong> Oda sıcaklığında 2-3 gün, buzdolabında 4-5 gün tazeliğini korur. Dilimlenmiş olarak buzdolabında saklanmalıdır.</p><p><strong>Toptan Sipariş:</strong> Büyük miktarlı siparişlerde özel fiyatlar sunulmaktadır. Minimum sipariş miktarı 10 adettir.</p><p><strong>Nakliye:</strong> Özel koruyucu ambalajlarla gönderim yapılmaktadır. Siparişler 1-3 iş günü içerisinde teslim edilir.</p>",
+                productDetail_Kivi: "<h3>Kivi - Detaylı Bilgi</h3><p><strong>Menşei:</strong> Türkiye - Karadeniz Bölgesi</p><p><strong>Fiyat:</strong> {{price}} {{unit}}</p><p><strong>Stok Durumu:</strong> {{stock}} {{unit}}</p><p><strong>Lezzet Profili:</strong> Tatlı-ekşi, yumuşak, ferahlatıcı</p><p><strong>Sağlık Faydaları:</strong> Yüksek C vitamini içeriği, lif ve antioksidan kaynağı, potasyum ve E vitamini içerir, doğal yetiştirme</p><p><strong>Olgunluk Kontrolü:</strong> Hafifçe bastırıldığında hafif bir yumuşaklık hissedilir.</p><p><strong>Saklama Koşulları:</strong> Buzdolabında 1-2 hafta tazeliğini korur. Olgunlaşmamış kiviler oda sıcaklığında bekletilebilir.</p><p><strong>Toptan Sipariş:</strong> İşletmelere özel toptan fiyatlar için lütfen iletişime geçin. Minimum sipariş miktarı 5kg'dır.</p><p><strong>Nakliye:</strong> Tüm Türkiye'ye özenle paketlenmiş olarak gönderim yapılmaktadır. Büyük siparişlerde nakliye ücretsizdir.</p>",
 
                 // Butonlar
                 detailText: "Detay",
@@ -1468,7 +1556,10 @@
                 orderSending: "Siparişiniz WhatsApp ile gönderiliyor...",
                 emailOpening: "E-posta uygulamanız açılıyor...",
                 whatsappPreparing: "WhatsApp iletişim formunuz hazırlanıyor...",
-                fillRequiredFields: "Lütfen zorunlu alanları doldurunuz."
+                fillRequiredFields: "Lütfen zorunlu alanları doldurunuz.",
+                outOfStock: " stokta bulunmamaktadır.",
+                lowStock: " stokta sınırlı sayıda kalmıştır.",
+                exceededStock: "Stokta sadece {{stock}} {{unit}} mevcut."
             },
             en: {
                 // General
@@ -1486,7 +1577,14 @@
                 paymentNoticeFormText: "Payments are processed via WhatsApp, email, or phone. We will get back to you after you submit your order.",
                 paymentNoticeBasketText: "Payments are processed via WhatsApp, email, or phone. After creating your basket, send your order and we will get back to you.",
                 basketCargoText: "Free shipping on orders over 1500 TL. For orders below this amount, shipping cost is determined in communication with the seller.",
-
+                
+                // Stock status
+                stockLabel: "Stock:",
+                stockAvailable: "In Stock",
+                stockLow: "Low",
+                stockOut: "Out of Stock",
+                unitsAvailable: "units available",
+                
                 // Product descriptions
                 limeDescription: "Fresh limes carefully grown in Turkey's Mediterranean region have a more aromatic and sour taste compared to regular lemons. They add a refreshing flavor to your meals, drinks and desserts.",
                 avocadoDescription: "Premium avocados grown in Turkey's Mediterranean and Aegean regions are essential for healthy nutrition with their creamy texture and mild taste. Ideal for salads, toasts and appetizers.",
@@ -1521,7 +1619,7 @@
                 feature23: "Contains Potassium and Vitamin E",
                 feature24: "Natural Cultivation",
 
-                // Units - FIXED: Added all unit translations
+                // Units
                 unit_kg: "kg",
                 unit_adet: "piece",
                 unit_piece: "piece",
@@ -1531,6 +1629,14 @@
                 unit_cuval: "bag",
                 unit_kasa: "case",
                 unit_paket: "pack",
+
+                // Product details (multilingual)
+                productDetail_Lime: "<h3>Lime - Detailed Information</h3><p><strong>Origin:</strong> Turkey - Mediterranean Region</p><p><strong>Price:</strong> {{price}} {{unit}}</p><p><strong>Stock Status:</strong> {{stock}} {{unit}}</p><p><strong>Flavor Profile:</strong> Aromatic, sour, refreshing</p><p><strong>Health Benefits:</strong> Rich source of vitamin C, antioxidant properties, supports immune system</p><p><strong>Usage Areas:</strong> Used in beverages, salads, seafood, desserts and sauces.</p><p><strong>Storage Conditions:</strong> Maintains freshness for 3-4 days at room temperature, 2-3 weeks in the refrigerator.</p><p><strong>Wholesale Orders:</strong> Please contact us for special wholesale prices for businesses. Minimum order quantity is 10kg.</p><p><strong>Shipping:</strong> Carefully packaged shipping throughout Turkey. Shipping is free for large orders.</p>",
+                productDetail_Avokado: "<h3>Avocado - Detailed Information</h3><p><strong>Origin:</strong> Turkey - Mediterranean and Aegean Regions</p><p><strong>Price:</strong> {{price}} {{unit}}</p><p><strong>Stock Status:</strong> {{stock}} {{unit}}</p><p><strong>Flavor Profile:</strong> Creamy, mild, nutritious</p><p><strong>Health Benefits:</strong> Source of healthy fatty acids, high fiber content, rich in potassium and vitamins</p><p><strong>Ripeness Check:</strong> Slight softness when lightly pressed. Stem should come off easily.</p><p><strong>Storage Conditions:</strong> Unripe avocados should be kept at room temperature, refrigerated after ripening.</p><p><strong>Wholesale Orders:</strong> Special prices available for restaurants and cafes. Discounts apply for regular orders.</p><p><strong>Shipping:</strong> Shipped with special protective packaging. Orders are delivered within 1-3 business days.</p>",
+                productDetail_Ejder_Meyvesi: "<h3>Dragon Fruit - Detailed Information</h3><p><strong>Origin:</strong> Turkey - Mediterranean Region (Special Greenhouses)</p><p><strong>Price:</strong> {{price}} {{unit}}</p><p><strong>Stock Status:</strong> {{stock}} {{unit}}</p><p><strong>Flavor Profile:</strong> Slightly sweet, refreshing, exotic</p><p><strong>Health Benefits:</strong> Strong antioxidant properties, source of vitamin C and fiber, low calorie and nutritious</p><p><strong>Varieties:</strong> Red varieties are available.</p><p><strong>Storage Conditions:</strong> Maintains freshness for 4-5 days in the refrigerator. Should not be stored sliced in the refrigerator.</p><p><strong>Wholesale Orders:</strong> Special packaging options available. Price advantage provided for large quantity orders.</p><p><strong>Shipping:</strong> Special protective packaging due to delicate fruit. Orders are shipped on specific days of the week.</p>",
+                productDetail_Mango: "<h3>Mango - Detailed Information</h3><p><strong>Origin:</strong> Turkey - Mediterranean Region (Special Conditions)</p><p><strong>Price:</strong> {{price}} {{unit}}</p><p><strong>Stock Status:</strong> {{stock}} {{unit}}</p><p><strong>Flavor Profile:</strong> Sweet, aromatic, tropical</p><p><strong>Health Benefits:</strong> Rich source of vitamin A, natural sugar content, digestive supporting fibers</p><p><strong>Ripeness Check:</strong> Slight softness when lightly pressed and has a pleasant aroma.</p><p><strong>Storage Conditions:</strong> Unripe mango should be kept at room temperature, refrigerated after ripening.</p><p><strong>Wholesale Orders:</strong> Special prices offered to hotels, restaurants and catering companies. Stay tuned for seasonal discounts.</p><p><strong>Shipping:</strong> Carefully selected according to ripeness and shipped with special packaging. Orders are prepared within 1-2 business days.</p>",
+                productDetail_Ananas: "<h3>Pineapple - Detailed Information</h3><p><strong>Origin:</strong> Turkey - Mediterranean Region</p><p><strong>Price:</strong> {{price}} {{unit}}</p><p><strong>Stock Status:</strong> {{stock}} {{unit}}</p><p><strong>Flavor Profile:</strong> Sweet, juicy, tropical</p><p><strong>Health Benefits:</strong> Contains bromelain enzyme, source of vitamin C and manganese, supports digestion, natural sweetness</p><p><strong>Ripeness Check:</strong> Slight softness when lightly pressed and has a pleasant aroma.</p><p><strong>Storage Conditions:</strong> Maintains freshness for 2-3 days at room temperature, 4-5 days in the refrigerator. Should be stored sliced in the refrigerator.</p><p><strong>Wholesale Orders:</strong> Special prices offered for large quantity orders. Minimum order quantity is 10 pieces.</p><p><strong>Shipping:</strong> Shipped with special protective packaging. Orders are delivered within 1-3 business days.</p>",
+                productDetail_Kivi: "<h3>Kiwi - Detailed Information</h3><p><strong>Origin:</strong> Turkey - Black Sea Region</p><p><strong>Price:</strong> {{price}} {{unit}}</p><p><strong>Stock Status:</strong> {{stock}} {{unit}}</p><p><strong>Flavor Profile:</strong> Sweet-sour, soft, refreshing</p><p><strong>Health Benefits:</strong> High vitamin C content, source of fiber and antioxidants, contains potassium and vitamin E, natural cultivation</p><p><strong>Ripeness Check:</strong> Slight softness when lightly pressed.</p><p><strong>Storage Conditions:</strong> Maintains freshness for 1-2 weeks in the refrigerator. Unripe kiwis can be kept at room temperature.</p><p><strong>Wholesale Orders:</strong> Please contact us for special wholesale prices for businesses. Minimum order quantity is 5kg.</p><p><strong>Shipping:</strong> Carefully packaged shipping throughout Turkey. Shipping is free for large orders.</p>",
 
                 // Buttons
                 detailText: "Details",
@@ -1597,7 +1703,10 @@
                 orderSending: "Your order is being sent via WhatsApp...",
                 emailOpening: "Your email application is opening...",
                 whatsappPreparing: "Your WhatsApp contact form is being prepared...",
-                fillRequiredFields: "Please fill in the required fields."
+                fillRequiredFields: "Please fill in the required fields.",
+                outOfStock: " is out of stock.",
+                lowStock: " has limited stock remaining.",
+                exceededStock: "Only {{stock}} {{unit}} available in stock."
             },
             de: {
                 // Allgemein
@@ -1615,7 +1724,14 @@
                 paymentNoticeFormText: "Zahlungen werden per WhatsApp, E-Mail oder Telefon abgewickelt. Wir melden uns bei Ihnen, nachdem Sie Ihre Bestellung aufgegeben haben.",
                 paymentNoticeBasketText: "Zahlungen werden per WhatsApp, E-Mail oder Telefon abgewickelt. Nachdem Sie Ihren Warenkorb erstellt haben, senden Sie Ihre Bestellung und wir melden uns bei Ihnen.",
                 basketCargoText: "Versandkostenfrei ab 1500 TL. Bei Bestellungen unter diesem Betrag werden die Versandkosten im Gespräch mit dem Verkäufer festgelegt.",
-
+                
+                // Lagerstatus
+                stockLabel: "Lager:",
+                stockAvailable: "Auf Lager",
+                stockLow: "Wenig",
+                stockOut: "Nicht auf Lager",
+                unitsAvailable: "Einheiten verfügbar",
+                
                 // Produktbeschreibungen
                 limeDescription: "Frische Limetten, sorgfältig in der türkischen Mittelmeerregion angebaut, haben einen aromatischeren und saureren Geschmack im Vergleich zu normalen Zitronen. Sie verleihen Ihren Speisen, Getränken und Desserts einen erfrischenden Geschmack.",
                 avocadoDescription: "Premium-Avocados aus der türkischen Mittelmeer- und Ägäisregion sind mit ihrer cremigen Textur und ihrem milden Geschmack unverzichtbar für eine gesunde Ernährung. Ideal für Salate, Toasts und Vorspeisen.",
@@ -1650,7 +1766,7 @@
                 feature23: "Enthält Kalium und Vitamin E",
                 feature24: "Natürlicher Anbau",
 
-                // Einheiten - FIXED: Added all unit translations
+                // Einheiten
                 unit_kg: "kg",
                 unit_adet: "Stück",
                 unit_piece: "Stück",
@@ -1660,6 +1776,14 @@
                 unit_cuval: "Sack",
                 unit_kasa: "Kiste",
                 unit_paket: "Paket",
+
+                // Produktdetails (mehrsprachig)
+                productDetail_Lime: "<h3>Lime - Detaillierte Informationen</h3><p><strong>Herkunft:</strong> Türkei - Mittelmeerregion</p><p><strong>Preis:</strong> {{price}} {{unit}}</p><p><strong>Lagerstatus:</strong> {{stock}} {{unit}}</p><p><strong>Geschmacksprofil:</strong> Aromatisch, sauer, erfrischend</p><p><strong>Gesundheitsvorteile:</strong> Reichhaltige Vitamin C-Quelle, antioxidative Eigenschaften, unterstützt das Immunsystem</p><p><strong>Verwendungsbereiche:</strong> Wird in Getränken, Salaten, Meeresfrüchten, Desserts und Saucen verwendet.</p><p><strong>Lagerbedingungen:</strong> Bleibt 3-4 Tage bei Raumtemperatur, 2-3 Wochen im Kühlschrank frisch.</p><p><strong>Großbestellungen:</strong> Bitte kontaktieren Sie uns für Sonderkonditionen für Unternehmen. Mindestbestellmenge beträgt 10kg.</p><p><strong>Versand:</strong> Sorgfältig verpackter Versand in der ganzen Türkei. Der Versand ist für große Bestellungen kostenlos.</p>",
+                productDetail_Avokado: "<h3>Avocado - Detaillierte Informationen</h3><p><strong>Herkunft:</strong> Türkei - Mittelmeer- und Ägäisregion</p><p><strong>Preis:</strong> {{price}} {{unit}}</p><p><strong>Lagerstatus:</strong> {{stock}} {{unit}}</p><p><strong>Geschmacksprofil:</strong> Cremig, mild, nahrhaft</p><p><strong>Gesundheitsvorteile:</strong> Quelle gesunder Fettsäuren, hoher Ballaststoffgehalt, reich an Kalium und Vitaminen</p><p><strong>Reifecheck:</strong> Leichte Weichheit bei leichtem Druck. Stiel sollte sich leicht lösen lassen.</p><p><strong>Lagerbedingungen:</strong> Unreife Avocados sollten bei Raumtemperatur aufbewahrt werden, nach der Reifung im Kühlschrank gelagert werden.</p><p><strong>Großbestellungen:</strong> Sonderpreise für Restaurants und Cafés verfügbar. Rabatte bei regelmäßigen Bestellungen.</p><p><strong>Versand:</strong> Versand mit spezieller Schutzverpackung. Bestellungen werden innerhalb von 1-3 Werktagen geliefert.</p>",
+                productDetail_Ejder_Meyvesi: "<h3>Drachenfrucht - Detaillierte Informationen</h3><p><strong>Herkunft:</strong> Türkei - Mittelmeerregion (Spezielle Gewächshäuser)</p><p><strong>Preis:</strong> {{price}} {{unit}}</p><p><strong>Lagerstatus:</strong> {{stock}} {{unit}}</p><p><strong>Geschmacksprofil:</strong> Leicht süß, erfrischend, exotisch</p><p><strong>Gesundheitsvorteile:</strong> Starke antioxidative Eigenschaften, Quelle von Vitamin C und Ballaststoffen, kalorienarm und nahrhaft</p><p><strong>Sorten:</strong> Rote Sorten sind verfügbar.</p><p><strong>Lagerbedingungen:</strong> Bleibt 4-5 Tage im Kühlschrank frisch. Sollte nicht geschnitten im Kühlschrank aufbewahrt werden.</p><p><strong>Großbestellungen:</strong> Spezielle Verpackungsoptionen verfügbar. Preisvorteil bei großen Mengen.</p><p><strong>Versand:</strong> Spezielle Schutzverpackung aufgrund empfindlicher Frucht. Bestellungen werden an bestimmten Wochentagen versendet.</p>",
+                productDetail_Mango: "<h3>Mango - Detaillierte Informationen</h3><p><strong>Herkunft:</strong> Türkei - Mittelmeerregion (Besondere Bedingungen)</p><p><strong>Preis:</strong> {{price}} {{unit}}</p><p><strong>Lagerstatus:</strong> {{stock}} {{unit}}</p><p><strong>Geschmacksprofil:</strong> Süß, aromatisch, tropisch</p><p><strong>Gesundheitsvorteile:</strong> Reichhaltige Vitamin A-Quelle, natürlicher Zuckergehalt, verdauungsfördernde Ballaststoffe</p><p><strong>Reifecheck:</strong> Leichte Weichheit bei leichtem Druck und hat einen angenehmen Duft.</p><p><strong>Lagerbedingungen:</strong> Unreife Mango sollte bei Raumtemperatur aufbewahrt werden, nach der Reifung im Kühlschrank gelagert werden.</p><p><strong>Großbestellungen:</strong> Sonderpreise für Hotels, Restaurants und Catering-Firmen. Bleiben Sie für saisonale Rabatte informiert.</p><p><strong>Versand:</strong> Sorgfältig nach Reifegrad ausgewählt und mit spezieller Verpackung versendet. Bestellungen werden innerhalb von 1-2 Werktagen vorbereitet.</p>",
+                productDetail_Ananas: "<h3>Ananas - Detaillierte Informationen</h3><p><strong>Herkunft:</strong> Türkei - Mittelmeerregion</p><p><strong>Preis:</strong> {{price}} {{unit}}</p><p><strong>Lagerstatus:</strong> {{stock}} {{unit}}</p><p><strong>Geschmacksprofil:</strong> Süß, saftig, tropisch</p><p><strong>Gesundheitsvorteile:</strong> Enthält Bromelain-Enzym, Quelle von Vitamin C und Mangan, unterstützt die Verdauung, natürliche Süße</p><p><strong>Reifecheck:</strong> Leichte Weichheit bei leichtem Druck und hat einen angenehmen Duft.</p><p><strong>Lagerbedingungen:</strong> Bleibt 2-3 Tage bei Raumtemperatur, 4-5 Tage im Kühlschrank frisch. Sollte geschnitten im Kühlschrank aufbewahrt werden.</p><p><strong>Großbestellungen:</strong> Sonderpreise bei großen Mengen. Mindestbestellmenge beträgt 10 Stück.</p><p><strong>Versand:</strong> Versand mit spezieller Schutzverpackung. Bestellungen werden innerhalb von 1-3 Werktagen geliefert.</p>",
+                productDetail_Kivi: "<h3>Kiwi - Detaillierte Informationen</h3><p><strong>Herkunft:</strong> Türkei - Schwarzmeerregion</p><p><strong>Preis:</strong> {{price}} {{unit}}</p><p><strong>Lagerstatus:</strong> {{stock}} {{unit}}</p><p><strong>Geschmacksprofil:</strong> Süß-sauer, weich, erfrischend</p><p><strong>Gesundheitsvorteile:</strong> Hoher Vitamin C-Gehalt, Quelle von Ballaststoffen und Antioxidantien, enthält Kalium und Vitamin E, natürlicher Anbau</p><p><strong>Reifecheck:</strong> Leichte Weichheit bei leichtem Druck.</p><p><strong>Lagerbedingungen:</strong> Bleibt 1-2 Wochen im Kühlschrank frisch. Unreife Kiwis können bei Raumtemperatur aufbewahrt werden.</p><p><strong>Großbestellungen:</strong> Bitte kontaktieren Sie uns für Sonderkonditionen für Unternehmen. Mindestbestellmenge beträgt 5kg.</p><p><strong>Versand:</strong> Sorgfältig verpackter Versand in der ganzen Türkei. Der Versand ist für große Bestellungen kostenlos.</p>",
 
                 // Buttons
                 detailText: "Details",
@@ -1726,7 +1850,10 @@
                 orderSending: "Ihre Bestellung wird per WhatsApp gesendet...",
                 emailOpening: "Ihre E-Mail-Anwendung wird geöffnet...",
                 whatsappPreparing: "Ihr WhatsApp-Kontaktformular wird vorbereitet...",
-                fillRequiredFields: "Bitte füllen Sie die erforderlichen Felder aus."
+                fillRequiredFields: "Bitte füllen Sie die erforderlichen Felder aus.",
+                outOfStock: " ist nicht auf Lager.",
+                lowStock: " hat nur noch begrenzten Lagerbestand.",
+                exceededStock: "Nur {{stock}} {{unit}} auf Lager verfügbar."
             },
             ru: {
                 // Общее
@@ -1744,7 +1871,14 @@
                 paymentNoticeFormText: "Платежи обрабатываются через WhatsApp, электронную почту или телефон. Мы свяжемся с вами после того, как вы отправите заказ.",
                 paymentNoticeBasketText: "Платежи обрабатываются через WhatsApp, электронную почту или телефон. После создания корзины отправьте заказ, и мы свяжемся с вами.",
                 basketCargoText: "Бесплатная доставка при заказе от 1500 TL. Для заказов ниже этой суммы стоимость доставки определяется при общении с продавцом.",
-
+                
+                // Статус склада
+                stockLabel: "На складе:",
+                stockAvailable: "В наличии",
+                stockLow: "Мало",
+                stockOut: "Нет в наличии",
+                unitsAvailable: "единиц в наличии",
+                
                 // Описания продуктов
                 limeDescription: "Свежие лаймы, тщательно выращенные в средиземноморском регионе Турции, имеют более ароматный и кислый вкус по сравнению с обычными лимонами. Они добавляют освежающий вкус вашим блюдам, напиткам и десертам.",
                 avocadoDescription: "Премиальные авокадо, выращенные в средиземноморском и эгейском регионах Турции, незаменимы для здорового питания благодаря своей кремовой текстуре и мягкому вкусу. Идеально подходят для салатов, тостов и закусок.",
@@ -1779,7 +1913,7 @@
                 feature23: "Содержит калий и витамин E",
                 feature24: "Натуральное выращивание",
 
-                // Единицы измерения - FIXED: Added all unit translations
+                // Единицы измерения
                 unit_kg: "кг",
                 unit_adet: "шт",
                 unit_piece: "шт",
@@ -1789,6 +1923,14 @@
                 unit_cuval: "мешок",
                 unit_kasa: "ящик",
                 unit_paket: "упаковка",
+
+                // Детали продукта (многоязычные)
+                productDetail_Lime: "<h3>Лайм - Подробная информация</h3><p><strong>Происхождение:</strong> Турция - Средиземноморский регион</p><p><strong>Цена:</strong> {{price}} {{unit}}</p><p><strong>Наличие на складе:</strong> {{stock}} {{unit}}</p><p><strong>Вкусовой профиль:</strong> Ароматный, кислый, освежающий</p><p><strong>Польза для здоровья:</strong> Богатый источник витамина С, антиоксидантные свойства, поддерживает иммунную систему</p><p><strong>Области применения:</strong> Используется в напитках, салатах, морепродуктах, десертах и соусах.</p><p><strong>Условия хранения:</strong> Сохраняет свежесть 3-4 дня при комнатной температуре, 2-3 недели в холодильнике.</p><p><strong>Оптовые заказы:</strong> Пожалуйста, свяжитесь с нами для специальных оптовых цен для предприятий. Минимальный объем заказа - 10кг.</p><p><strong>Доставка:</strong> Тщательно упакованная доставка по всей Турции. Доставка бесплатна для крупных заказов.</p>",
+                productDetail_Avokado: "<h3>Авокадо - Подробная информация</h3><p><strong>Происхождение:</strong> Турция - Средиземноморский и Эгейский регионы</p><p><strong>Цена:</strong> {{price}} {{unit}}</p><p><strong>Наличие на складе:</strong> {{stock}} {{unit}}</p><p><strong>Вкусовой профиль:</strong> Кремовый, мягкий, питательный</p><p><strong>Польза для здоровья:</strong> Источник полезных жирных кислот, высокое содержание клетчатки, богат калием и витаминами</p><p><strong>Проверка зрелости:</strong> Легкая мягкость при легком нажатии. Стебель должен легко отделяться.</p><p><strong>Условия хранения:</strong> Незрелые авокадо следует хранить при комнатной температуре, после созревания хранить в холодильнике.</p><p><strong>Оптовые заказы:</strong> Специальные цены для ресторанов и кафе. Скидки на регулярные заказы.</p><p><strong>Доставка:</strong> Отправка со специальной защитной упаковкой. Заказы доставляются в течение 1-3 рабочих дней.</p>",
+                productDetail_Ejder_Meyvesi: "<h3>Питайя - Подробная информация</h3><p><strong>Происхождение:</strong> Турция - Средиземноморский регион (Специальные теплицы)</p><p><strong>Цена:</strong> {{price}} {{unit}}</p><p><strong>Наличие на складе:</strong> {{stock}} {{unit}}</p><p><strong>Вкусовой профиль:</strong> Слегка сладкий, освежающий, экзотический</p><p><strong>Польза для здоровья:</strong> Сильные антиоксидантные свойства, источник витамина С и клетчатки, низкокалорийный и питательный</p><p><strong>Разновидности:</strong> Доступны красные сорта.</p><p><strong>Условия хранения:</strong> Сохраняет свежесть 4-5 дней в холодильнике. Не следует хранить нарезанным в холодильнике.</p><p><strong>Оптовые заказы:</strong> Доступны специальные варианты упаковки. Ценовое преимущество при больших объемах.</p><p><strong>Доставка:</strong> Специальная защитная упаковка из-за нежного фрукта. Заказы отправляются в определенные дни недели.</p>",
+                productDetail_Mango: "<h3>Манго - Подробная информация</h3><p><strong>Происхождение:</strong> Турция - Средиземноморский регион (Особые условия)</p><p><strong>Цена:</strong> {{price}} {{unit}}</p><p><strong>Наличие на складе:</strong> {{stock}} {{unit}}</p><p><strong>Вкусовой профиль:</strong> Сладкий, ароматный, тропический</p><p><strong>Польза для здоровья:</strong> Богатый источник витамина А, натуральное содержание сахара, пищевые волокна, поддерживающие пищеварение</p><p><strong>Проверка зрелости:</strong> Легкая мягкость при легком нажатии и приятный аромат.</p><p><strong>Условия хранения:</strong> Незрелое манго следует хранить при комнатной температуре, после созревания хранить в холодильнике.</p><p><strong>Оптовые заказы:</strong> Специальные цены для отелей, ресторанов и кейтеринговых компаний. Следите за сезонными скидками.</p><p><strong>Доставка:</strong> Тщательно отобранные по степени зрелости и отправленные со специальной упаковкой. Заказы готовятся в течение 1-2 рабочих дней.</p>",
+                productDetail_Ananas: "<h3>Ананас - Подробная информация</h3><p><strong>Происхождение:</strong> Турция - Средиземноморский регион</p><p><strong>Цена:</strong> {{price}} {{unit}}</p><p><strong>Наличие на складе:</strong> {{stock}} {{unit}}</p><p><strong>Вкусовой профиль:</strong> Сладкий, сочный, тропический</p><p><strong>Польза для здоровья:</strong> Содержит фермент бромелайн, источник витамина С и марганца, поддерживает пищеварение, натуральная сладость</p><p><strong>Проверка зрелости:</strong> Легкая мягкость при легком нажатии и приятный аромат.</p><p><strong>Условия хранения:</strong> Сохраняет свежесть 2-3 дня при комнатной температуре, 4-5 дней в холодильнике. Следует хранить нарезанным в холодильнике.</p><p><strong>Оптовые заказы:</strong> Специальные цены при больших объемах. Минимальный объем заказа - 10 штук.</p><p><strong>Доставка:</strong> Отправка со специальной защитной упаковкой. Заказы доставляются в течение 1-3 рабочих дней.</p>",
+                productDetail_Kivi: "<h3>Киви - Подробная информация</h3><p><strong>Происхождение:</strong> Турция - Черноморский регион</p><p><strong>Цена:</strong> {{price}} {{unit}}</p><p><strong>Наличие на складе:</strong> {{stock}} {{unit}}</p><p><strong>Вкусовой профиль:</strong> Сладко-кислый, мягкий, освежающий</p><p><strong>Польза для здоровья:</strong> Высокое содержание витамина С, источник клетчатки и антиоксидантов, содержит калий и витамин Е, натуральное выращивание</p><p><strong>Проверка зрелости:</strong> Легкая мягкость при легком нажатии.</p><p><strong>Условия хранения:</strong> Сохраняет свежесть 1-2 недели в холодильнике. Незрелые киви можно хранить при комнатной температуре.</p><p><strong>Оптовые заказы:</strong> Пожалуйста, свяжитесь с нами для специальных оптовых цен для предприятий. Минимальный объем заказа - 5кг.</p><p><strong>Доставка:</strong> Тщательно упакованная доставка по всей Турции. Доставка бесплатна для крупных заказов.</p>",
 
                 // Кнопки
                 detailText: "Детали",
@@ -1855,7 +1997,10 @@
                 orderSending: "Ваш заказ отправляется через WhatsApp...",
                 emailOpening: "Ваше почтовое приложение открывается...",
                 whatsappPreparing: "Ваша контактная форма WhatsApp подготавливается...",
-                fillRequiredFields: "Пожалуйста, заполните обязательные поля."
+                fillRequiredFields: "Пожалуйста, заполните обязательные поля.",
+                outOfStock: " отсутствует на складе.",
+                lowStock: " осталось ограниченное количество на складе.",
+                exceededStock: "На складе доступно только {{stock}} {{unit}}."
             }
         };
 
@@ -1864,6 +2009,52 @@
         const languageBtn = document.getElementById('languageBtn');
         const languageDropdown = document.getElementById('languageDropdown');
         const currentLanguageText = document.getElementById('currentLanguage');
+
+        // Meyve bilgileri - güncellenmiş
+        const fruitInfo = {
+            Lime: {
+                nameKey: "Lime",
+                image: "./images/limon.svg",
+                defaultPrice: 180,
+                defaultUnit: "kg",
+                defaultStock: 0
+            },
+            Avokado: {
+                nameKey: "Avokado",
+                image: "./images/avakado.svg",
+                defaultPrice: 65,
+                defaultUnit: "adet",
+                defaultStock: 0
+            },
+            "Ejder Meyvesi": {
+                nameKey: "Ejder Meyvesi",
+                image: "./images/ejdermeyvesi.svg",
+                defaultPrice: 75,
+                defaultUnit: "adet",
+                defaultStock: 0
+            },
+            Mango: {
+                nameKey: "Mango",
+                image: "./images/mango.svg",
+                defaultPrice: 120,
+                defaultUnit: "kg",
+                defaultStock: 0
+            },
+            Ananas: {
+                nameKey: "Ananas",
+                image: "./images/ananas.svg",
+                defaultPrice: 95,
+                defaultUnit: "adet",
+                defaultStock: 0
+            },
+            Kivi: {
+                nameKey: "Kivi",
+                image: "./images/kivi.svg",
+                defaultPrice: 45,
+                defaultUnit: "kg",
+                defaultStock: 0
+            }
+        };
 
         function changeLanguage(lang) {
             currentLanguage = lang;
@@ -1877,6 +2068,9 @@
 
             // Birimleri güncelle
             updateUnits();
+
+            // Stok durumlarını güncelle
+            updateStockDisplay();
 
             // Sepeti yeniden oluştur (eğer açıksa)
             if (basketModal.style.display === 'flex') {
@@ -2017,106 +2211,6 @@
             document.getElementById('copyrightText').textContent = translation.copyrightText;
         }
 
-        // Meyve bilgileri
-        const fruitInfo = {
-            Lime: {
-                taste: "Türkiye'de Akdeniz bölgesinde yetiştirilen lime, normal limonlara göre daha aromatik ve ekşi bir tada sahiptir. Ferahlatıcı ve canlandırıcı bir etkisi vardır. Yemeklerde, içeceklerde ve tatlılarda kullanılabilir.",
-                health: "C vitamini kaynağı olan lime, bağışıklık sistemini destekler ve sindirime yardımcı olur. Ayrıca yemeklere lezzet katar.",
-                detail: `<h3>Lime - Detaylı Bilgi</h3>
-                <p><strong>Menşei:</strong> Türkiye - Akdeniz Bölgesi</p>
-                <p><strong>Fiyat:</strong> ₺180 / kg</p>
-                <p><strong>Lezzet Profili:</strong> Aromatik, ekşi, ferahlatıcı</p>
-                <p><strong>Sağlık Faydaları:</strong> Zengin C vitamini kaynağı, antioksidan özellikli, bağışıklık sistemini destekler</p>
-                <p><strong>Kullanım Alanları:</strong> İçecekler, salatalar, deniz ürünleri, tatlılar ve sos yapımında kullanılır.</p>
-                <p><strong>Saklama Koşulları:</strong> Oda sıcaklığında 3-4 gün, buzdolabında 2-3 hafta tazeliğini korur.</p>
-                <p><strong>Toptan Sipariş:</strong> İşletmelere özel toptan fiyatlar için lütfen iletişime geçin. Minimum sipariş miktarı 10kg'dır.</p>
-                <p><strong>Nakliye:</strong> Tüm Türkiye'ye özenle paketlenmiş olarak gönderim yapılmaktadır. Büyük siparişlerde nakliye ücretsizdir.</p>`,
-                price: 180,
-                image: "./images/limon.svg",
-                unit: "kg"
-            },
-            Avokado: {
-                taste: "Türkiye'de Akdeniz ve Ege bölgelerinde yetiştirilen avokado, kremamsı ve hafif bir tada sahiptir. Olgunlaştığında yumuşak bir dokusu vardır. Salatalarda, tostlarda ve mezelerde kullanılabilir.",
-                health: "Sağlıklı yağlar içerir, lif açısından zengindir ve potasyum içeriği yüksektir. Besleyici bir meyvedir.",
-                detail: `<h3>Avokado - Detaylı Bilgi</h3>
-                <p><strong>Menşei:</strong> Türkiye - Akdeniz ve Ege Bölgeleri</p>
-                <p><strong>Fiyat:</strong> ₺65 / adet</p>
-                <p><strong>Lezzet Profili:</strong> Kremamsı, hafif, besleyici</p>
-                <p><strong>Sağlık Faydaları:</strong> Sağlıklı yağ asitleri kaynağı, yüksek lif içeriği, potasyum ve vitamin deposu</p>
-                <p><strong>Olgunluk Kontrolü:</strong> Hafifçe bastırıldığında hafif bir yumuşaklık hissedilir. Sapı kolayca çıkabilir.</p>
-                <p><strong>Saklama Koşulları:</strong> Olgunlaşmamış avokadolar oda sıcaklığında bekletilmeli, olgunlaştıktan sonra buzdolabında saklanmalıdır.</p>
-                <p><strong>Toptan Sipariş:</strong> Restoran ve kafeler için özel fiyatlar mevcuttur. Düzenli siparişlerde indirim uygulanmaktadır.</p>
-                <p><strong>Nakliye:</strong> Özel koruyucu ambalajlarla gönderim yapılmaktadır. Siparişler 1-3 iş günü içerisinde teslim edilir.</p>`,
-                price: 65,
-                image: "./images/avakado.svg",
-                unit: "adet"
-            },
-            "Ejder Meyvesi": {
-                taste: "Türkiye'de Akdeniz bölgesinde özel seralarda yetiştirilen ejder meyvesi, hafif tatlı ve ferahlatıcı bir tada sahiptir. Taze olarak tüketilebileceği gibi smoothie'lerde ve salatalarda da kullanılabilir.",
-                health: "Antioksidanlar, vitaminler ve mineraller içerir. Bağırsak sağlığını destekler и bağışıklık sistemini güçlendirir.",
-                detail: `<h3>Ejder Meyvesi - Detaylı Bilgi</h3>
-                <p><strong>Menşei:</strong> Türkiye - Akdeniz Bölgesi (Özel Seralar)</p>
-                <p><strong>Fiyat:</strong> ₺75 / adet</p>
-                <p><strong>Lezzet Profili:</strong> Hafif tatlı, ferahlatıcı, egzotik</p>
-                <p><strong>Sağlık Faydaları:</strong> Güçlü antioksidan özellikli, C vitamini и lif kaynağı, düşük kalorili и besleyici</p>
-                <p><strong>Çeşitler:</strong> Kırmızı çeşitleri mevcuttur.</p>
-                <p><strong>Saklama Koşulları:</strong> Buzdolabında 4-5 gün tazeliğini korur. Dilimlenmiş olarak buzdolabında saklanmamalıdır.</p>
-                <p><strong>Toptan Sipariş:</strong> Özel kutulama seçenekleri mevcuttur. Büyük miktarlı siparişlerde fiyat avantajı sağlanmaktadır.</p>
-                <p><strong>Nakliye:</strong> Hassas bir meyve olduğundan özel korumalı paketleme yapılmaktadır. Siparişler haftanın belirli günlerinde gönderilir.</p>`,
-                price: 75,
-                image: "./images/ejdermeyvesi.svg",
-                unit: "adet"
-            },
-            Mango: {
-                taste: "Türkiye'de Akdeniz bölgesinde özel koşullarda yetiştirilen mango, tatlı и aromatik bir tada sahiptir. Taze olarak tüketilebileceği gibi meyve salatalarında, smoothie'lerde и tatlılarda da kullanılabilir.",
-                health: "A vitamini kaynağıdır, cilt sağlığını korur и bağışıklık sistemini destekler. Ayrıca sindirime yardımcı olur.",
-                detail: `<h3>Mango - Detaylı Bilgi</h3>
-                <p><strong>Menşei:</strong> Türkiye - Akdeniz Bölgesi (Özel Koşullarda)</p>
-                <p><strong>Fiyat:</strong> ₺120 / kg</p>
-                <p><strong>Lezzet Profili:</strong> Tatlı, aromatik, tropikal</p>
-                <p><strong>Sağlık Faydaları:</strong> Zengin A vitamini kaynağı, doğal şeker içeriği, sindirimi destekleyici lifler</p>
-                <p><strong>Olgunluk Kontrolü:</strong> Hafifçe bastırıldığında hafif bir yumuşaklık hissedilir и hoş bir kokusu vardır.</p>
-                <p><strong>Saklama Koşulları:</strong> Olgunlaşmamış mango oda sıcaklığında bekletilmeli, olgunlaştıktan sonra buzdolabında saklanmalıdır.</p>
-                <p><strong>Toptan Sipariş:</strong> Otel, restoran и catering firmalarına özel fiyatlar sunulmaktadır. Mevsimlik indirimler için takipte kalın.</p>
-                <p><strong>Nakliye:</strong> Olgunluk durumuna göre özenle seçilir и özel ambalajlarla gönderilir. Siparişler 1-2 iş günü içerisinde hazırlanır.</p>`,
-                price: 120,
-                image: "./images/mango.svg",
-                unit: "kg"
-            },
-            Ananas: {
-                taste: "Türkiye'de Akdeniz bölgesinde özenle yetiştirilen ananaslar, tatlı и sulu etleriyle tropikal lezzet arayanlar için mükemmel bir seçimdir. Taze tüketim, meyve salataları и tatlılarda kullanılabilir.",
-                health: "Bromelain enzimi içerir, sindirimi destekler и anti-inflamatuar özelliklere sahiptir. C vitamini и manganez kaynağıdır.",
-                detail: `<h3>Ananas - Detaylı Bilgi</h3>
-                <p><strong>Menşei:</strong> Türkiye - Akdeniz Bölgesi</p>
-                <p><strong>Fiyat:</strong> ₺95 / adet</p>
-                <p><strong>Lezzet Profili:</strong> Tatlı, sulu, tropikal</p>
-                <p><strong>Sağlık Faydaları:</strong> Bromelain enzimi içerir, C vitamini и manganez kaynağı, sindirimi destekler, doğal tatlılık</p>
-                <p><strong>Olgunluk Kontrolü:</strong> Hafifçe bastırıldığında hafif bir yumuşaklık hissedilir и hoş bir kokusu vardır.</p>
-                <p><strong>Saklama Koşulları:</strong> Oda sıcaklığında 2-3 gün, buzdolabında 4-5 gün tazeliğini korur. Dilimlenmiş olarak buzdolabında saklanmalıdır.</p>
-                <p><strong>Toptan Sipariş:</strong> Büyük miktarlı siparişlerde özel fiyatlar sunulmaktadır. Minimum sipariş miktarı 10 adettir.</p>
-                <p><strong>Nakliye:</strong> Özel koruyucu ambalajlarla gönderim yapılmaktadır. Siparişler 1-3 iş günü içerisinde teslim edilir.</p>`,
-                price: 95,
-                image: "./images/ananas.svg",
-                unit: "adet"
-            },
-            Kivi: {
-                taste: "Türkiye'nin Karadeniz bölgesinde yetiştirilen kiviler, tatlı-ekşi dengesi и yumuşak dokusuyla sağlıklı atıştırmalıklar için idealdir. C vitamini deposu olan kivi, bağışıklık sistemini destekler.",
-                health: "Yüksek C vitamini içeriği, lif и antioksidan kaynağıdır. Potasyum и E vitamini içerir.",
-                detail: `<h3>Kivi - Detaylı Bilgi</h3>
-                <p><strong>Menşei:</strong> Türkiye - Karadeniz Bölgesi</p>
-                <p><strong>Fiyat:</strong> ₺45 / kg</p>
-                <p><strong>Lezzet Profili:</strong> Tatlı-ekşi, yumuşak, ferahlatıcı</p>
-                <p><strong>Sağlık Faydaları:</strong> Yüksek C vitamini içeriği, lif и antioksidan kaynağı, potasyum и E vitamini içerir, doğal yetiştirme</p>
-                <p><strong>Olgunluk Kontrolü:</strong> Hafifçe bastırıldığında hafif bir yumuşaklık hissedilir.</p>
-                <p><strong>Saklama Koşulları:</strong> Buzdolabında 1-2 hafta tazeliğini korur. Olgunlaşmamış kiviler oda sıcaklığında bekletilebilir.</p>
-                <p><strong>Toptan Sipariş:</strong> İşletmelere özel toptan fiyatlar için lütfen iletişime geçin. Minimum sipariş miktarı 5kg'dır.</p>
-                <p><strong>Nakliye:</strong> Tüm Türkiye'ye özenle paketlenmiş olarak gönderim yapılmaktadır. Büyük siparişlerde nakliye ücretsizdir.</p>`,
-                price: 45,
-                image: "./images/kivi.svg",
-                unit: "kg"
-            }
-        };
-
         // Sepet işlevselliği
         let basket = JSON.parse(localStorage.getItem('thetropicBasket')) || [];
         const basketCount = document.getElementById('basketCount');
@@ -2192,9 +2286,11 @@
                         </div>
                     </div>
                     <div class="basket-item-controls">
-                        <button class="quantity-btn decrease-btn" data-index="${index}">-</button>
-                        <span>${item.quantity} ${unitDisplay}</span>
-                        <button class="quantity-btn increase-btn" data-index="${index}">+</button>
+                        <div class="quantity-controls">
+                            <button class="quantity-btn decrease-btn" data-index="${index}">-</button>
+                            <input type="number" class="quantity-input" value="${item.quantity}" min="1" max="${item.stock}" data-index="${index}">
+                            <button class="quantity-btn increase-btn" data-index="${index}">+</button>
+                        </div>
                         <button class="quantity-btn remove-btn" data-index="${index}"><i class="fas fa-trash"></i></button>
                     </div>
                 `;
@@ -2215,27 +2311,55 @@
             basketTotal.textContent = `Toplam: ₺${total}`;
 
             // Sepet olay dinleyicileri
+            document.querySelectorAll('.quantity-input').forEach(input => {
+                input.addEventListener('change', function() {
+                    const index = parseInt(this.getAttribute('data-index'));
+                    const newQuantity = parseInt(this.value);
+                    const maxStock = basket[index].stock;
+                    const currentQuantity = basket[index].quantity;
+
+                    if (isNaN(newQuantity) || newQuantity < 1) {
+                        this.value = 1;
+                        basket[index].quantity = 1;
+                    } else if (newQuantity > maxStock) {
+                        this.value = maxStock;
+                        basket[index].quantity = maxStock;
+                        showNotification(`${translations[currentLanguage].exceededStock.replace('{{stock}}', maxStock).replace('{{unit}}', basket[index].unitDisplay)}`);
+                    } else {
+                        basket[index].quantity = newQuantity;
+                    }
+
+                    if (basket[index].quantity !== currentQuantity) {
+                        saveBasket();
+                        renderBasket();
+                        updateBasketCount();
+                    }
+                });
+            });
+
             document.querySelectorAll('.decrease-btn').forEach(btn => {
                 btn.addEventListener('click', function() {
                     const index = parseInt(this.getAttribute('data-index'));
                     if (basket[index].quantity > 1) {
                         basket[index].quantity--;
-                    } else {
-                        basket.splice(index, 1);
+                        saveBasket();
+                        renderBasket();
+                        updateBasketCount();
                     }
-                    saveBasket();
-                    renderBasket();
-                    updateBasketCount();
                 });
             });
 
             document.querySelectorAll('.increase-btn').forEach(btn => {
                 btn.addEventListener('click', function() {
                     const index = parseInt(this.getAttribute('data-index'));
-                    basket[index].quantity++;
-                    saveBasket();
-                    renderBasket();
-                    updateBasketCount();
+                    if (basket[index].quantity < basket[index].stock) {
+                        basket[index].quantity++;
+                        saveBasket();
+                        renderBasket();
+                        updateBasketCount();
+                    } else {
+                        showNotification(`${translations[currentLanguage].exceededStock.replace('{{stock}}', basket[index].stock).replace('{{unit}}', basket[index].unitDisplay)}`);
+                    }
                 });
             });
 
@@ -2267,8 +2391,23 @@
         }
 
         // Sepete ürün ekle
-        function addToBasket(name, price, unit = "kg") {
+        function addToBasket(name, price, unit = "kg", stock) {
+            const product = fruitInfo[name];
+            if (!product) return;
+
+            // Check stock
+            if (stock <= 0) {
+                showNotification(`${name}${translations[currentLanguage].outOfStock}`);
+                return;
+            }
+
             const existingItem = basket.find(item => item.name === name);
+            const requestedQuantity = existingItem ? existingItem.quantity + 1 : 1;
+
+            if (requestedQuantity > stock) {
+                showNotification(`${translations[currentLanguage].exceededStock.replace('{{stock}}', stock).replace('{{unit}}', translations[currentLanguage][`unit_${unit}`] || unit)}`);
+                return;
+            }
 
             if (existingItem) {
                 existingItem.quantity++;
@@ -2278,7 +2417,8 @@
                     price: price,
                     quantity: 1,
                     unit: unit,
-                    unitDisplay: translations[currentLanguage][`unit_${unit}`] || unit
+                    unitDisplay: translations[currentLanguage][`unit_${unit}`] || unit,
+                    stock: stock
                 });
             }
 
@@ -2456,27 +2596,56 @@
 
         // Ürün detayını göster
         function showProductInfo(fruit, type) {
+            const product = fruitInfo[fruit];
+            const translatedUnit = translations[currentLanguage][`unit_${product.unit}`] || product.unit;
+            
+            // Get the translated product detail template
+            const detailKey = `productDetail_${fruit.replace(/\s+/g, '_')}`;
+            let detailHtml = translations[currentLanguage][detailKey] || `<h3>${fruit} - Detaylı Bilgi</h3><p>Detaylar yükleniyor...</p>`;
+            
+            // Replace placeholders with actual values
+            detailHtml = detailHtml
+                .replace(/{{price}}/g, `₺${product.price} / ${translatedUnit}`)
+                .replace(/{{unit}}/g, translatedUnit)
+                .replace(/{{stock}}/g, product.stock);
+            
             modalProductTitle.textContent = `${fruit} Hakkında`;
-
-            if (type === 'detail') {
-                modalProductContent.innerHTML = fruitInfo[fruit].detail;
-            } else if (type === 'taste') {
-                modalProductContent.innerHTML = `
-                    <h3>Tadı ve Özellikleri</h3>
-                    <p>${fruitInfo[fruit].taste}</p>
-                    <h3>Fiyat</h3>
-                    <p>₺${fruitInfo[fruit].price} / ${fruitInfo[fruit].unit}</p>
-                `;
-            } else {
-                modalProductContent.innerHTML = `
-                    <h3>Sağlık Faydaları</h3>
-                    <p>${fruitInfo[fruit].health}</p>
-                    <h3>Fiyat</h3>
-                    <p>₺${fruitInfo[fruit].price} / ${fruitInfo[fruit].unit}</p>
-                `;
-            }
-
+            modalProductContent.innerHTML = detailHtml;
             productModal.style.display = 'flex';
+        }
+
+        // Stok durumunu güncelle
+        function updateStockDisplay() {
+            Object.keys(fruitInfo).forEach(productName => {
+                const product = fruitInfo[productName];
+                const stockElement = document.getElementById(`stock-${productName}`);
+                const addButton = document.querySelector(`.add-to-basket[data-fruit="${productName}"]`);
+                
+                if (stockElement) {
+                    const translatedUnit = translations[currentLanguage][`unit_${product.unit}`] || product.unit;
+                    const stockLabel = translations[currentLanguage].stockLabel;
+                    
+                    if (product.stock <= 0) {
+                        stockElement.innerHTML = `<span class="stock-out"><i class="fas fa-times-circle"></i> ${stockLabel} ${translations[currentLanguage].stockOut}</span>`;
+                        if (addButton) {
+                            addButton.disabled = true;
+                            addButton.title = translations[currentLanguage].stockOut;
+                        }
+                    } else if (product.stock <= 5) {
+                        stockElement.innerHTML = `<span class="stock-low"><i class="fas fa-exclamation-circle"></i> ${stockLabel} ${product.stock} ${translatedUnit} (${translations[currentLanguage].stockLow})</span>`;
+                        if (addButton) {
+                            addButton.disabled = false;
+                            addButton.title = `${translations[currentLanguage].stockLow}: ${product.stock} ${translatedUnit}`;
+                        }
+                    } else {
+                        stockElement.innerHTML = `<span class="stock-available"><i class="fas fa-check-circle"></i> ${stockLabel} ${product.stock} ${translatedUnit} (${translations[currentLanguage].stockAvailable})</span>`;
+                        if (addButton) {
+                            addButton.disabled = false;
+                            addButton.title = `${translations[currentLanguage].stockAvailable}: ${product.stock} ${translatedUnit}`;
+                        }
+                    }
+                }
+            });
         }
 
         // Yumuşak kaydırma için navigasyon
@@ -2507,6 +2676,99 @@
                     }
                 });
             });
+        }
+
+        // --- DYNAMIC PRICING AND STOCK SCRIPT START ---
+        async function updatePricesAndStockFromSheet() {
+            const sheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRUkwiGcW1XCUBWsN5yWpf4YfNB4h5jW3vDibooBJq3T_WeS112oGH_cD_mxlXPXxZcZFYVSbMYKqdQ/pub?gid=0&single=true&output=csv';
+
+            try {
+                const response = await fetch(sheetUrl);
+                const data = await response.text();
+
+                // Parse CSV data
+                const rows = data.split('\n').slice(1);
+                const updatedProducts = {};
+
+                rows.forEach(row => {
+                    const columns = row.split(',');
+                    
+                    if (columns.length >= 4) {
+                        const productName = columns[0].trim();
+                        const newPrice = parseFloat(columns[1].trim());
+                        let unit = 'kg';
+                        if (columns[2] && columns[2].trim() !== '') {
+                            unit = columns[2].trim().toLowerCase();
+                        }
+                        const stock = parseFloat(columns[3].trim());
+
+                        // Store updated product info
+                        updatedProducts[productName] = { 
+                            price: newPrice, 
+                            unit: unit,
+                            stock: stock
+                        };
+
+                        // 1. Update the visible HTML price on the page
+                        const priceElement = document.getElementById(`price-${productName}`);
+                        const unitElement = document.getElementById(`unit-${productName}`);
+                        
+                        if (priceElement && unitElement) {
+                            // 1. Önce çeviriyi hazırla
+                            const translatedUnit = translations[currentLanguage][`unit_${unit}`] || unit;
+
+                            // 2. Fiyatı güncellemek için innerHTML kullan. 
+                            // Böylece hem fiyatı yazarız hem de span etiketini (birimi) yeniden oluştururuz.
+                            priceElement.innerHTML = `₺${newPrice} / <span id="unit-${productName}" data-unit-tr="${unit}">${translatedUnit}</span>`;
+    
+                            // 3. Fiyatı data attribute olarak sakla (Sepete ekleme işlemleri için gerekli)
+                            priceElement.setAttribute('data-price', newPrice);
+                        }
+
+                        // 2. Update the internal JS object (fruitInfo)
+                        if (fruitInfo[productName]) {
+                            fruitInfo[productName].price = newPrice;
+                            fruitInfo[productName].unit = unit;
+                            fruitInfo[productName].stock = stock;
+                        }
+                        
+                        // 3. Update 'Add to Basket' button data attributes
+                        const buttons = document.querySelectorAll(`.add-to-basket[data-fruit="${productName}"]`);
+                        buttons.forEach(btn => {
+                            btn.setAttribute('data-price', newPrice);
+                            btn.setAttribute('data-unit', unit);
+                        });
+                    }
+                });
+
+                // Update stock display
+                updateStockDisplay();
+
+                // Update basket items with new prices and units
+                let basketUpdated = false;
+                basket.forEach(item => {
+                    if (updatedProducts[item.name]) {
+                        item.price = updatedProducts[item.name].price;
+                        item.unit = updatedProducts[item.name].unit;
+                        item.stock = updatedProducts[item.name].stock;
+                        item.unitDisplay = translations[currentLanguage][`unit_${item.unit}`] || item.unit;
+                        basketUpdated = true;
+                    }
+                });
+
+                if (basketUpdated) {
+                    saveBasket();
+                    updateBasketCount();
+                    if (basketModal.style.display === 'flex') {
+                        renderBasket();
+                    }
+                }
+                
+                console.log("Prices and stock updated from Google Sheet");
+
+            } catch (error) {
+                console.error("Error loading prices and stock:", error);
+            }
         }
 
         document.addEventListener('DOMContentLoaded', function() {
@@ -2549,7 +2811,8 @@
                     const fruit = this.getAttribute('data-fruit');
                     const price = parseFloat(this.getAttribute('data-price'));
                     const unit = this.getAttribute('data-unit') || "kg";
-                    addToBasket(fruit, price, unit);
+                    const stock = fruitInfo[fruit]?.stock || 0;
+                    addToBasket(fruit, price, unit, stock);
                 });
             });
 
@@ -2599,103 +2862,17 @@
                     orderForm.style.display = 'none';
                 }
             });
-        });
 
-        // --- DYNAMIC PRICING SCRIPT START ---
-        async function updatePricesFromSheet() {
-            const sheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRUkwiGcW1XCUBWsN5yWpf4YfNB4h5jW3vDibooBJq3T_WeS112oGH_cD_mxlXPXxZcZFYVSbMYKqdQ/pub?gid=0&single=true&output=csv';
-
-            try {
-                const response = await fetch(sheetUrl);
-                const data = await response.text();
-
-                // Parse CSV data
-                const rows = data.split('\n').slice(1);
-                const updatedProducts = {};
-
-                rows.forEach(row => {
-                    const columns = row.split(',');
-                    
-                    if (columns.length >= 2) {
-                        const productName = columns[0].trim();
-                        const newPrice = parseFloat(columns[1].trim());
-                        // FIXED: Handle cases where unit might be missing or empty
-                        let unit = 'kg'; // Default unit
-                        if (columns[2] && columns[2].trim() !== '') {
-                            unit = columns[2].trim().toLowerCase();
-                        }
-
-                        // Store updated product info
-                        updatedProducts[productName] = { 
-                            price: newPrice, 
-                            unit: unit 
-                        };
-
-                        // 1. Update the visible HTML price on the page
-                        const priceElement = document.getElementById(`price-${productName}`);
-                        const unitElement = document.getElementById(`unit-${productName}`);
-                        
-                        if (priceElement && unitElement) {
-                            // 1. Önce çeviriyi hazırla
-                            const translatedUnit = translations[currentLanguage][`unit_${unit}`] || unit;
-
-                            // 2. Fiyatı güncellemek için innerHTML kullan. 
-                            // Böylece hem fiyatı yazarız hem de span etiketini (birimi) yeniden oluştururuz.
-                            priceElement.innerHTML = `₺${newPrice} / <span id="unit-${productName}" data-unit-tr="${unit}">${translatedUnit}</span>`;
-    
-                            // 3. Fiyatı data attribute olarak sakla (Sepete ekleme işlemleri için gerekli)
-                            priceElement.setAttribute('data-price', newPrice);
-                        }
-
-                        // 2. Update the internal JS object (fruitInfo)
-                        if (fruitInfo[productName]) {
-                            fruitInfo[productName].price = newPrice;
-                            fruitInfo[productName].unit = unit;
-                        }
-                        
-                        // 3. Update 'Add to Basket' button data attributes
-                        const buttons = document.querySelectorAll(`.add-to-basket[data-fruit="${productName}"]`);
-                        buttons.forEach(btn => {
-                            btn.setAttribute('data-price', newPrice);
-                            btn.setAttribute('data-unit', unit);
-                        });
-                    }
-                });
-
-                // Update basket items with new prices and units
-                let basketUpdated = false;
-                basket.forEach(item => {
-                    if (updatedProducts[item.name]) {
-                        item.price = updatedProducts[item.name].price;
-                        item.unit = updatedProducts[item.name].unit;
-                        item.unitDisplay = translations[currentLanguage][`unit_${item.unit}`] || item.unit;
-                        basketUpdated = true;
-                    }
-                });
-
-                if (basketUpdated) {
-                    saveBasket();
-                    updateBasketCount();
-                    if (basketModal.style.display === 'flex') {
-                        renderBasket();
-                    }
-                }
-                
-                console.log("Prices updated from Google Sheet");
-
-            } catch (error) {
-                console.error("Error loading prices:", error);
-            }
-        }
-
-        // Run this function when page loads
-        document.addEventListener('DOMContentLoaded', function() {
-            updatePricesFromSheet();
+            // Initialize stock display with default values
+            updateStockDisplay();
             
-            // Update prices every 5 minutes
-            setInterval(updatePricesFromSheet, 300000);
+            // Run this function when page loads
+            updatePricesAndStockFromSheet();
+            
+            // Update prices and stock every 5 minutes
+            setInterval(updatePricesAndStockFromSheet, 300000);
         });
-        // --- DYNAMIC PRICING SCRIPT END ---
+        // --- DYNAMIC PRICING AND STOCK SCRIPT END ---
     </script>
 </body>
 </html>
