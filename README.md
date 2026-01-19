@@ -2,6 +2,8 @@
 
 A modern, responsive e-commerce website for The Tropic - Premium Tropical Fruits, built with pure HTML, CSS, and JavaScript.
 
+This website's values can be modified from Google Sheets. Here is an example [Google Sheets link](https://docs.google.com/spreadsheets/d/1pa4FL2LKmaqkhayt2iLMTQXf8HQoznAg7WDg0AXRfAM/edit?usp=sharing).
+
 ## Features
 
 - **Multi-language Support** - Turkish, English, German, and Russian
